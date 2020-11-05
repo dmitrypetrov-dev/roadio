@@ -134,6 +134,16 @@ img {
 }
 
 @media screen and (max-width: 500px) {
+
+    .main-block {
+        padding: 12vh 20px 0 20px;
+    }
+
+    .main-block__title {
+        font-size: 7vw;
+        line-height: 1.08;
+    }
+
     .words div {
         width: 11vw;
         height: 10.5vw;
