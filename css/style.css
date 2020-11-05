@@ -63,7 +63,7 @@ img {
     left: 0;
     background: url(../img/letters.png) 0 0 no-repeat;
     background-size: 100%;
-    z-index: 100;
+    z-index: 200;
 }
 
 .score-counter {
