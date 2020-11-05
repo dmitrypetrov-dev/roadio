@@ -177,8 +177,14 @@ img {
     }
 
     .score-counter {
+        width: 13.7vw;
+        height: 13.7vw;
         top: 15px;
         right: 15px;
+    }
+
+    .score-counter__number {
+        font-size: 4vw;
     }
 
     .main-block__title {
@@ -194,6 +200,16 @@ img {
     .letters div {
         width: 11vw;
         height: 10.5vw;
+    }
+
+}
+
+@media screen and (max-width: 414px) {
+
+    .score-counter {
+        top: 10px;
+        right: 10px;
+        border: solid 4px #fff;
     }
 
 }
