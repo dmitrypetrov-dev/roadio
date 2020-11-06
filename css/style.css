@@ -80,6 +80,35 @@ img {
     align-items: center;
 }
 
+.score-counter__plus {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: -9px;
+    left: -7px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.score-counter__plus div:first-child {
+    position: absolute;
+    width: 4px;
+    height: 12px;
+    top: 4px;
+    left: 8px;
+    background-color: #2cbbf7;
+}
+
+.score-counter__plus div:last-child {
+    position: absolute;
+    width: 4px;
+    height: 12px;
+    top: 4px;
+    left: 8px;
+    background-color: #2cbbf7;
+    transform: rotate(90deg);
+}
+
 .score-counter__number {
     font-family: Heebo, Arial, sans-serif;
     font-size: 21px;
@@ -220,6 +249,51 @@ img {
         border: solid 4px #fff;
     }
 
+    .score-counter__plus {
+        width: 18px;
+        height: 18px;
+        top: -5px;
+        left: -5px;
+    }
+
+    .score-counter__plus div:first-child {
+        width: 3.5px;
+        height: 11px;
+        top: 3px;
+        left: 7px;
+    }
+
+    .score-counter__plus div:last-child {
+        width: 3.5px;
+        height: 11px;
+        top: 3px;
+        left: 7px;
+    }
+
+}
+
+@media screen and (max-width: 375px) {
+
+    .score-counter__plus {
+        width: 16px;
+        height: 16px;
+        top: -5px;
+        left: -5px;
+    }
+
+    .score-counter__plus div:first-child {
+        width: 3px;
+        height: 10px;
+        top: 3px;
+        left: 40%;
+    }
+
+    .score-counter__plus div:last-child {
+        width: 3px;
+        height: 10px;
+        top: 3px;
+        left: 40%;
+    }
 }
 
 
