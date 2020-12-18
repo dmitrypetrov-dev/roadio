@@ -727,9 +727,14 @@
             }
         }
 
-        @media screen and (max-width: 375px) {
+        @media screen and (max-width: 400px) {
             .town-ranks__wrapper {
-                height: 36vw;
+                height: 28vw;
+            }
+
+            .user-ranks__wrapper {
+                height: 28vw;
+                overflow: auto;
             }
         }
 
@@ -779,38 +784,41 @@
                 <div class="ranks">
                     <div class="user-ranks">
                         <div class="table-title">מיקומים</div>
-                        <table class="user-ranks__table">
-                            <tr>
-                                <td class="table-place">1</td>
-                                <td class="table-username">ניצן הרשקוביץ</td>
-                                <td class="table-score">6,000</td>
-                            </tr>
-                            <tr>
-                                <td class="table-place">2</td>
-                                <td class="table-username">יהודה עמיחי</td>
-                                <td class="table-score">5,600</td>
-                            </tr>
-                            <tr>
-                                <td class="table-place">3</td>
-                                <td class="table-username">גלית זינגר</td>
-                                <td class="table-score">4,200</td>
-                            </tr>
-                            <tr>
-                                <td class="table-place">157</td>
-                                <td class="table-username">אבי כהן</td>
-                                <td class="table-score">800</td>
-                            </tr>
-                            <tr>
-                                <td class="table-place active">158</td>
-                                <td class="table-username active">גלעד מ׳</td>
-                                <td class="table-score active">650</td>
-                            </tr>
-                            <tr>
-                                <td class="table-place">159</td>
-                                <td class="table-username">יעל נחמני</td>
-                                <td class="table-score">64</td>
-                            </tr>
-                        </table>
+                        <div class="user-ranks__wrapper">
+                            <table class="user-ranks__table">
+                                <tr>
+                                    <td class="table-place">1</td>
+                                    <td class="table-username">ניצן הרשקוביץ</td>
+                                    <td class="table-score">6,000</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-place">2</td>
+                                    <td class="table-username">יהודה עמיחי</td>
+                                    <td class="table-score">5,600</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-place">3</td>
+                                    <td class="table-username">גלית זינגר</td>
+                                    <td class="table-score">4,200</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-place">157</td>
+                                    <td class="table-username">אבי כהן</td>
+                                    <td class="table-score">800</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-place active">158</td>
+                                    <td class="table-username active">גלעד מ׳</td>
+                                    <td class="table-score active">650</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-place">159</td>
+                                    <td class="table-username">יעל נחמני</td>
+                                    <td class="table-score">64</td>
+                                </tr>
+                            </table>
+                        </div>
+
                     </div>
                     <div class="town-ranks">
                         <div class="table-title">מיקום ישובים</div>
