@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
@@ -389,353 +389,101 @@
         .main-block {
             width: 100%;
             height: 100%;
-            padding: 4vh 50px 0 50px;
-            background: -webkit-gradient(linear, left bottom, left top, from(#cff0f9), color-stop(30%, #2cbbf7));
-            background: -o-linear-gradient(bottom, #cff0f9, #2cbbf7 30%);
-            background: linear-gradient(to top, #cff0f9, #2cbbf7 30%);
-            position: relative;
-        }
-
-        .user-stats {
-            width: 100%;
-            margin-bottom: 3vh;
-        }
-
-        .user-stats__top {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #fff;
-        }
-
-        .user-stats__top > div {
-            padding-top: 20px;
-        }
-
-        .user-avatar {
-            width: 53px;
-            height: 53px;
-        }
-
-        .username {
-            font-family: Heebo, Arial, sans-serif;
-            font-size: 35px;
-            font-weight: 900;
-            font-style: normal;
-            line-height: 0.77;
-            letter-spacing: normal;
-            color: #fff;
-            margin-bottom: 15px;
-        }
-
-        .user-town {
-            font-family: Heebo, Arial, sans-serif;
-            font-size: 25px;
-            font-weight: bold;
-            font-style: normal;
-            line-height: 0.88;
-            letter-spacing: normal;
-            color: #fff;
-        }
-
-        .user-stats__bottom {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px 0;
-            border-bottom: 1px solid #fff;
-        }
-
-        .stats-text {
-            font-family: Heebo, Arial, sans-serif;
-            font-size: 12px;
-            font-weight: normal;
-            font-style: normal;
-            line-height: 1.42;
-            letter-spacing: normal;
-            color: #fff;
-            margin: 5px 0;
-        }
-
-        .stats-score {
-            font-family: Heebo, Arial, sans-serif;
-            font-size: 35px;
-            font-weight: 900;
-            font-style: normal;
-            line-height: 0.77;
-            letter-spacing: normal;
-            color: #fff;
-        }
-
-        .tasks-icon {
-            width: 32px;
-            height: 28px;
-        }
-
-        .questions {
-            border-left: 1px solid #fff;
-            border-right: 1px solid #fff;
-            padding: 0 15px;
-        }
-
-        .questions-icon {
-            width: 18px;
-            height: 28px;
-        }
-
-        .location-icon {
-            width: 48px;
-            height: 28px;
-        }
-
-        .ranks {
-            width: 100%;
-            position: relative;
-            z-index: 500;
-        }
-
-        .user-ranks {
-            width: 100%;
-            margin-bottom: 3vh;
-        }
-
-        .user-ranks__table,
-        .town-ranks__table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        td {
-            border-bottom: 1px solid #2dbcf8;
-        }
-
-        .user-ranks__table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .table-title {
-            width: 100%;
-            font-family: Heebo, Arial, sans-serif;
-            font-size: 25px;
-            font-weight: bold;
-            font-style: normal;
-            line-height: 0.88;
-            letter-spacing: normal;
-            text-align: right;
-            color: #fff;
-            padding-bottom: 5px;
-        }
-
-        .table-place,
-        .table-score {
-            font-family: Heebo, Arial, sans-serif;
-            font-size: 22px;
-            font-weight: 900;
-            font-style: normal;
-            line-height: 0.82;
-            letter-spacing: normal;
-            text-align: center;
-            color: #2dbcf8;
-            padding: 7px 0;
-        }
-
-        .table-place {
-            width: 46px;
-            background-color: #d2f1fc;
-            border-left: 1px solid #2dbcf8;
-        }
-
-        .table-username {
-            font-family: Heebo, Arial, sans-serif;
-            font-size: 16px;
-            font-weight: bold;
-            font-style: normal;
-            line-height: 1.06;
-            letter-spacing: normal;
-            text-align: right;
-            color: #2dbcf8;
-            background-color: #d2f1fc;
-            padding: 7px 10px;
-        }
-
-        .table-score {
-            background-color: #edf8fd;
-            width: 90px;
-            border-right: 1px solid #2dbcf8;
-        }
-
-        .table-place.active,
-        .table-username.active,
-        .table-score.active {
-            color: #5db747;
-        }
-
-        .town-ranks {
-            width: 100%;
-        }
-
-        .town-ranks__wrapper {
-            height: 163px;
-            overflow: auto;
-        }
-
-        .help-block {
-            width: 100%;
-            height: 41px;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            z-index: 200;
-            padding: 0 30px 30px 30px;
-        }
-
-        .help-block__icon {
-            width: 42px;
-            height: 41px;
-        }
-
-        .help-block__text {
-            font-family: Heebo, Arial, sans-serif;
-            font-size: 16px;
-            font-weight: bold;
-            font-style: normal;
-            line-height: 1.06;
-            letter-spacing: normal;
-            text-align: right;
-            color: #fff;
-            padding: 0 15px;
-        }
-
-        .bottom-block {
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: 18vh;
-            background: url(https://roadio-web-resources.s3-us-west-2.amazonaws.com/images/road.png) center no-repeat;
+            padding: 4vh 50px 4vh 50px;
+            background: url(https://raw.githubusercontent.com/moscovig/roadio_static/master/images/image_q/bg-img.png) center no-repeat;
             background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            position: relative;
         }
 
-        .bottom-block::after {
+        .main-block.hidden {
+            visibility: hidden;
+        }
+
+        @keyframes preloader-rotate {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .preloader {
             position: absolute;
-            content: "";
             width: 100%;
-            height: 335%;
-            top: -332px;
+            height: 100%;
+            top: 0;
             left: 0;
-            background: url(https://roadio-web-resources.s3-us-west-2.amazonaws.com/images/trees.png) 0 0 no-repeat;
-            background-size: 97%;
-            z-index: 100;
+            background: url(https://raw.githubusercontent.com/moscovig/roadio_static/master/images/image_q/preloader-img.png) center no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
         }
 
-
-        @media screen and (max-width: 600px) {
-
-            .bottom-block::after {
-                top: -55vw;
-            }
-
+        .preloader img {
+            animation: preloader-rotate 2s infinite linear;
         }
 
-        @media screen and (max-width: 500px) {
-
-            .main-block {
-                padding: 4vh 7vw 0 7vw;
-            }
-
-            .user-stats__top {
-                padding-bottom: 2vh;
-            }
-
-            .username {
-                font-size: 7vw;
-                margin-bottom: 1vh;
-            }
-
-            .user-town {
-                font-size: 5vw;
-            }
-
-            .user-stats__bottom {
-                padding: 2vh 0;
-            }
-
-            .stats-score {
-                font-size: 6vw;
-            }
-
-            .table-title {
-                font-size: 5vw;
-            }
-
-            .table-place, .table-score {
-                font-size: 4vw;
-            }
-
-            .table-username {
-                font-size: 3vw;
-            }
-
-            .town-ranks__wrapper {
-                height: 31vw;
-            }
-
-            .help-block__text {
-                font-size: 3vw;
-            }
-
+        .preloader.hidden {
+            display: none;
         }
 
-        @media screen and (max-width: 414px) {
-            .town-ranks__wrapper {
-                height: 33vw;
-            }
-
-            .user-stats__top {
-                align-items: center;
-                padding-bottom: 1vh;
-            }
-
-            .user-stats__top > div {
-                padding: 0;
-            }
-
-            .user-stats__bottom {
-                padding: 1vh 0;
-            }
-
-            .location-icon {
-                width: 11vw;
-                height: auto;
-            }
-
-            .questions-icon {
-                width: 4vw;
-                height: auto;
-            }
-
-            .tasks-icon {
-                width: 7vw;
-                height: auto;
-            }
-
-            .stats-text {
-                margin: 0 0 2px 0;
-            }
+        .quiz {
+            max-width: 278px;
+            margin: 0 auto;
         }
 
-        @media screen and (max-width: 400px) {
-            .town-ranks__wrapper {
-                height: 28vw;
-            }
+        .quiz-question {
+            width: 278px;
+            height: 34px;
+            background-color: rgba(255, 255, 255, 0.73);
+            margin-bottom: 10px;
+            font-family: Heebo, Arial, sans-serif;
+            font-size: 18px;
+            font-weight: 900;
+            font-style: normal;
+            letter-spacing: normal;
+            color: #4a4a4a;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
-            .user-ranks__wrapper {
-                height: 28vw;
-                overflow: auto;
-            }
+        .quiz-answer {
+            width: 226px;
+            height: 34px;
+            font-family: Heebo, Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            font-style: normal;
+            letter-spacing: normal;
+            color: #4a4a4a;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .quiz-answer-1 {
+            background: url(https://raw.githubusercontent.com/moscovig/roadio_static/master/images/image_q/btn-left.png) center no-repeat;
+            background-size: cover;
+            margin: 0 auto 10px auto;
+        }
+
+        .quiz-answer-2 {
+            background: url(https://raw.githubusercontent.com/moscovig/roadio_static/master/images/image_q/btn-right.png) center no-repeat;
+            background-size: cover;
+            margin: 0 auto 10px auto;
+        }
+
+        .quiz-answer-3 {
+            background: url(https://raw.githubusercontent.com/moscovig/roadio_static/master/images/image_q/btn-left.png) center no-repeat;
+            background-size: cover;
+            margin: 0 auto;
         }
 
 
@@ -746,138 +494,27 @@
 <div class="wrapper">
     <main>
         <div class="container" dir="rtl">
-            <div class="main-block">
-                <div class="user-stats">
-                    <div class="user-stats__top">
-                        <div>
-                            <div class="username">גלעד מ׳</div>
-                            <div class="user-town">הגושרים</div>
-                        </div>
-                        <img class="user-avatar"
-                             src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/user-avatar.png"
-                             alt="user avatar">
-                    </div>
-                    <div class="user-stats__bottom">
-                        <div class="tasks">
-                            <div class="tasks-icon"><img
-                                    src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/task.png"
-                                    alt="tasks icon"></div>
-                            <div class="tasks-text stats-text">משימות</div>
-                            <div class="tasks-score stats-score">9999</div>
-                        </div>
-                        <div class="questions">
-                            <div class="questions-icon"><img
-                                    src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/question.png"
-                                    alt="questions icon"></div>
-                            <div class="questions-text stats-text">שאלות</div>
-                            <div class="questions-score stats-score">9999</div>
-                        </div>
-                        <div class="location">
-                            <div class="location-icon"><img
-                                    src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/users.png"
-                                    alt="locations icon"></div>
-                            <div class="location-text stats-text">מיקום</div>
-                            <div class="location-score stats-score"><span>1507</span>/<span>5000</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="ranks">
-                    <div class="user-ranks">
-                        <div class="table-title">מיקומים</div>
-                        <div class="user-ranks__wrapper">
-                            <table class="user-ranks__table">
-                                <tr>
-                                    <td class="table-place">1</td>
-                                    <td class="table-username">ניצן הרשקוביץ</td>
-                                    <td class="table-score">6,000</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-place">2</td>
-                                    <td class="table-username">יהודה עמיחי</td>
-                                    <td class="table-score">5,600</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-place">3</td>
-                                    <td class="table-username">גלית זינגר</td>
-                                    <td class="table-score">4,200</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-place">157</td>
-                                    <td class="table-username">אבי כהן</td>
-                                    <td class="table-score">800</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-place active">158</td>
-                                    <td class="table-username active">גלעד מ׳</td>
-                                    <td class="table-score active">650</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-place">159</td>
-                                    <td class="table-username">יעל נחמני</td>
-                                    <td class="table-score">64</td>
-                                </tr>
-                            </table>
-                        </div>
-
-                    </div>
-                    <div class="town-ranks">
-                        <div class="table-title">מיקום ישובים</div>
-                        <div class="town-ranks__wrapper">
-                            <table class="town-ranks__table">
-                                <tr>
-                                    <td class="table-place">1</td>
-                                    <td class="table-username">שדה נחמיה</td>
-                                    <td class="table-score">6,000</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-place active">2</td>
-                                    <td class="table-username active">קרית שמונה</td>
-                                    <td class="table-score active">600</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-place">3</td>
-                                    <td class="table-username">מנרה</td>
-                                    <td class="table-score">60</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-place">4</td>
-                                    <td class="table-username">מנרה</td>
-                                    <td class="table-score">50</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-place">5</td>
-                                    <td class="table-username">מנרה</td>
-                                    <td class="table-score">5</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-place">6</td>
-                                    <td class="table-username">מנרה</td>
-                                    <td class="table-score">5</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-place">7</td>
-                                    <td class="table-username">מנרה</td>
-                                    <td class="table-score">5</td>
-                                </tr>
-                                <tr>
-                                    <td class="table-place">8</td>
-                                    <td class="table-username">מנרה</td>
-                                    <td class="table-score">5</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div class="help-block">
-                    <div class="help-block__icon"><img
-                            src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/wheel.png"
-                            alt="wheel icon"></div>
-                    <div class="help-block__text">עזרה? דברו איתנו</div>
+            <div class="preloader">
+                <img src="img/loader.png" alt="preloader img">
+            </div>
+            <div class="main-block hidden">
+                <div class="quiz">
+                    <div class="quiz-question">מה בתמונה?</div>
+                    <div class="quiz-answer-1 quiz-answer">אנדרטאת חטיבת הנגב</div>
+                    <div class="quiz-answer-2 quiz-answer">מבצר המונפורט</div>
+                    <div class="quiz-answer-3 quiz-answer">מלון אלמא</div>
                 </div>
             </div>
-            <div class="bottom-block"></div>
         </div>
     </main>
 </div>
+<script>
+    let mainBlock = document.querySelector('.main-block');
+    let preloader = document.querySelector('.preloader');
+    window.onload = function () {
+        preloader.classList.add('hidden');
+        mainBlock.classList.remove('hidden');
+    }
+</script>
 </body>
 </html>
