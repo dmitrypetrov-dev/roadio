@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
         /* Document
            ========================================================================== */
 
-        /**
+        /**a
          * 1. Correct the line height in all browsers.
          * 2. Prevent adjustments of font size after orientation changes in iOS.
          */
@@ -957,6 +957,101 @@
 
         /* Form end */
 
+        @media screen and (max-width: 600px) {
+
+            .main-block__from-wrap {
+                padding: 0 8vw;
+            }
+
+            .bottom-block::after {
+                top: -55vw;
+            }
+
+        }
+
+        @media screen and (max-width: 500px) {
+
+            .score-counter {
+                width: 13.7vw;
+                height: 13.7vw;
+            }
+
+            .score-counter__number {
+                font-size: 4.2vw;
+            }
+
+            .main-block__title {
+                font-size: 6vw;
+                line-height: 1.08;
+            }
+
+            .words__box {
+                width: 11vw;
+                height: 10.5vw;
+                font-size: 6vw;
+            }
+
+            .letters__box {
+                width: 11vw;
+                height: 10.5vw;
+                font-size: 6vw;
+            }
+
+        }
+
+        @media screen and (max-width: 480px) {
+
+            .main-block {
+                padding: 4vh 1vw 0 1vw;
+            }
+
+        }
+
+        @media screen and (max-width: 414px) {
+
+            .score-counter__plus {
+                width: 18px;
+                height: 18px;
+            }
+
+            .score-counter__plus div:first-child {
+                width: 3.5px;
+                height: 11px;
+                top: 3px;
+                left: 7px;
+            }
+
+            .score-counter__plus div:last-child {
+                width: 3.5px;
+                height: 11px;
+                top: 3px;
+                left: 7px;
+            }
+
+        }
+
+        @media screen and (max-width: 375px) {
+
+            .score-counter__plus {
+                width: 16px;
+                height: 16px;
+            }
+
+            .score-counter__plus div:first-child {
+                width: 3px;
+                height: 10px;
+                top: 3px;
+                left: 40%;
+            }
+
+            .score-counter__plus div:last-child {
+                width: 3px;
+                height: 10px;
+                top: 3px;
+                left: 40%;
+            }
+        }
+
         /*Avatars block*/
 
         .mood-block {
@@ -982,6 +1077,7 @@
         .mood-field_avatars {
             width: 90%;
             text-align: left;
+            padding: 3px 0 3px 0;
         }
 
         .avatar-small {
@@ -1002,6 +1098,9 @@
             top: 38px;
             left: 0;
             z-index: 150;
+        }
+
+        .avatars:not(.active) {
             display: none;
         }
 
@@ -1098,90 +1197,15 @@
             background-size: contain;
         }
 
-        /*Avatars block end*/
-
-        @media screen and (max-width: 600px) {
-
-            .main-block__from-wrap {
-                padding: 0 8vw;
-            }
-
-            .bottom-block::after {
-                top: -55vw;
-            }
-
-        }
-
-        @media screen and (max-width: 500px) {
-
-            .score-counter {
-                width: 13.7vw;
-                height: 13.7vw;
-            }
-
-            .score-counter__number {
-                font-size: 4.2vw;
-            }
-
-            .main-block__title {
-                font-size: 6vw;
-                line-height: 1.08;
-            }
-
-            .words__box {
-                width: 11vw;
-                height: 10.5vw;
-                font-size: 6vw;
-            }
-
-            .letters__box {
-                width: 11vw;
-                height: 10.5vw;
-                font-size: 6vw;
-            }
-
-        }
-
         @media screen and (max-width: 414px) {
 
             .avatars {
-                padding: 0 10px 25px 10px;
-            }
-
-            .score-counter__plus div:first-child {
-                width: 3.5px;
-                height: 11px;
-                top: 3px;
-                left: 7px;
-            }
-
-            .score-counter__plus div:last-child {
-                width: 3.5px;
-                height: 11px;
-                top: 3px;
-                left: 7px;
+                padding: 0 10px 20px 10px;
             }
 
         }
 
-        @media screen and (max-width: 375px) {
-
-            .score-counter__plus div:first-child {
-                width: 3px;
-                height: 10px;
-                top: 3px;
-                left: 40%;
-            }
-
-            .score-counter__plus div:last-child {
-                width: 3px;
-                height: 10px;
-                top: 3px;
-                left: 40%;
-            }
-        }
-
-
+        /*Avatars block end*/
     </style>
     <title>Roadio</title>
 </head>
@@ -1214,6 +1238,8 @@
                         <select id="select-required-game" class="field-select field" name="game">
                             <option value="" selected>בחר משחק</option>
 
+                            <option value="חידון עמק המעיינות">חידון עמק המעיינות</option>
+
                             <option value="חידון מגידו">חידון מגידו</option>
 
                         </select>
@@ -1228,7 +1254,7 @@
                     <!--avatars block-->
 
                     <div class="mood-block field hidden">
-                        <div class="mood-field">
+                        <div class="mood-field" id="mood-field">
                             <div class="mood-field_name">Mood</div>
                             <div class="mood-field_avatars">
                                 <img class="user-avatar-1 avatar-small"
@@ -1251,32 +1277,32 @@
                                      alt="">
                             </div>
                         </div>
-                        <div class="avatars">
+                        <div id="avatars" class="avatars">
                             <div class="avatars-block">
                                 <input id="user-avatar-1" class="user-avatar" type="radio" name="user-avatar"
-                                       value="avatar-1">
+                                       value="prada">
                                 <label class="avatar-label-1 avatar-label" for="user-avatar-1">רק פראדה
                                     דארלינג</label>
                                 <input id="user-avatar-2" class="user-avatar" type="radio" name="user-avatar"
-                                       value="avatar-2">
+                                       value="confident">
                                 <label class="avatar-label-2 avatar-label" for="user-avatar-2">אם יש
                                     לך שמש</label>
                                 <input id="user-avatar-3" class="user-avatar" type="radio" name="user-avatar"
-                                       value="avatar-3">
+                                       value="orange">
                                 <label class="avatar-label-3 avatar-label" for="user-avatar-3">כתום זה
                                     השחור החדש</label>
                             </div>
                             <div class="avatars-block">
                                 <input id="user-avatar-4" class="user-avatar" type="radio" name="user-avatar"
-                                       value="avatar-4">
+                                       value="jammed">
                                 <label class="avatar-label-4 avatar-label" for="user-avatar-4">הכל פקוק
                                     לי</label>
                                 <input id="user-avatar-5" class="user-avatar" type="radio" name="user-avatar"
-                                       value="avatar-5">
+                                       value="eco-friendly">
                                 <label class="avatar-label-5 avatar-label" for="user-avatar-5">ידידות
                                     סביבתית</label>
                                 <input id="user-avatar-6" class="user-avatar" type="radio" name="user-avatar"
-                                       value="avatar-6">
+                                       value="good-vibes">
                                 <label class="avatar-label-6 avatar-label" for="user-avatar-6">הכל זה
                                     לטובה</label>
                             </div>
@@ -1316,7 +1342,7 @@
         </div>
     </main>
 </div>
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 <script>
     let team_fields = document.querySelectorAll('.new-team-field'),
         field_select = document.querySelectorAll('div.select'),
@@ -1329,7 +1355,6 @@
     let selectRequiredTeam = document.getElementById('teams_select');
     let moodBlock = document.querySelector('.mood-block'); //new line
     let userAvatars = document.querySelectorAll('.user-avatar'); //new line
-
     let timeWindowsSelect = document.getElementById('time_windows_select');
 
     let selectRequiredGame = document.getElementById('select-required-game');
@@ -1355,7 +1380,7 @@
 
     games_info = {
         "\u05d7\u05d9\u05d3\u05d5\u05df \u05de\u05d2\u05d9\u05d3\u05d5": {
-            "codes": null,
+            "codes": ["3344"],
             "id": 343,
             "teams": [{
                 "team": "\u05e4\u05da\u05d5\u05d8\u05d5",
@@ -1367,6 +1392,14 @@
             "teams_enabled": 1,
             "time_windows": null,
             "towns": ["\u05de\u05d2\u05d9\u05d3\u05d5", "\u05e2\u05d9\u05df \u05d4\u05e9\u05d5\u05e4\u05d8"]
+        },
+        "\u05d7\u05d9\u05d3\u05d5\u05df \u05e2\u05de\u05e7 \u05d4\u05de\u05e2\u05d9\u05d9\u05e0\u05d5\u05ea": {
+            "codes": null,
+            "id": 123,
+            "teams": [],
+            "teams_enabled": 0,
+            "time_windows": ["\u05d7\u05de\u05d9\u05e9\u05d9-\u05e9\u05d9\u05e9\u05d9", "\u05e9\u05d9\u05e9\u05d9-\u05e9\u05d1\u05ea"],
+            "towns": ["\u05e0\u05d9\u05e8 \u05d3\u05d5\u05d3", "\u05de\u05e1\u05d9\u05dc\u05d5\u05ea"]
         }
     }
 
@@ -1680,63 +1713,110 @@
 
     //avatars block
 
-    $(document).ready(function () {
-        $('.mood-field').click(function (event) {
-            $('.avatars').slideToggle();
-        });
+    let container = document.getElementById('avatars');
 
-        $('.avatar-label').click(function (event) {
-            if (event.currentTarget.classList.contains('avatar-label-1')) {
-                $('.user-avatar-1').addClass('selected');
-                $('.user-avatar-2').removeClass('selected');
-                $('.user-avatar-3').removeClass('selected');
-                $('.user-avatar-4').removeClass('selected');
-                $('.user-avatar-5').removeClass('selected');
-                $('.user-avatar-6').removeClass('selected');
-                $('.avatars').slideToggle();
-            } else if (event.currentTarget.classList.contains('avatar-label-2')) {
-                $('.user-avatar-2').addClass('selected');
-                $('.user-avatar-1').removeClass('selected');
-                $('.user-avatar-3').removeClass('selected');
-                $('.user-avatar-4').removeClass('selected');
-                $('.user-avatar-5').removeClass('selected');
-                $('.user-avatar-6').removeClass('selected');
-                $('.avatars').slideToggle();
-            }  else if (event.currentTarget.classList.contains('avatar-label-3')) {
-                $('.user-avatar-3').addClass('selected');
-                $('.user-avatar-2').removeClass('selected');
-                $('.user-avatar-1').removeClass('selected');
-                $('.user-avatar-4').removeClass('selected');
-                $('.user-avatar-5').removeClass('selected');
-                $('.user-avatar-6').removeClass('selected');
-                $('.avatars').slideToggle();
-            }  else if (event.currentTarget.classList.contains('avatar-label-4')) {
-                $('.user-avatar-4').addClass('selected');
-                $('.user-avatar-2').removeClass('selected');
-                $('.user-avatar-3').removeClass('selected');
-                $('.user-avatar-1').removeClass('selected');
-                $('.user-avatar-5').removeClass('selected');
-                $('.user-avatar-6').removeClass('selected');
-                $('.avatars').slideToggle();
-            }  else if (event.currentTarget.classList.contains('avatar-label-5')) {
-                $('.user-avatar-5').addClass('selected');
-                $('.user-avatar-2').removeClass('selected');
-                $('.user-avatar-3').removeClass('selected');
-                $('.user-avatar-4').removeClass('selected');
-                $('.user-avatar-1').removeClass('selected');
-                $('.user-avatar-6').removeClass('selected');
-                $('.avatars').slideToggle();
-            }  else if (event.currentTarget.classList.contains('avatar-label-6')) {
-                $('.user-avatar-6').addClass('selected');
-                $('.user-avatar-2').removeClass('selected');
-                $('.user-avatar-3').removeClass('selected');
-                $('.user-avatar-4').removeClass('selected');
-                $('.user-avatar-5').removeClass('selected');
-                $('.user-avatar-1').removeClass('selected');
-                $('.avatars').slideToggle();
+    function closeToogle() {
+
+        if (!container.classList.contains('active')) {
+            container.classList.add('active');
+            container.style.height = 'auto';
+            container.style.paddingBottom = '25px';
+            let height = "255px";
+
+            container.style.height = '0px';
+
+            setTimeout(function () {
+                container.style.height = height;
+            }, 0);
+        } else {
+            container.style.height = '0px';
+            container.style.paddingBottom = '0px';
+            container.classList.remove('active');
+        }
+    }
+
+    function pickAvatar(caller_idx) {
+        closeToogle();
+        let userAvatars = document.getElementsByClassName("avatar-small");
+        for (j = 0; j < userAvatars.length; j++) {
+            if (j == caller_idx) {
+                userAvatars[j].classList.add('selected');
+            } else {
+                userAvatars[j].classList.remove('selected');
             }
-        });
-    });
+        }
+    }
+
+    function addClickHandler(elem, i) {
+        elem.addEventListener('click', function (e) {
+            pickAvatar(i)
+        }, false)
+    }
+
+    document.getElementById('mood-field').addEventListener('click', closeToogle);
+    //avatars block
+
+
+    let avatarLabels = document.getElementsByClassName("avatar-label");
+    for (i = 0; i < avatarLabels.length; i++) {
+        addClickHandler(avatarLabels[i], i)
+
+    }
+
+
+    //     $('.avatar-label').click(function (event) {
+    //         if (event.currentTarget.classList.contains('avatar-label-1')) {
+    //             $('.user-avatar-1').addClass('selected');
+    //             $('.user-avatar-2').removeClass('selected');
+    //             $('.user-avatar-3').removeClass('selected');
+    //             $('.user-avatar-4').removeClass('selected');
+    //             $('.user-avatar-5').removeClass('selected');
+    //             $('.user-avatar-6').removeClass('selected');
+    //             $('.avatars').slideToggle();
+    //         } else if (event.currentTarget.classList.contains('avatar-label-2')) {
+    //             $('.user-avatar-2').addClass('selected');
+    //             $('.user-avatar-1').removeClass('selected');
+    //             $('.user-avatar-3').removeClass('selected');
+    //             $('.user-avatar-4').removeClass('selected');
+    //             $('.user-avatar-5').removeClass('selected');
+    //             $('.user-avatar-6').removeClass('selected');
+    //             $('.avatars').slideToggle();
+    //         }  else if (event.currentTarget.classList.contains('avatar-label-3')) {
+    //             $('.user-avatar-3').addClass('selected');
+    //             $('.user-avatar-2').removeClass('selected');
+    //             $('.user-avatar-1').removeClass('selected');
+    //             $('.user-avatar-4').removeClass('selected');
+    //             $('.user-avatar-5').removeClass('selected');
+    //             $('.user-avatar-6').removeClass('selected');
+    //             $('.avatars').slideToggle();
+    //         }  else if (event.currentTarget.classList.contains('avatar-label-4')) {
+    //             $('.user-avatar-4').addClass('selected');
+    //             $('.user-avatar-2').removeClass('selected');
+    //             $('.user-avatar-3').removeClass('selected');
+    //             $('.user-avatar-1').removeClass('selected');
+    //             $('.user-avatar-5').removeClass('selected');
+    //             $('.user-avatar-6').removeClass('selected');
+    //             $('.avatars').slideToggle();
+    //         }  else if (event.currentTarget.classList.contains('avatar-label-5')) {
+    //             $('.user-avatar-5').addClass('selected');
+    //             $('.user-avatar-2').removeClass('selected');
+    //             $('.user-avatar-3').removeClass('selected');
+    //             $('.user-avatar-4').removeClass('selected');
+    //             $('.user-avatar-1').removeClass('selected');
+    //             $('.user-avatar-6').removeClass('selected');
+    //             $('.avatars').slideToggle();
+    //         }  else if (event.currentTarget.classList.contains('avatar-label-6')) {
+    //             $('.user-avatar-6').addClass('selected');
+    //             $('.user-avatar-2').removeClass('selected');
+    //             $('.user-avatar-3').removeClass('selected');
+    //             $('.user-avatar-4').removeClass('selected');
+    //             $('.user-avatar-5').removeClass('selected');
+    //             $('.user-avatar-1').removeClass('selected');
+    //             $('.avatars').slideToggle();
+    //         }
+    //     });
+    // });
+
 
 </script>
 </body>
