@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
         /* Document
            ========================================================================== */
 
-        /**a
+        /**
          * 1. Correct the line height in all browsers.
          * 2. Prevent adjustments of font size after orientation changes in iOS.
          */
@@ -383,829 +383,76 @@
         .container {
             width: 100%;
             height: 100vh;
-            position: relative;
         }
 
         .main-block {
             width: 100%;
             height: 100%;
-            padding: 7vh 20px 0 20px;
-            background: -webkit-gradient(linear, left bottom, left top, from(#cff0f9), color-stop(30%, #2cbbf7));
-            background: -o-linear-gradient(bottom, #cff0f9, #2cbbf7 30%);
-            background: linear-gradient(to top, #cff0f9, #2cbbf7 30%);
-            position: relative;
-        }
-
-        .score-counter {
-            position: absolute;
-            width: 69px;
-            height: 69px;
-            top: 30px;
-            right: 29px;
-            border: solid 6.8px #fff;
-            border-radius: 50%;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-orient: vertical;
-            -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-            flex-direction: column;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-        }
-
-        .score-counter__plus {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            top: -9px;
-            left: -6px;
-            background-color: #fff;
-            border-radius: 50%;
-        }
-
-        .score-counter__plus div:first-child {
-            position: absolute;
-            width: 4px;
-            height: 12px;
-            top: 4px;
-            left: 8px;
-            background-color: #2cbbf7;
-        }
-
-        .score-counter__plus div:last-child {
-            position: absolute;
-            width: 4px;
-            height: 12px;
-            top: 4px;
-            left: 8px;
-            background-color: #2cbbf7;
-            -webkit-transform: rotate(90deg);
-            -ms-transform: rotate(90deg);
-            transform: rotate(90deg);
-        }
-
-        .score-counter__number {
-            font-family: Heebo, Arial, sans-serif;
-            font-size: 23px;
-            font-weight: 900;
-            font-style: normal;
-            letter-spacing: normal;
-            text-align: center;
-            color: #fff;
-        }
-
-        .bottom-block {
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: 18vh;
-            background: url(https://raw.githubusercontent.com/moscovig/roadio_static/master/images/road.png) center no-repeat;
+            padding: 0 10px 0 10px;
+            background: url(https://raw.githubusercontent.com/moscovig/roadio_static/master/images/feed/bg-img.png) center no-repeat;
             background-size: cover;
-        }
-
-        .bottom-block::after {
-            position: absolute;
-            content: "";
-            width: 100%;
-            height: 335%;
-            top: -332px;
-            left: 0;
-            background: url(https://raw.githubusercontent.com/moscovig/roadio_static/master/images/trees.png) 0 0 no-repeat;
-            background-size: 97%;
-            z-index: 100;
-        }
-
-        .main-block__wrapper {
-            width: 100%;
-            position: relative;
-            z-index: 500;
-        }
-
-        .main-block__title {
-            font-family: Heebo, Arial, sans-serif;
-            font-size: 38px;
-            font-weight: 700;
-            line-height: 43px;
-            color: #fff;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .words {
-            width: 100%;
-            display: -ms-grid;
-            display: grid;
-            -ms-grid-columns: 10% 5.5px 10% 5.5px 10% 5.5px 10% 5.5px 10% 5.5px 10% 5.5px 10%;
-            grid-template-columns: 10% 10% 10% 10% 10% 10% 10%;
-            -ms-grid-rows: 50% 5.5px 50%;
-            grid-template-rows: 50% 50%;
-            grid-column-gap: 5.5px;
-            grid-row-gap: 5.5px;
-            margin-bottom: 30px;
-            justify-content: space-around;
-        }
-
-        .words > *:nth-child(1) {
-            -ms-grid-row: 1;
-            -ms-grid-column: 1;
-        }
-
-        .words > *:nth-child(2) {
-            -ms-grid-row: 1;
-            -ms-grid-column: 3;
-        }
-
-        .words > *:nth-child(3) {
-            -ms-grid-row: 1;
-            -ms-grid-column: 5;
-        }
-
-        .words > *:nth-child(4) {
-            -ms-grid-row: 1;
-            -ms-grid-column: 7;
-        }
-
-        .words > *:nth-child(5) {
-            -ms-grid-row: 1;
-            -ms-grid-column: 9;
-        }
-
-        .words > *:nth-child(6) {
-            -ms-grid-row: 1;
-            -ms-grid-column: 11;
-        }
-
-        .words > *:nth-child(7) {
-            -ms-grid-row: 1;
-            -ms-grid-column: 13;
-        }
-
-        .words > *:nth-child(8) {
-            -ms-grid-row: 3;
-            -ms-grid-column: 1;
-        }
-
-        .words > *:nth-child(9) {
-            -ms-grid-row: 3;
-            -ms-grid-column: 3;
-        }
-
-        .words > *:nth-child(10) {
-            -ms-grid-row: 3;
-            -ms-grid-column: 5;
-        }
-
-        .words > *:nth-child(11) {
-            -ms-grid-row: 3;
-            -ms-grid-column: 7;
-        }
-
-        .words > *:nth-child(12) {
-            -ms-grid-row: 3;
-            -ms-grid-column: 9;
-        }
-
-        .words > *:nth-child(13) {
-            -ms-grid-row: 3;
-            -ms-grid-column: 11;
-        }
-
-        .words > *:nth-child(14) {
-            -ms-grid-row: 3;
-            -ms-grid-column: 13;
-        }
-
-        .words__box {
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-            width: 52px;
-            height: 52px;
-            background-color: #fff;
-            border-radius: 2.6px;
-            -webkit-box-shadow: inset 1px 1px 3px 2px rgba(0, 0, 0, 0.1), inset -1px -1px 3px 2px rgba(0, 0, 0, 0.1);
-            box-shadow: inset 1px 1px 3px 2px rgba(0, 0, 0, 0.1), inset -1px -1px 3px 2px rgba(0, 0, 0, 0.1);
-            font-family: Heebo, Arial, sans-serif;
-            font-size: 35px;
-            font-weight: 700;
-            color: #787878;
-            text-transform: uppercase;
-        }
-
-        .words__box.hidden {
-            visibility: hidden;
-        }
-
-        .words__box.active {
-            background-color: #5db747;
-            color: #fff;
-            -webkit-box-shadow: none;
-            box-shadow: none;
-        }
-
-        .letters {
-            width: 100%;
-            display: -ms-grid;
-            display: grid;
-            -ms-grid-columns: 10% 5.5px 10% 5.5px 10% 5.5px 10% 5.5px 10% 5.5px 10% 5.5px 10%;
-            grid-template-columns: 10% 10% 10% 10% 10% 10% 10%;
-            -ms-grid-rows: 50% 5.5px 50%;
-            grid-template-rows: 50% 50%;
-            grid-column-gap: 5.5px;
-            grid-row-gap: 5.5px;
-            justify-content: space-around;
-        }
-
-        .letters > *:nth-child(1) {
-            -ms-grid-row: 1;
-            -ms-grid-column: 1;
-        }
-
-        .letters > *:nth-child(2) {
-            -ms-grid-row: 1;
-            -ms-grid-column: 3;
-        }
-
-        .letters > *:nth-child(3) {
-            -ms-grid-row: 1;
-            -ms-grid-column: 5;
-        }
-
-        .letters > *:nth-child(4) {
-            -ms-grid-row: 1;
-            -ms-grid-column: 7;
-        }
-
-        .letters > *:nth-child(5) {
-            -ms-grid-row: 1;
-            -ms-grid-column: 9;
-        }
-
-        .letters > *:nth-child(6) {
-            -ms-grid-row: 1;
-            -ms-grid-column: 11;
-        }
-
-        .letters > *:nth-child(7) {
-            -ms-grid-row: 1;
-            -ms-grid-column: 13;
-        }
-
-        .letters > *:nth-child(8) {
-            -ms-grid-row: 3;
-            -ms-grid-column: 1;
-        }
-
-        .letters > *:nth-child(9) {
-            -ms-grid-row: 3;
-            -ms-grid-column: 3;
-        }
-
-        .letters > *:nth-child(10) {
-            -ms-grid-row: 3;
-            -ms-grid-column: 5;
-        }
-
-        .letters > *:nth-child(11) {
-            -ms-grid-row: 3;
-            -ms-grid-column: 7;
-        }
-
-        .letters > *:nth-child(12) {
-            -ms-grid-row: 3;
-            -ms-grid-column: 9;
-        }
-
-        .letters > *:nth-child(13) {
-            -ms-grid-row: 3;
-            -ms-grid-column: 11;
-        }
-
-        .letters > *:nth-child(14) {
-            -ms-grid-row: 3;
-            -ms-grid-column: 13;
-        }
-
-        .letters__box {
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-            width: 52px;
-            height: 52px;
-            background-color: #5db747;
-            border-radius: 2.6px;
-            font-family: Heebo, Arial, sans-serif;
-            font-size: 35px;
-            font-weight: 700;
-            color: #fff;
-            text-transform: uppercase;
-        }
-
-        .letters__box.disabled {
-            background-color: transparent;
-            color: #62cdf7;
-            border: solid 0.9px #5db747;
-        }
-
-        /* Form start */
-
-        input, button, select {
-            outline: none;
-            border: 0;
-        }
-
-        .main-block__from-wrap {
-            padding: 0 50px;
-            position: relative;
-            z-index: 101;
-        }
-
-        .fieldset {
-            width: 100%;
-            /* text-align: right; */
-        }
-
-        .fieldset__btn {
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-            justify-content: space-between;
-            -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-            margin-bottom: 12px;
-        }
-
-        .field-btn {
-            cursor: pointer;
-            height: 38px;
-            -webkit-box-flex: 1;
-            -ms-flex-positive: 1;
-            flex-grow: 1;
-            -ms-flex-preferred-size: 0;
-            flex-basis: 0;
-            background-color: #ffffff;
-            -webkit-box-shadow: 0 1px 3px rgba(33, 110, 138, .5);
-            box-shadow: 0 1px 3px rgba(33, 110, 138, .5);
-        }
-
-        .field-btn:hover, .field-btn.active {
-            color: #ffffff;
-            background-color: #007aad;
-        }
-
-        #btn-yes.left {
-            margin-right: 8px;
-        }
-
-        #btn-no.left {
-            margin-right: 8px;
-        }
-
-        .field, .field-btn {
-            height: 38px;
-            color: #4ed8ff;
-            font-family: Heebo, Arial, sans-serif;
-            font-weight: bold;
-            font-size: 17px;
-        }
-
-        .field {
-            /* text-align: right; */
-            width: 100%;
-            background-color: rgba(255, 255, 255, .75);
-            padding: 0 11px;
-            box-shadow: 0 1px 3px rgba(125, 193, 214, .5);
-            margin-bottom: 12px;
-        }
-
-        .field::-webkit-input-placeholder {
-            color: #4ed8ff;
-        }
-
-        .field:-ms-input-placeholder {
-            color: #4ed8ff;
-        }
-
-        .field::-ms-input-placeholder {
-            color: #4ed8ff;
-        }
-
-        .field::placeholder {
-            color: #4ed8ff;
-        }
-
-        .first .field {
-            margin-bottom: 6px;
-        }
-
-        .first .field:last-child {
-            margin-bottom: 0;
-        }
-
-        .first .field-title {
-            margin-bottom: 18px;
-            font-size: 22px;
-            font-weight: bold;
-        }
-
-        label.field {
-            display: block; /* add this */
-            padding-top: 10px;
-        }
-
-        .last {
-            margin-top: 26px;
-        }
-
-        .last .field-title {
-            font-size: 18px;
-            font-weight: 400;
-            margin-bottom: 6px;
-
-        }
-
-        .last .field:last-child {
-            margin-bottom: 0;
-        }
-
-        .field-title {
-            font-family: Heebo, Arial, sans-serif;
-            display: block;
-            color: #ffffff;
-        }
-
-
-        .field-select {
-            cursor: pointer;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            -webkit-user-select: none;
-            -moz-user-select: -moz-none;
-            -ms-user-select: none;
-            user-select: none;
-            background: url(https://raw.githubusercontent.com/moscovig/roadio_static/master/images/selector-arrow.png) 95% 13px no-repeat #fff;
-        }
-
-        .field-select.right {
-            background-position: 5% 13px;
-        }
-
-        .select {
-            position: relative;
-        }
-
-        /*.select:after {*/
-        /*    content: "▼";*/
-        /*    position: absolute;*/
-        /*    top: 9px;*/
-        /*    right: 30px;*/
-        /*    padding: 0 6px;*/
-        /*    height: 100%;*/
-        /*    width: 0;*/
-        /*    color: #30bff9;*/
-        /*    font-size: 20px;*/
-        /*    pointer-events: none;*/
-        /*    box-sizing: border-box;*/
-        /*    text-align: center;*/
-        /*}*/
-
-        .field-select option {
-            text-align: right;
-        }
-
-        input.field-btn {
-            width: 50%;
-        }
-
-        .code {
-            color: #fa8460;
-        }
-
-        .code::-webkit-input-placeholder {
-            color: #fa8460;
-        }
-
-        .code:-ms-input-placeholder {
-            color: #fa8460;
-        }
-
-        .code::-ms-input-placeholder {
-            color: #fa8460;
-        }
-
-        .code::placeholder {
-            color: #fa8460;
-        }
-
-        .form-success {
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-            font-size: 42px;
-            font-family: Heebo, Arial, sans-serif;
-            font-weight: bold;
-            color: #ffffff;
-        }
-
-        .hidden {
-            visibility: hidden;
-        }
-
-        .dispnone {
-            display: none;
-        }
-
-        .btn-align.left {
-            text-align: left;
-        }
-
-        .btn-align.right {
-            text-align: right;
-        }
-
-        form.success {
-            display: none;
-        }
-
-        /* Form end */
-
-        @media screen and (max-width: 600px) {
-
-            .main-block__from-wrap {
-                padding: 0 8vw;
-            }
-
-            .bottom-block::after {
-                top: -55vw;
-            }
-
-        }
-
-        @media screen and (max-width: 500px) {
-
-            .score-counter {
-                width: 13.7vw;
-                height: 13.7vw;
-            }
-
-            .score-counter__number {
-                font-size: 4.2vw;
-            }
-
-            .main-block__title {
-                font-size: 6vw;
-                line-height: 1.08;
-            }
-
-            .words__box {
-                width: 11vw;
-                height: 10.5vw;
-                font-size: 6vw;
-            }
-
-            .letters__box {
-                width: 11vw;
-                height: 10.5vw;
-                font-size: 6vw;
-            }
-
-        }
-
-        @media screen and (max-width: 480px) {
-
-            .main-block {
-                padding: 4vh 1vw 0 1vw;
-            }
-
-        }
-
-        @media screen and (max-width: 414px) {
-
-            .score-counter__plus {
-                width: 18px;
-                height: 18px;
-            }
-
-            .score-counter__plus div:first-child {
-                width: 3.5px;
-                height: 11px;
-                top: 3px;
-                left: 7px;
-            }
-
-            .score-counter__plus div:last-child {
-                width: 3.5px;
-                height: 11px;
-                top: 3px;
-                left: 7px;
-            }
-
-        }
-
-        @media screen and (max-width: 375px) {
-
-            .score-counter__plus {
-                width: 16px;
-                height: 16px;
-            }
-
-            .score-counter__plus div:first-child {
-                width: 3px;
-                height: 10px;
-                top: 3px;
-                left: 40%;
-            }
-
-            .score-counter__plus div:last-child {
-                width: 3px;
-                height: 10px;
-                top: 3px;
-                left: 40%;
-            }
-        }
-
-        /*Avatars block*/
-
-        .mood-block {
-            background-color: #fff;
-            position: relative;
-            z-index: 150;
-        }
-
-        .mood-field {
-            width: 100%;
-            height: 100%;
-            cursor: pointer;
-            display: flex;
-        }
-
-        .mood-field_name {
-            height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
-        .mood-field_avatars {
-            width: 90%;
-            text-align: left;
-            padding: 3px 0 3px 0;
-        }
-
-        .avatar-small {
-            height: 100%;
-            display: none;
-        }
-
-        .avatar-small.selected {
-            display: inline-flex;
-        }
-
-        .avatars {
+        .feed {
             width: 100%;
-            height: 255px;
+            height: 67vh;
+            border-radius: 13px;
+            box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.3);
             background-color: #fff;
-            padding: 0 20px 25px 20px;
-            position: absolute;
-            top: 38px;
-            left: 0;
-            z-index: 150;
+            padding: 5px 20px 0 20px;
+            overflow: auto;
         }
 
-        .avatars:not(.active) {
-            display: none;
-        }
-
-        .avatars-block {
+        .post {
             width: 100%;
-            height: 50%;
             display: flex;
             justify-content: space-between;
+            margin-bottom: 12px;
         }
 
-        .avatar-label {
-            max-width: 96px;
+        .post-time {
+            font-family: Heebo, Arial, sans-serif;
+            font-size: 12px;
+            font-weight: 300;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: #787878;
+            padding: 0 10px;
+        }
+
+        .post-img {
+            border-radius: 13px;
+            overflow: hidden;
+        }
+
+        .post-img img {
+
+        }
+
+        .post-text {
+            border-radius: 13px;
+            background-color: #dadada;
+            padding: 5px 10px 5px 10px;
             font-family: Heebo, Arial, sans-serif;
             font-size: 16px;
-            font-weight: 500;
+            font-weight: normal;
             font-style: normal;
-            line-height: 0.88;
             letter-spacing: normal;
-            color: #007aac;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            position: relative;
+            color: #000;
         }
 
-        input[type=radio] {
-            display: none;
+        .post-avatar {
+            padding-top: 20px;
+            max-width: 40px;
+            margin-right: 20px;
+            flex-shrink: 0;
         }
 
-        .avatar-label-1::before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 58px;
-            top: 23px;
-            left: 0;
-            background: url(https://raw.githubusercontent.com/moscovig/roadio_static/master/images/avatars/prada.png) center no-repeat;
-            background-size: contain;
-        }
 
-        .avatar-label-2::before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 58px;
-            top: 23px;
-            left: 0;
-            background: url(https://raw.githubusercontent.com/moscovig/roadio_static/master/images/avatars/confident.png) center no-repeat;
-            background-size: contain;
-        }
-
-        .avatar-label-3::before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 58px;
-            top: 23px;
-            left: 0;
-            background: url(https://raw.githubusercontent.com/moscovig/roadio_static/master/images/avatars/orange.png) center no-repeat;
-            background-size: contain;
-        }
-
-        .avatar-label-4::before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 58px;
-            top: 23px;
-            left: 0;
-            background: url(https://raw.githubusercontent.com/moscovig/roadio_static/master/images/avatars/jammed.png) center no-repeat;
-            background-size: contain;
-        }
-
-        .avatar-label-5::before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 58px;
-            top: 23px;
-            left: 0;
-            background: url(https://raw.githubusercontent.com/moscovig/roadio_static/master/images/avatars/eco-friendly.png) center no-repeat;
-            background-size: contain;
-        }
-
-        .avatar-label-6::before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 58px;
-            top: 23px;
-            left: 0;
-            background: url(https://raw.githubusercontent.com/moscovig/roadio_static/master/images/avatars/good-vibes.png) center no-repeat;
-            background-size: contain;
-        }
-
-        @media screen and (max-width: 414px) {
-
-            .avatars {
-                padding: 0 10px 20px 10px;
-            }
-
-        }
-
-        /*Avatars block end*/
     </style>
     <title>Roadio</title>
 </head>
@@ -1214,610 +461,97 @@
     <main>
         <div class="container" dir="rtl">
             <div class="main-block">
-                <form name="registration" id="form-action" class="main-block__from-wrap"
-                      action="http://localhost:8080/v2/game_registration" method="POST">
-                    <input id=is_participate type="hidden" name="is_participate" value=0>
-                    <input type="hidden" id="game-id" name="game_id" value="">
-                    <input type="hidden" name="user_id" value="dev12345">
-                    <div class="fieldset first">
-                        <span class="field-title" for="">בואו נכיר</span>
-                        <input class="field" type="email" name="email" placeholder="אימייל" value="gg@ffa.asd" required>
-                        <input class="field" type="text" name="username" placeholder="כינוי" value="asasd" required>
-                        <!--                        <input class=field type="file" id="actual-btn" hidden/>-->
-                        <!--                        <label class="field"  for="actual-btn">תמונת פרופיל</label>-->
-                    </div>
-                    <div class="fieldset last">
-                        <span class="field-title" for="">משתתף במשחק של המועצה?</span>
-                        <div class="fieldset__btn">
-                            <button id="btn-yes" type="button" class="field-btn">כן</button>
-                            <button id="btn-no" class="field-btn" type="button">לא</button>
-                        </div>
-                    </div>
-
-                    <div class="select hidden show-on-game">
-                        <select id="select-required-game" class="field-select field" name="game">
-                            <option value="" selected>בחר משחק</option>
-
-                            <option value="חידון עמק המעיינות">חידון עמק המעיינות</option>
-
-                            <option value="חידון מגידו">חידון מגידו</option>
-
-                        </select>
-                    </div>
-
-                    <div class="select hidden show-on-game">
-                        <select id="select-required-town" class="field-select field" name="town">
-                            <option value="" selected>ישוב</option>
-                        </select>
-                    </div>
-
-                    <!--avatars block-->
-
-                    <div class="mood-block field hidden">
-                        <div class="mood-field" id="mood-field">
-                            <div class="mood-field_name">Mood</div>
-                            <div class="mood-field_avatars">
-                                <img class="user-avatar-1 avatar-small"
-                                     src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/avatars/prada.png"
-                                     alt="">
-                                <img class="user-avatar-2 avatar-small"
-                                     src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/avatars/confident.png"
-                                     alt="">
-                                <img class="user-avatar-3 avatar-small"
-                                     src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/avatars/orange.png"
-                                     alt="">
-                                <img class="user-avatar-4 avatar-small"
-                                     src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/avatars/jammed.png"
-                                     alt="">
-                                <img class="user-avatar-5 avatar-small"
-                                     src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/avatars/eco-friendly.png"
-                                     alt="">
-                                <img class="user-avatar-6 avatar-small"
-                                     src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/avatars/good-vibes.png"
-                                     alt="">
+                <div class="feed">
+                    <div class="post">
+                        <div class="post-wrapper">
+                            <div class="post-time">
+                                <time datetime="2021-01-10T14:20">10 ינואר 14:20</time>
+                            </div>
+                            <div class="post-img">
+                                <img src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/feed/post-img-1.png" alt="post image">
+                            </div>
+                            <div class="post-text">
+                                <p>חבל לכיש מחכה לכם עם מסלולי הליכה ניווט טריוויה ומשימות כייפיות לכל המשפחה. שבת 30
+                                    ינואר כל היום</p>
                             </div>
                         </div>
-                        <div id="avatars" class="avatars">
-                            <div class="avatars-block">
-                                <input id="user-avatar-1" class="user-avatar" type="radio" name="user-avatar"
-                                       value="prada">
-                                <label class="avatar-label-1 avatar-label" for="user-avatar-1">רק פראדה
-                                    דארלינג</label>
-                                <input id="user-avatar-2" class="user-avatar" type="radio" name="user-avatar"
-                                       value="confident">
-                                <label class="avatar-label-2 avatar-label" for="user-avatar-2">אם יש
-                                    לך שמש</label>
-                                <input id="user-avatar-3" class="user-avatar" type="radio" name="user-avatar"
-                                       value="orange">
-                                <label class="avatar-label-3 avatar-label" for="user-avatar-3">כתום זה
-                                    השחור החדש</label>
-                            </div>
-                            <div class="avatars-block">
-                                <input id="user-avatar-4" class="user-avatar" type="radio" name="user-avatar"
-                                       value="jammed">
-                                <label class="avatar-label-4 avatar-label" for="user-avatar-4">הכל פקוק
-                                    לי</label>
-                                <input id="user-avatar-5" class="user-avatar" type="radio" name="user-avatar"
-                                       value="eco-friendly">
-                                <label class="avatar-label-5 avatar-label" for="user-avatar-5">ידידות
-                                    סביבתית</label>
-                                <input id="user-avatar-6" class="user-avatar" type="radio" name="user-avatar"
-                                       value="good-vibes">
-                                <label class="avatar-label-6 avatar-label" for="user-avatar-6">הכל זה
-                                    לטובה</label>
-                            </div>
+                        <div class="post-avatar">
+                            <img src="img/post-avatar-1.png" alt="post avatar">
                         </div>
                     </div>
-
-                    <!--avatars block end-->
-
-                    <div id="time-windows-div" class="dispnone">
-                        <select id="time_windows_select" class="field-select field" name="time_window">
-                            <option selected value="">בחר חלון זמן</option>
-                        </select>
+                    <div class="post">
+                        <div class="post-wrapper">
+                            <div class="post-time">
+                                <time datetime="2021-01-10T14:20">10 ינואר 14:20</time>
+                            </div>
+                            <div class="post-text">
+                                <p>מסלול וחידון חדש בשמורת פורה. אגם עונתי, מסילת רכבת ממלחמת העולם הראשונה ומרבדי כלניות</p>
+                            </div>
+                        </div>
+                        <div class="post-avatar">
+                            <img src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/feed/post-avatar-1.png" alt="post avatar">
+                        </div>
                     </div>
-                    <div id=teams-input class="select hidden ">
-                        <select id="teams_select" class="field-select field" name="team">
-                            <option selected value="">קבוצה</option>
-                            <option id="btn_option" value="0">צור קבוצה חדשה</option>
-
-                        </select>
-                        <input id="input-required" class="field dispnone new-team-field" type="text"
-                               placeholder="שם הקבוצה" name="new_team">
-                        <input class="field dispnone new-team-field" type="text" placeholder="מוטו קבוצתי"
-                               name="new_team_moto">
+                    <div class="post">
+                        <div class="post-wrapper">
+                            <div class="post-time">
+                                <time datetime="2021-01-10T14:20">10 ינואר 14:20</time>
+                            </div>
+                            <div class="post-text">
+                                <p>מסלול וחידון חדש בשמורת פורה. אגם עונתי, מסילת רכבת ממלחמת העולם הראשונה ומרבדי כלניות</p>
+                            </div>
+                        </div>
+                        <div class="post-avatar">
+                            <img src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/feed/post-avatar-2.png" alt="post avatar">
+                        </div>
                     </div>
-
-                    <div id="code-div" class="dispnone">
-                        <input id="input-required-code" class="field code" type="text" placeholder="קוד כניסה למשחק"
-                               name="code">
+                    <div class="post">
+                        <div class="post-wrapper">
+                            <div class="post-time">
+                                <time datetime="2021-01-10T14:20">10 ינואר 14:20</time>
+                            </div>
+                            <div class="post-img">
+                                <img src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/feed/post-img-2.png" alt="post image">
+                            </div>
+                            <div class="post-text">
+                                <p>חבל לכיש מחכה לכם עם מסלולי הליכה ניווט טריוויה ומשימות כייפיות לכל המשפחה. שבת 30
+                                    ינואר כל היום</p>
+                            </div>
+                        </div>
+                        <div class="post-avatar">
+                            <img src="img/post-avatar-1.png" alt="post avatar">
+                        </div>
                     </div>
-
-                    <div class="btn-align">
-                        <input class="field-btn" type="submit" value="זהו">
+                    <div class="post">
+                        <div class="post-wrapper">
+                            <div class="post-time">
+                                <time datetime="2021-01-10T14:20">10 ינואר 14:20</time>
+                            </div>
+                            <div class="post-text">
+                                <p>מסלול וחידון חדש בשמורת פורה. אגם עונתי, מסילת רכבת ממלחמת העולם הראשונה ומרבדי כלניות</p>
+                            </div>
+                        </div>
+                        <div class="post-avatar">
+                            <img src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/feed/post-avatar-1.png" alt="post avatar">
+                        </div>
                     </div>
-                </form>
-                <div class="bottom-block"></div>
+                    <div class="post">
+                        <div class="post-wrapper">
+                            <div class="post-time">
+                                <time datetime="2021-01-10T14:20">10 ינואר 14:20</time>
+                            </div>
+                            <div class="post-text">
+                                <p>מסלול וחידון חדש בשמורת פורה. אגם עונתי, מסילת רכבת ממלחמת העולם הראשונה ומרבדי כלניות</p>
+                            </div>
+                        </div>
+                        <div class="post-avatar">
+                            <img src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/feed/post-avatar-2.png" alt="post avatar">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
 </div>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-<script>
-    let team_fields = document.querySelectorAll('.new-team-field'),
-        field_select = document.querySelectorAll('div.select'),
-        show_on_game = document.querySelectorAll('.show-on-game'),
-        teams_select = document.querySelector('#teams_select');
-    let btnYes = document.querySelector('#btn-yes');
-    let btnNo = document.querySelector('#btn-no');
-    let inputRequired = document.getElementById('input-required');
-    let selectRequiredTown = document.getElementById('select-required-town');
-    let selectRequiredTeam = document.getElementById('teams_select');
-    let moodBlock = document.querySelector('.mood-block'); //new line
-    let userAvatars = document.querySelectorAll('.user-avatar'); //new line
-    let timeWindowsSelect = document.getElementById('time_windows_select');
-
-    let selectRequiredGame = document.getElementById('select-required-game');
-    let dirAtr = document.querySelector('.container');
-    let divSubmit = document.querySelector('.btn-align');
-    let selectRight = document.querySelectorAll('.field-select');
-    let form = document.querySelector('#form-action');
-
-    let teamsInput = document.getElementById("teams-input")
-    let codeInput = document.querySelector('#input-required-code');
-    let codeDiv = document.querySelector('#code-div');
-    let timeWindowsDiv = document.querySelector('#time-windows-div');
-
-    let sub_message = ""
-
-    let gameId = document.querySelector('#game-id');
-    game_sub_message = "<div style='font-size: 20px;'> ברוכים הבאים ל[game_name].<br> לאחר שתלחצו על 'הבא' תקבלו מספר שאלות לדוגמה, <br> ומיד תעברו למפת המשחק. <br> מכאן, הכל תלוי בכם.ן ובכמה משימות ושאלות שתלציחו לסיים. בהצלחה! </div>"
-    non_game_sub_message = "<div style='font-size: 20px;'> תודה רבה וברוכים הבאים לRoadio. לחצו על 'הבא' כדי לחזור למפה ולהמשיך לשחק! </div>"
-    event_answer = "answer"
-    event_footer = "footer"
-    domain_url = "#"
-    item_id = 1234
-
-    games_info = {
-        "\u05d7\u05d9\u05d3\u05d5\u05df \u05de\u05d2\u05d9\u05d3\u05d5": {
-            "codes": ["3344"],
-            "id": 343,
-            "teams": [{
-                "team": "\u05e4\u05da\u05d5\u05d8\u05d5",
-                "team_moto": "\u05d4\u05db\u05dc\u05d1\u05dc\u05d1"
-            }, {
-                "team": "\u05d4\u05d0\u05dc\u05d5\u05e4\u05d9\u05dd",
-                "team_moto": "\u05ea\u05de\u05d9\u05d3 \u05d1\u05de\u05e7\u05d5\u05dd \u05d4\u05e8\u05d0\u05e9\u05d5\u05df"
-            }],
-            "teams_enabled": 1,
-            "time_windows": null,
-            "towns": ["\u05de\u05d2\u05d9\u05d3\u05d5", "\u05e2\u05d9\u05df \u05d4\u05e9\u05d5\u05e4\u05d8"]
-        },
-        "\u05d7\u05d9\u05d3\u05d5\u05df \u05e2\u05de\u05e7 \u05d4\u05de\u05e2\u05d9\u05d9\u05e0\u05d5\u05ea": {
-            "codes": null,
-            "id": 123,
-            "teams": [],
-            "teams_enabled": 0,
-            "time_windows": ["\u05d7\u05de\u05d9\u05e9\u05d9-\u05e9\u05d9\u05e9\u05d9", "\u05e9\u05d9\u05e9\u05d9-\u05e9\u05d1\u05ea"],
-            "towns": ["\u05e0\u05d9\u05e8 \u05d3\u05d5\u05d3", "\u05de\u05e1\u05d9\u05dc\u05d5\u05ea"]
-        }
-    }
-
-    if (dirAtr.getAttribute('dir') === 'ltr') {
-        divSubmit.classList.add('right');
-        btnYes.classList.add('left');
-    } else {
-        divSubmit.classList.add('left');
-        btnNo.classList.add('left');
-        selectRight.forEach(function (i) {
-            i.classList.add('right');
-        });
-    }
-
-
-    function send_event(event_type, params_dict) {
-        url = domain_url
-        url = url + "/" + event_type
-        had_param = false
-        for (var key in params_dict) {
-            if (!had_param) {
-                url = url + "?"
-                had_param = true
-            } else {
-                url = url + "&"
-            }
-            var value = params_dict[key];
-            url = url + key + "=" + encodeURI(value)
-        }
-        window.location.href = url
-
-    }
-
-
-    function send_show_footer() {
-        send_event(event_footer, {"action": "show"})
-    }
-
-
-    function send_hide_footer() {
-        send_event(event_footer, {"action": "hide"})
-    }
-
-    function send_answer(given_answer, is_right, attempt, score, show_animation, is_item_with_score) {
-        params_dict = {"answer": given_answer.trim()}
-        if (is_right != null) {
-            params_dict["is_right"] = is_right
-        }
-        if (attempt != null) {
-            params_dict["attempt"] = attempt
-        }
-        if (score != null) {
-            params_dict["score"] = score
-        }
-        if (show_animation != null) {
-            params_dict["show_animation"] = show_animation
-        }
-        if (is_item_with_score != null) {
-            params_dict["is_item_with_score"] = is_item_with_score
-        }
-        send_event(event_answer, params_dict)
-    }
-
-    selectRequiredGame.onchange = gameSelectionChanged
-
-    function gameSelectionChanged() {
-        defaultTown = new Option("ישוב", "");
-        defaultTeam = new Option("קבוצה", "");
-        defaultTimeWindow = new Option("בחר חלון זמן", "")
-
-        createNewTeam = new Option("צרו קבוצה חדשה", "")
-        createNewTeam.setAttribute("id", "btn_option");
-        createNewTeam.setAttribute("value", "0");
-
-
-        gameId.value = ""
-
-        removeAll(selectRequiredTown)
-        removeAll(selectRequiredTeam)
-        removeAll(timeWindowsSelect)
-
-        selectRequiredTown.add(defaultTown, undefined);
-        selectRequiredTeam.add(defaultTeam, undefined);
-        selectRequiredTeam.add(createNewTeam, undefined);
-        timeWindowsSelect.add(defaultTimeWindow, undefined);
-
-        codeInput.value = ""
-        codeInput.placeholder = "קוד למשחק"
-        codeInput.removeAttribute('required', 'required');
-        codeDiv.classList.add('dispnone');
-
-        timeWindowsDiv.classList.add('dispnone');
-        timeWindowsSelect.removeAttribute('required', 'required');
-
-        teams_select.removeAttribute('required');
-        teamsInput.classList.add('hidden');
-
-        team_fields.forEach(function (i) {
-            i.classList.add('dispnone');
-        });
-
-        team_fields.forEach(function (i) {
-            i.removeAttribute('required');
-        });
-
-
-        selected_game_name = selectRequiredGame.options[selectRequiredGame.selectedIndex].value;
-        game_dict = games_info[selected_game_name]
-        if (!game_dict) {
-
-            return
-        }
-
-        gameId.value = game_dict['id']
-
-        game_codes = game_dict['codes']
-        if (game_codes && game_codes.length > 0) {
-            codeDiv.classList.remove('dispnone');
-            codeInput.setAttribute('required', 'required');
-        }
-        game_time_windows = game_dict['time_windows']
-        if (game_time_windows && game_time_windows.length > 0) {
-            timeWindowsSelect.setAttribute('required', 'required');
-            timeWindowsDiv.classList.remove('dispnone');
-            for (idx in game_time_windows) {
-                let newOption = new Option(game_time_windows[idx], game_time_windows[idx]);
-                timeWindowsSelect.add(newOption, undefined);
-            }
-        }
-
-
-        teams_enabled = game_dict["teams_enabled"] > 0
-
-        if (teams_enabled) {
-            teamsInput.classList.remove('hidden');
-            teams_select.setAttribute('required', 'required');
-            game_teams = game_dict["teams"]
-
-            for (idx in game_teams) {
-                team = game_teams[idx]
-                team_val = team['team'] + ": " + team['team_moto']
-                let newOption = new Option(team_val, team_val);
-                selectRequiredTeam.add(newOption, undefined);
-            }
-        }
-
-        game_towns = game_dict["towns"]
-
-        for (idx in game_towns) {
-            let newOption = new Option(game_towns[idx], game_towns[idx]);
-            selectRequiredTown.add(newOption, undefined);
-        }
-
-    }
-
-    function removeAll(selectBox) {
-        while (selectBox.options.length > 0) {
-            selectBox.remove(0);
-        }
-    }
-
-    function set_active_game() {
-        document.getElementById("is_participate").value = 1
-        sub_message = game_sub_message
-    }
-
-    function disable_active_game() {
-        document.getElementById("is_participate").value = 0
-        sub_message = non_game_sub_message
-    }
-
-    // yes/no buttons
-    btnYes.addEventListener('click', function () {
-        gameSelectionChanged();
-        this.classList.toggle('active');
-        btnNo.classList.remove('active');
-
-        if (this.classList.contains('active')) {
-            set_active_game()
-            show_on_game.forEach(function (i) {
-                i.classList.remove('hidden');
-            });
-            selectRequiredTown.setAttribute('required', 'required');
-            moodBlock.classList.remove('hidden'); //new line
-            userAvatars.forEach(function (i) {    // new line
-                i.setAttribute('required', 'required');  // new line
-            });
-
-
-        } else {
-            disable_active_game()
-            team_fields.forEach(function (i) {
-                i.classList.add('dispnone');
-            });
-
-            show_on_game.forEach(function (i) {
-                i.classList.add('hidden');
-            });
-            teamsInput.classList.add('hidden');
-            moodBlock.classList.add('hidden'); //new line
-            userAvatars.forEach(function (i) { // new line
-                i.removeAttribute('required');  // new line
-            });
-            teams_select.selectedIndex = 0;
-        }
-
-        // select active
-
-        teams_select.onchange = function () {
-            let indexS = teams_select.selectedIndex,
-                option = teams_select.querySelectorAll('option')[indexS],
-                selectedIds = option.getAttribute('id');
-
-            if (selectedIds === 'btn_option') {
-                inputRequired.setAttribute('required', 'required');
-                team_fields.forEach(function (i) {
-                    i.classList.remove('dispnone');
-                });
-            } else {
-                inputRequired.removeAttribute('required');
-                team_fields.forEach(function (i) {
-                    i.classList.add('dispnone');
-                });
-            }
-        };
-
-
-        return false;
-    });
-
-    btnNo.addEventListener('click', function () {
-        this.classList.toggle('active');
-        btnYes.classList.remove('active');
-        gameId.value = ""
-        codeInput.value = ""
-        codeInput.placeholder = "קוד למשחק"
-
-        if (this.classList.contains('active')) {
-            disable_active_game()
-            field_select.forEach(function (i) {
-                i.classList.add('hidden');
-            });
-            team_fields.forEach(function (i) {
-                i.classList.add('dispnone');
-            });
-            inputRequired.removeAttribute('required');
-            selectRequiredTown.removeAttribute('required');
-            selectRequiredTeam.removeAttribute('required');
-            codeInput.removeAttribute('required');
-
-            codeDiv.classList.add('dispnone');
-
-            timeWindowsDiv.classList.add('dispnone');
-            timeWindowsSelect.removeAttribute('required');
-            moodBlock.classList.add('hidden'); //new line
-            userAvatars.forEach(function (i) { // new line
-                i.removeAttribute('required');  // new line
-            });
-        }
-
-    });
-
-    function validateGameCode() {
-        var code = codeInput.value;
-        var game_name = selectRequiredGame.value;
-        game = games_info[game_name]
-        if (!game) {
-            return true
-        }
-
-        game_codes = game['codes']
-        if (game_codes && game_codes.length > 0) {
-            if (!code) {
-                return false;
-            }
-            if (game_codes.includes(code)) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    // form submit
-    form.addEventListener('submit', function (e) {
-        if (btnYes.classList.contains('active') || btnNo.classList.contains('active')) {
-            if (btnYes.classList.contains('active') && !validateGameCode()) {
-                codeInput.placeholder = "הקוד לא נכון. נסו שוב"
-                codeInput.value = ""
-                e.preventDefault();
-            } else {
-                form.classList.add('success');
-                sub_message = sub_message.replace("[game_name]", selectRequiredGame.value);
-                document.querySelector('.main-block').innerHTML += '<div class="form-success">' + sub_message + '</div>';
-                fetch(form.action, {method: 'post', body: new FormData(form)});
-
-                send_show_footer()
-
-            }
-        } else {
-            alert('Please select "Yes" or "No" button');
-            e.preventDefault();
-        }
-    });
-
-
-    send_hide_footer()
-
-
-    //avatars block
-
-    let container = document.getElementById('avatars');
-
-    function closeToogle() {
-
-        if (!container.classList.contains('active')) {
-            container.classList.add('active');
-            container.style.height = 'auto';
-            container.style.paddingBottom = '25px';
-            let height = "255px";
-
-            container.style.height = '0px';
-
-            setTimeout(function () {
-                container.style.height = height;
-            }, 0);
-        } else {
-            container.style.height = '0px';
-            container.style.paddingBottom = '0px';
-            container.classList.remove('active');
-        }
-    }
-
-    function pickAvatar(caller_idx) {
-        closeToogle();
-        let userAvatars = document.getElementsByClassName("avatar-small");
-        for (j = 0; j < userAvatars.length; j++) {
-            if (j == caller_idx) {
-                userAvatars[j].classList.add('selected');
-            } else {
-                userAvatars[j].classList.remove('selected');
-            }
-        }
-    }
-
-    function addClickHandler(elem, i) {
-        elem.addEventListener('click', function (e) {
-            pickAvatar(i)
-        }, false)
-    }
-
-    document.getElementById('mood-field').addEventListener('click', closeToogle);
-    //avatars block
-
-
-    let avatarLabels = document.getElementsByClassName("avatar-label");
-    for (i = 0; i < avatarLabels.length; i++) {
-        addClickHandler(avatarLabels[i], i)
-
-    }
-
-
-    //     $('.avatar-label').click(function (event) {
-    //         if (event.currentTarget.classList.contains('avatar-label-1')) {
-    //             $('.user-avatar-1').addClass('selected');
-    //             $('.user-avatar-2').removeClass('selected');
-    //             $('.user-avatar-3').removeClass('selected');
-    //             $('.user-avatar-4').removeClass('selected');
-    //             $('.user-avatar-5').removeClass('selected');
-    //             $('.user-avatar-6').removeClass('selected');
-    //             $('.avatars').slideToggle();
-    //         } else if (event.currentTarget.classList.contains('avatar-label-2')) {
-    //             $('.user-avatar-2').addClass('selected');
-    //             $('.user-avatar-1').removeClass('selected');
-    //             $('.user-avatar-3').removeClass('selected');
-    //             $('.user-avatar-4').removeClass('selected');
-    //             $('.user-avatar-5').removeClass('selected');
-    //             $('.user-avatar-6').removeClass('selected');
-    //             $('.avatars').slideToggle();
-    //         }  else if (event.currentTarget.classList.contains('avatar-label-3')) {
-    //             $('.user-avatar-3').addClass('selected');
-    //             $('.user-avatar-2').removeClass('selected');
-    //             $('.user-avatar-1').removeClass('selected');
-    //             $('.user-avatar-4').removeClass('selected');
-    //             $('.user-avatar-5').removeClass('selected');
-    //             $('.user-avatar-6').removeClass('selected');
-    //             $('.avatars').slideToggle();
-    //         }  else if (event.currentTarget.classList.contains('avatar-label-4')) {
-    //             $('.user-avatar-4').addClass('selected');
-    //             $('.user-avatar-2').removeClass('selected');
-    //             $('.user-avatar-3').removeClass('selected');
-    //             $('.user-avatar-1').removeClass('selected');
-    //             $('.user-avatar-5').removeClass('selected');
-    //             $('.user-avatar-6').removeClass('selected');
-    //             $('.avatars').slideToggle();
-    //         }  else if (event.currentTarget.classList.contains('avatar-label-5')) {
-    //             $('.user-avatar-5').addClass('selected');
-    //             $('.user-avatar-2').removeClass('selected');
-    //             $('.user-avatar-3').removeClass('selected');
-    //             $('.user-avatar-4').removeClass('selected');
-    //             $('.user-avatar-1').removeClass('selected');
-    //             $('.user-avatar-6').removeClass('selected');
-    //             $('.avatars').slideToggle();
-    //         }  else if (event.currentTarget.classList.contains('avatar-label-6')) {
-    //             $('.user-avatar-6').addClass('selected');
-    //             $('.user-avatar-2').removeClass('selected');
-    //             $('.user-avatar-3').removeClass('selected');
-    //             $('.user-avatar-4').removeClass('selected');
-    //             $('.user-avatar-5').removeClass('selected');
-    //             $('.user-avatar-1').removeClass('selected');
-    //             $('.avatars').slideToggle();
-    //         }
-    //     });
-    // });
-
-
-</script>
 </body>
 </html>
