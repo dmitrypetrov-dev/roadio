@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -377,79 +377,114 @@
         .wrapper {
             max-width: 600px;
             margin: 0 auto;
-            overflow: hidden;
         }
 
-        .container {
-            width: 100%;
-            height: 100vh;
+        .quiz {
+            max-width: 383px;
+            height: 520px;
+            margin: 0 auto;
         }
 
-        .main-block {
+        .quiz-header {
             width: 100%;
-            height: 100%;
-            padding: 0 10px 0 10px;
-            background: url(https://raw.githubusercontent.com/moscovig/roadio_static/master/images/feed/bg-img.png) center no-repeat;
-            background-size: cover;
+            background-color: #1e125c;
+            font-family: Heebo, Arial, sans-serif;
+            font-size: 21px;
+            font-weight: 900;
+            font-style: normal;
+            color: #fff;
+            padding: 7px 0 7px 24px;
+            border-top-right-radius: 17px;
+            border-top-left-radius: 17px;
+        }
+
+        .quiz-feed {
+            width: 100%;
+            height: 482px;
+            background-color: #e4edf4;
+            overflow: auto;
+            padding-top: 25px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
         }
 
-        .feed {
-            width: 100%;
-            height: 67vh;
-            border-radius: 13px;
-            box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.3);
-            background-color: #fff;
-            padding: 5px 20px 0 20px;
-            overflow: auto;
+        .quiz-item,
+        .quiz-story {
+            width: 90%;
+            margin: 0 auto 20px auto;
         }
 
-        .post {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 12px;
+        .quiz-story.hidden {
+            display: none;
         }
 
-        .post-time {
-            font-family: Heebo, Arial, sans-serif;
-            font-size: 12px;
-            font-weight: 300;
-            font-style: normal;
-            line-height: normal;
-            letter-spacing: normal;
-            color: #787878;
-            padding: 0 10px;
-        }
-
-        .post-img {
-            border-radius: 13px;
+        .quiz-item_img,
+        .quiz-story_img {
+            height: 180px;
+            margin-bottom: 10px;
+            border-radius: 5px;
             overflow: hidden;
         }
 
-        .post-img img {
-
+        .quiz-item_img img,
+        .quiz-story_img img {
+            height: 100%;
         }
 
-        .post-text {
-            border-radius: 13px;
-            background-color: #dadada;
+        .quiz-item_wrapper,
+        .quiz-story_wrapper {
+            width: 100%;
+            display: flex;
+            padding-right: 15px;
+            margin-bottom: 10px;
+        }
+
+        .quiz-item_avatar,
+        .quiz-story_avatar {
+            flex-shrink: 0;
+            margin-right: 10px;
+        }
+
+        .quiz-item_question,
+        .quiz-story_text {
+            font-family: Heebo, Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            font-style: normal;
+            color: #1e125c;
+            background-color: #fff;
             padding: 5px 10px 5px 10px;
+            border-radius: 7px;
+            box-shadow: 3px 3px 3px 0 rgba(50, 50, 50, 0.3);
+        }
+
+        .quiz-item_answers {
+            padding-left: 50px;
+        }
+
+        .quiz-item_answer {
+            width: 180px;
             font-family: Heebo, Arial, sans-serif;
             font-size: 16px;
-            font-weight: normal;
+            font-weight: 700;
             font-style: normal;
-            letter-spacing: normal;
-            color: #000;
+            color: #1e125c;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 3px 3px 3px 0 rgba(50, 50, 50, 0.3);
+            padding: 5px 15px 5px 15px;
+            margin-bottom: 5px;
+            cursor: pointer;
         }
 
-        .post-avatar {
-            padding-top: 20px;
-            max-width: 40px;
-            margin-right: 20px;
-            flex-shrink: 0;
+        .quiz-item_answer:hover {
+            color: #fff;
+            background-color: #1e125c;
+        }
+
+        .quiz-item_answer.active {
+            color: #fff;
+            background-color: #1e125c;
         }
 
 
@@ -458,100 +493,57 @@
 </head>
 <body>
 <div class="wrapper">
-    <main>
-        <div class="container" dir="rtl">
-            <div class="main-block">
-                <div class="feed">
-                    <div class="post">
-                        <div class="post-wrapper">
-                            <div class="post-time">
-                                <time datetime="2021-01-10T14:20">10 ינואר 14:20</time>
-                            </div>
-                            <div class="post-img">
-                                <img src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/feed/post-img-1.png" alt="post image">
-                            </div>
-                            <div class="post-text">
-                                <p>חבל לכיש מחכה לכם עם מסלולי הליכה ניווט טריוויה ומשימות כייפיות לכל המשפחה. שבת 30
-                                    ינואר כל היום</p>
-                            </div>
-                        </div>
-                        <div class="post-avatar">
-                            <img src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/feed/post-avatar-1.png" alt="post avatar">
-                        </div>
+    <div class="quiz">
+        <div class="quiz-header">The Music Quiz</div>
+        <div class="quiz-feed">
+            <div class="quiz-item">
+                <div class="quiz-item_img">
+                    <img src="img/quiz-img.jpg" alt="Question image">
+                </div>
+                <div class="quiz-item_wrapper">
+                    <div class="quiz-item_avatar">
+                        <img src="img/question-avatar.jpg" alt="Question avatar">
                     </div>
-                    <div class="post">
-                        <div class="post-wrapper">
-                            <div class="post-time">
-                                <time datetime="2021-01-10T14:20">10 ינואר 14:20</time>
-                            </div>
-                            <div class="post-text">
-                                <p>מסלול וחידון חדש בשמורת פורה. אגם עונתי, מסילת רכבת ממלחמת העולם הראשונה ומרבדי כלניות</p>
-                            </div>
-                        </div>
-                        <div class="post-avatar">
-                            <img src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/feed/post-avatar-1.png" alt="post avatar">
-                        </div>
+                    <div class="quiz-item_question">
+                        What flamboyant pianist was "Keyboard Artist of the Year" While this song was #1 in the UK
                     </div>
-                    <div class="post">
-                        <div class="post-wrapper">
-                            <div class="post-time">
-                                <time datetime="2021-01-10T14:20">10 ינואר 14:20</time>
-                            </div>
-                            <div class="post-text">
-                                <p>מסלול וחידון חדש בשמורת פורה. אגם עונתי, מסילת רכבת ממלחמת העולם הראשונה ומרבדי כלניות</p>
-                            </div>
-                        </div>
-                        <div class="post-avatar">
-                            <img src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/feed/post-avatar-2.png" alt="post avatar">
-                        </div>
+                </div>
+                <div class="quiz-item_answers">
+                    <div class="quiz-item_answer">Liberace</div>
+                    <div class="quiz-item_answer">George Michael</div>
+                    <div class="quiz-item_answer">Elton John</div>
+                </div>
+            </div>
+            <div class="quiz-story hidden">
+                <div class="quiz-story_img">
+                    <img src="img/story-img.jpg" alt="Story image">
+                </div>
+                <div class="quiz-story_wrapper">
+                    <div class="quiz-story_avatar">
+                        <img src="img/question-avatar.jpg" alt="Question avatar">
                     </div>
-                    <div class="post">
-                        <div class="post-wrapper">
-                            <div class="post-time">
-                                <time datetime="2021-01-10T14:20">10 ינואר 14:20</time>
-                            </div>
-                            <div class="post-img">
-                                <img src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/feed/post-img-2.png" alt="post image">
-                            </div>
-                            <div class="post-text">
-                                <p>חבל לכיש מחכה לכם עם מסלולי הליכה ניווט טריוויה ומשימות כייפיות לכל המשפחה. שבת 30
-                                    ינואר כל היום</p>
-                            </div>
-                        </div>
-                        <div class="post-avatar">
-                            <img src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/feed/post-avatar-1.png" alt="post avatar">
-                        </div>
-                    </div>
-                    <div class="post">
-                        <div class="post-wrapper">
-                            <div class="post-time">
-                                <time datetime="2021-01-10T14:20">10 ינואר 14:20</time>
-                            </div>
-                            <div class="post-text">
-                                <p>מסלול וחידון חדש בשמורת פורה. אגם עונתי, מסילת רכבת ממלחמת העולם הראשונה ומרבדי כלניות</p>
-                            </div>
-                        </div>
-                        <div class="post-avatar">
-                            <img src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/feed/post-avatar-1.png" alt="post avatar">
-                        </div>
-                    </div>
-                    <div class="post">
-                        <div class="post-wrapper">
-                            <div class="post-time">
-                                <time datetime="2021-01-10T14:20">10 ינואר 14:20</time>
-                            </div>
-                            <div class="post-text">
-                                <p>מסלול וחידון חדש בשמורת פורה. אגם עונתי, מסילת רכבת ממלחמת העולם הראשונה ומרבדי כלניות</p>
-                            </div>
-                        </div>
-                        <div class="post-avatar">
-                            <img src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/feed/post-avatar-2.png" alt="post avatar">
-                        </div>
+                    <div class="quiz-story_text">
+                        Wladziu Valentino Liberace was an American pianist, singer and actor. A child prodigy born in
+                        Wisconsin to parents of Italian and Polish origin.
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
 </div>
+<script>
+    let answerButtons = document.querySelectorAll('.quiz-item_answer');
+    let quizStory = document.querySelector('.quiz-story');
+
+    for (let i = 0; i < answerButtons.length; i++) {
+        answerButtons[i].onclick = function () {
+            answerButtons[i].classList.toggle('active');
+            if (answerButtons[i].innerHTML === 'Liberace') {
+                quizStory.classList.remove('hidden');
+            }
+        };
+    }
+
+</script>
 </body>
 </html>
