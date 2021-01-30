@@ -383,10 +383,14 @@
             max-width: 383px;
             height: 520px;
             margin: 0 auto;
+            position: relative;
         }
 
         .quiz-header {
             width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
             background-color: #1e125c;
             font-family: Heebo, Arial, sans-serif;
             font-size: 21px;
@@ -398,93 +402,44 @@
             border-top-left-radius: 17px;
         }
 
-        .quiz-feed {
-            width: 100%;
-            height: 482px;
-            background-color: #e4edf4;
-            overflow: auto;
-            padding-top: 25px;
-            display: flex;
-            flex-direction: column;
+        .quiz-body {
+            height: 100%;
+            padding-top: 100px;
+
+        }
+
+        .start-btn {
+            width: 100px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .start-btn.hidden {
+            display: none;
         }
 
         .quiz-item,
         .quiz-story {
-            width: 90%;
-            margin: 0 auto 20px auto;
-        }
-
-        .quiz-story.hidden {
             display: none;
         }
 
-        .quiz-item_img,
-        .quiz-story_img {
-            height: 180px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            overflow: hidden;
+        .quiz-item.active,
+        .quiz-story.active {
+            display: block;
         }
 
-        .quiz-item_img img,
-        .quiz-story_img img {
-            height: 100%;
+        .quiz-question {
+            margin-bottom: 20px;
         }
 
-        .quiz-item_wrapper,
-        .quiz-story_wrapper {
-            width: 100%;
-            display: flex;
-            padding-right: 15px;
-            margin-bottom: 10px;
+        .answer-btn,
+        .next-btn {
+            width: 120px;
         }
 
-        .quiz-item_avatar,
-        .quiz-story_avatar {
-            flex-shrink: 0;
-            margin-right: 10px;
-        }
-
-        .quiz-item_question,
-        .quiz-story_text {
-            font-family: Heebo, Arial, sans-serif;
-            font-size: 14px;
-            font-weight: 500;
-            font-style: normal;
-            color: #1e125c;
-            background-color: #fff;
-            padding: 5px 10px 5px 10px;
-            border-radius: 7px;
-            box-shadow: 3px 3px 3px 0 rgba(50, 50, 50, 0.3);
-        }
-
-        .quiz-item_answers {
-            padding-left: 50px;
-        }
-
-        .quiz-item_answer {
-            width: 180px;
-            font-family: Heebo, Arial, sans-serif;
-            font-size: 16px;
-            font-weight: 700;
-            font-style: normal;
-            color: #1e125c;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 3px 3px 3px 0 rgba(50, 50, 50, 0.3);
-            padding: 5px 15px 5px 15px;
-            margin-bottom: 5px;
-            cursor: pointer;
-        }
-
-        .quiz-item_answer:hover {
-            color: #fff;
-            background-color: #1e125c;
-        }
-
-        .quiz-item_answer.active {
-            color: #fff;
-            background-color: #1e125c;
+        .story-text {
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
 
 
@@ -495,54 +450,89 @@
 <div class="wrapper">
     <div class="quiz">
         <div class="quiz-header">The Music Quiz</div>
-        <div class="quiz-feed">
+        <div class="quiz-body">
+            <button class="start-btn">start</button>
             <div class="quiz-item">
-                <div class="quiz-item_img">
-                    <img src="img/quiz-img.jpg" alt="Question image">
-                </div>
-                <div class="quiz-item_wrapper">
-                    <div class="quiz-item_avatar">
-                        <img src="img/question-avatar.jpg" alt="Question avatar">
-                    </div>
-                    <div class="quiz-item_question">
-                        What flamboyant pianist was "Keyboard Artist of the Year" While this song was #1 in the UK
-                    </div>
-                </div>
-                <div class="quiz-item_answers">
-                    <div class="quiz-item_answer">Liberace</div>
-                    <div class="quiz-item_answer">George Michael</div>
-                    <div class="quiz-item_answer">Elton John</div>
+                <p class="quiz-question"></p>
+                <div class="quiz-answers">
+                    <button class="answer-btn"></button>
+                    <button class="answer-btn"></button>
+                    <button class="answer-btn"></button>
                 </div>
             </div>
-            <div class="quiz-story hidden">
-                <div class="quiz-story_img">
-                    <img src="img/story-img.jpg" alt="Story image">
-                </div>
-                <div class="quiz-story_wrapper">
-                    <div class="quiz-story_avatar">
-                        <img src="img/question-avatar.jpg" alt="Question avatar">
-                    </div>
-                    <div class="quiz-story_text">
-                        Wladziu Valentino Liberace was an American pianist, singer and actor. A child prodigy born in
-                        Wisconsin to parents of Italian and Polish origin.
-                    </div>
-                </div>
+            <div class="quiz-story">
+                <img class="story-img" src="" alt="Story image">
+                <p class="story-text"></p>
+                <button class="next-btn">Next question</button>
             </div>
         </div>
     </div>
 </div>
 <script>
-    let answerButtons = document.querySelectorAll('.quiz-item_answer');
-    let quizStory = document.querySelector('.quiz-story');
 
-    for (let i = 0; i < answerButtons.length; i++) {
-        answerButtons[i].onclick = function () {
-            answerButtons[i].classList.toggle('active');
-            if (answerButtons[i].innerHTML === 'Liberace') {
-                quizStory.classList.remove('hidden');
-            }
-        };
+    let startButton = document.querySelector('.start-btn');
+    let quizItem = document.querySelector('.quiz-item');
+    let quizQuestion = document.querySelector('.quiz-question');
+    let answerButtons = document.querySelectorAll('.answer-btn');
+    let quizStory = document.querySelector('.quiz-story');
+    let storyImg = document.querySelector('.story-img');
+    let storyText = document.querySelector('.story-text');
+    let nextButton = document.querySelector('.next-btn');
+    let currentItems;
+    let currentItem = 0;
+
+
+    startButton.addEventListener('click', () => {
+        sendRequest();
+        startButton.classList.add('hidden');
+        quizItem.classList.add('active');
+    })
+
+    function sendRequest() {
+        fetch('https://app.roadio.io/v2/play/items?apikey=1e8ec6bc-7d28-4cd3-a947-d4ee2f9d1dcc&station=wnew&locale=en')
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    console.log('something went wrong...please try again!');
+                }
+            })
+            .then((data) => {
+                console.log(data);
+                currentItems = data.items;
+                setQuestion();
+            });
     }
+
+    function setQuestion() {
+        quizQuestion.innerHTML = currentItems[currentItem].question;
+        for (let i = 0; i < answerButtons.length; i++) {
+            answerButtons[i].innerHTML = currentItems[currentItem].answers[i];
+            answerButtons[i].onclick = () => {
+                if (currentItems[currentItem].answers[i] === currentItems[currentItem].right_answer) {
+                    alert("Yes! That's correct");
+                    setStory(currentItems[currentItem].story);
+                    currentItem++;
+                } else {
+                    alert("Nope.. try again");
+                }
+            }
+        }
+    }
+
+    function setStory(story) {
+        quizItem.classList.remove('active');
+        quizItem.classList.add('hidden');
+        quizStory.classList.add('active');
+        storyText.innerHTML = story;
+        nextButton.addEventListener('click', () => {
+            setQuestion();
+            quizStory.classList.remove('active');
+            quizStory.classList.add('hidden');
+            quizItem.classList.add('active');
+        })
+    }
+
 
 </script>
 </body>
