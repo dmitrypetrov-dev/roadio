@@ -404,18 +404,14 @@
 
         .quiz-body {
             height: 100%;
-            padding-top: 100px;
+            padding-top: 50px;
 
         }
 
         .start-btn {
             width: 100px;
-            display: block;
-            margin: 0 auto;
-        }
-
-        .start-btn.hidden {
             display: none;
+            margin: 0 auto;
         }
 
         .quiz-item,
@@ -424,7 +420,8 @@
         }
 
         .quiz-item.active,
-        .quiz-story.active {
+        .quiz-story.active,
+        .start-btn.active {
             display: block;
         }
 
@@ -451,7 +448,7 @@
     <div class="quiz">
         <div class="quiz-header">The Music Quiz</div>
         <div class="quiz-body">
-            <button class="start-btn">start</button>
+            <button class="start-btn active">start</button>
             <div class="quiz-item">
                 <p class="quiz-question"></p>
                 <div class="quiz-answers">
@@ -480,12 +477,14 @@
     let nextButton = document.querySelector('.next-btn');
     let currentItems;
     let currentItem = 0;
+    let currentArtist;
+    let previousArtist;
+    let intervalID;
 
 
     startButton.addEventListener('click', () => {
         sendRequest();
-        startButton.classList.add('hidden');
-        quizItem.classList.add('active');
+        startButton.classList.remove('active');
     })
 
     function sendRequest() {
@@ -494,14 +493,24 @@
                 if (response.ok) {
                     return response.json();
                 } else {
-                    console.log('something went wrong...please try again!');
+                    alert('oops! something went wrong...please try again!');
                 }
             })
             .then((data) => {
                 console.log(data);
                 currentItems = data.items;
-                setQuestion();
-            });
+                currentArtist = data.items[0].artist;
+                if (currentArtist !== previousArtist) {
+                    setQuestion();
+                    quizItem.classList.add('active');
+                    quizStory.classList.remove('active');
+                    nextButton.removeAttribute('disabled');
+                    clearInterval(intervalID);
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+            })
     }
 
     function setQuestion() {
@@ -511,7 +520,7 @@
             answerButtons[i].onclick = () => {
                 if (currentItems[currentItem].answers[i] === currentItems[currentItem].right_answer) {
                     alert("Yes! That's correct");
-                    setStory(currentItems[currentItem].story);
+                    setStory(currentItems[currentItem].story_images[0], currentItems[currentItem].story);
                     currentItem++;
                 } else {
                     alert("Nope.. try again");
@@ -520,19 +529,25 @@
         }
     }
 
-    function setStory(story) {
+    function setStory(image, story) {
         quizItem.classList.remove('active');
-        quizItem.classList.add('hidden');
         quizStory.classList.add('active');
+        storyImg.src = image;
         storyText.innerHTML = story;
-        nextButton.addEventListener('click', () => {
-            setQuestion();
-            quizStory.classList.remove('active');
-            quizStory.classList.add('hidden');
-            quizItem.classList.add('active');
-        })
+        previousArtist = currentArtist;
+        nextButton.onclick = () => {
+            if (currentItems.length > currentItem) {
+                setQuestion();
+                quizStory.classList.remove('active');
+                quizItem.classList.add('active');
+            } else {
+                alert('questions is over! please wait..');
+                intervalID = setInterval(sendRequest, 10000);
+                nextButton.setAttribute('disabled', 'disabled');
+                currentItem = 0;
+            }
+        }
     }
-
 
 </script>
 </body>
