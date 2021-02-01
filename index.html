@@ -479,11 +479,13 @@
     let currentItem = 0;
     let currentArtist;
     let previousArtist;
+    let startIntervalID;
     let intervalID;
 
 
     startButton.addEventListener('click', () => {
         sendRequest();
+        startIntervalID = setInterval(sendRequest, 10000);
         startButton.classList.remove('active');
     })
 
@@ -499,7 +501,13 @@
             .then((data) => {
                 console.log(data);
                 currentItems = data.items;
-                currentArtist = data.items[0].artist;
+                if (currentItems.length === 0) {
+                    console.log('uploading questions...please wait');
+                    quizQuestion.innerHTML = 'uploading questions...please wait';
+                } else {
+                    currentArtist = currentItems[0].artist;
+                    clearInterval(startIntervalID);
+                }
                 if (currentArtist !== previousArtist) {
                     setQuestion();
                     quizItem.classList.add('active');
