@@ -433,7 +433,34 @@
             text-align: center;
             color: #ffffff;
             margin-top: 55px;
-            margin-bottom: 50px;
+            margin-bottom: 5vh;
+            z-index: 200;
+        }
+
+        .answers {
+            width: 100%;
+            font-family: Heebo, Arial, sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+            font-style: normal;
+            letter-spacing: normal;
+            text-align: center;
+            color: #787878;
+            z-index: 200;
+            display: none;
+        }
+
+        .answers div {
+            background-color: #fff;
+            padding: 5px 15px;
+            border-radius: 32px;
+            margin-left: 5px;
+            margin-bottom: 10px;
+        }
+
+        .answers.active {
+            display: flex;
+            flex-wrap: wrap;
         }
 
         .start-btn {
@@ -600,6 +627,11 @@
                     אתם על הר ארבל?
                     מעולה. יש לכם 2 דקות לתת לנו כמה שיותר שמות של מקומות שרואים מהתצפית
                 </div>
+                <div class="answers">
+                    <div>answer</div>
+                    <div>test</div>
+                    <div>word</div>
+                </div>
                 <button class="start-btn" type="button">קדימה</button>
                 <form action="">
                     <input type="text">
@@ -613,6 +645,7 @@
 
     let startButton = document.querySelector('.start-btn');
     let indicators = document.querySelector('.indicators');
+    let answers = document.querySelector('.answers');
     let form = document.querySelector('form');
     let input = document.querySelector('input');
     let rightAnswers = ['answer', 'test', 'word', 'number'];
@@ -621,6 +654,7 @@
     startButton.addEventListener('click', function () {
         startButton.classList.add('hidden');
         indicators.classList.add('active');
+        answers.classList.add('active');
         form.classList.add('active');
         input.focus();
     });
