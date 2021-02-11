@@ -611,7 +611,7 @@
     let indicators = document.querySelector('.indicators');
     let form = document.querySelector('form');
     let input = document.querySelector('input');
-    let rightAnswers = {};
+    let rightAnswers = ['answer', 'test', 'word', 'number'];
 
 
     startButton.addEventListener('click', function () {
@@ -619,6 +619,10 @@
         indicators.classList.add('active');
         form.classList.add('active');
         input.focus();
+    });
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
     });
 
 </script>
