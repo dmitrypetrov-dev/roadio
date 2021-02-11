@@ -519,6 +519,10 @@
             align-items: center;
         }
 
+        .score-counter {
+            width: 82px;
+        }
+
         .counter {
             width: 112px;
             height: 57px;
@@ -625,11 +629,15 @@
                         <div>
                             <img src="img/timer.png" alt="">
                         </div>
-                        <span>00:00</span>
+                        <div>00:<span class="countdown"></span></div>
                     </div>
-                    <div class="counter"><span>20</span>/<span>0</span></div>
+                    <div class="counter">
+                        <div class="counter-end"></div>
+                        /
+                        <div class="counter-start"></div>
+                    </div>
                     <div class="score">
-                        <span>0</span>
+                        <div class="score-counter"></div>
                         <div>
                             <img src="img/points.png" alt="">
                         </div>
@@ -656,8 +664,15 @@
     let answers = document.querySelector('.answers');
     let form = document.querySelector('form');
     let input = document.querySelector('input');
-    let rightAnswers = ['answer', 'test', 'word', 'number'];
+    let score = document.querySelector('.score-counter');
+    let countQuestions = document.querySelector('.counter-start');
+    let totalQuestions = document.querySelector('.counter-end');
+    let timerValue = document.querySelector('.countdown');
+    let rightAnswers = ['answer', 'test', 'word', 'number', 'roadio'];
     let div;
+    let scoreCounter = 0;
+    let questionCounter = 0;
+    let countDown = '20';
 
 
     startButton.addEventListener('click', function () {
@@ -666,23 +681,40 @@
         answers.classList.add('active');
         form.classList.add('active');
         input.focus();
+        score.textContent = String(scoreCounter);
+        countQuestions.textContent = String(questionCounter);
+        totalQuestions.textContent = String(rightAnswers.length);
+        timerValue.textContent = countDown;
+        IntervalId = setInterval(timerDecrement, 1000);
     });
 
     form.addEventListener('submit', function (e) {
         e.preventDefault();
         let value = input.value;
         for (let i = 0; i < rightAnswers.length; i++) {
-            if (rightAnswers[i] === value) {
+            if (rightAnswers[i] === value.toLowerCase()) {
                 div = document.createElement('div');
                 answers.appendChild(div);
                 div.textContent = value;
                 input.value = '';
+                scoreCounter = scoreCounter + 100;
+                score.textContent = String(scoreCounter);
+                questionCounter++;
+                countQuestions.textContent = String(questionCounter);
             } else {
                 input.value = '';
             }
         }
 
     });
+
+    function timerDecrement() {
+        countDown--;
+        timerValue.textContent = countDown;
+        if (Number(countDown) === 0) {
+            clearInterval(IntervalId);
+        }
+    }
 
 </script>
 </body>
