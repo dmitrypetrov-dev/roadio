@@ -585,6 +585,27 @@
             color: #546e7a;
         }
 
+        .done-btn {
+            width: 180px;
+            height: 38px;
+            color: #2dbcf8;
+            font-family: Heebo, Arial, sans-serif;
+            font-weight: 700;
+            font-size: 25px;
+            background-color: #fff;
+            box-shadow: 0 1px 3px rgba(33, 110, 138, .5);
+            cursor: pointer;
+            position: absolute;
+            top: 60%;
+            left: 20px;
+            z-index: 200;
+            display: none;
+        }
+
+        .done-btn.active {
+            display: inline-block;
+        }
+
 
         @media screen and (max-width: 600px) {
 
@@ -612,9 +633,6 @@
             }
         }
 
-        @media screen and (max-width: 375px) {
-
-        }
 
     </style>
     <title>Roadio</title>
@@ -649,6 +667,7 @@
                 </div>
                 <div class="answers"></div>
                 <button class="start-btn" type="button">קדימה</button>
+                <button class="done-btn" type="button">אני סיימתי</button>
                 <form action="">
                     <input type="text">
                 </form>
@@ -668,6 +687,7 @@
     let countQuestions = document.querySelector('.counter-start');
     let totalQuestions = document.querySelector('.counter-end');
     let timerValue = document.querySelector('.countdown');
+    let doneButton = document.querySelector('.done-btn');
     let rightAnswers = ['answer', 'test', 'word', 'number', 'roadio'];
     let div;
     let scoreCounter = 0;
@@ -680,6 +700,7 @@
         indicators.classList.add('active');
         answers.classList.add('active');
         form.classList.add('active');
+        doneButton.classList.add('active');
         input.focus();
         score.textContent = String(scoreCounter);
         countQuestions.textContent = String(questionCounter);
