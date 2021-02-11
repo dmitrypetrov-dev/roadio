@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
@@ -377,185 +377,237 @@
         .wrapper {
             max-width: 600px;
             margin: 0 auto;
+            overflow: hidden;
         }
 
-        .quiz {
-            max-width: 383px;
-            height: 520px;
-            margin: 0 auto;
+        .container {
+            width: 100%;
+            height: 100vh;
             position: relative;
         }
 
-        .quiz-header {
+        .main-block {
             width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-color: #1e125c;
-            font-family: Heebo, Arial, sans-serif;
-            font-size: 21px;
-            font-weight: 900;
-            font-style: normal;
-            color: #fff;
-            padding: 7px 24px 7px 24px;
-            border-top-right-radius: 17px;
-            border-top-left-radius: 17px;
-        }
-
-        .quiz-body {
             height: 100%;
-            padding-top: 50px;
-
+            padding: 10vh 25px 0 25px;
+            background: -webkit-gradient(linear, left bottom, left top, from(#cff0f9), color-stop(30%, #2cbbf7));
+            background: -o-linear-gradient(bottom, #cff0f9, #2cbbf7 30%);
+            background: linear-gradient(to top, #cff0f9, #2cbbf7 30%);
+            position: relative;
         }
 
-        .start-btn {
-            width: 100px;
-            display: none;
-            margin: 0 auto;
+        .bottom-block {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 18vh;
+            background: url(https://roadio-web-resources.s3-us-west-2.amazonaws.com/images/road.png) center no-repeat;
+            background-size: cover;
         }
 
-        .quiz-item,
-        .quiz-story {
-            display: none;
+        .bottom-block::after {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 335%;
+            top: -332px;
+            left: 0;
+            background: url(https://roadio-web-resources.s3-us-west-2.amazonaws.com/images/trees.png) 0 0 no-repeat;
+            background-size: 97%;
+            z-index: 100;
         }
 
-        .quiz-item.active,
-        .quiz-story.active,
-        .start-btn.active {
-            display: block;
+        input, button, select {
+            outline: none;
+            border: none;
         }
 
         .quiz-question {
-            margin-bottom: 20px;
+            font-family: Heebo, Arial, sans-serif;
+            font-size: 32px;
+            font-weight: 900;
+            font-style: normal;
+            line-height: 1.13;
+            letter-spacing: normal;
+            text-align: center;
+            color: #ffffff;
+            margin-top: 55px;
+            margin-bottom: 50px;
         }
 
-        .answer-btn,
-        .next-btn {
-            width: 120px;
+        .start-btn {
+            display: block;
+            margin: 0 auto;
+            width: 180px;
+            height: 38px;
+            color: #2dbcf8;
+            font-family: Heebo, Arial, sans-serif;
+            font-weight: 700;
+            font-size: 25px;
+            background-color: #fff;
+            box-shadow: 0 1px 3px rgba(33, 110, 138, .5);
+            cursor: pointer;
+            position: relative;
+            z-index: 200;
         }
 
-        .story-text {
-            margin-top: 20px;
-            margin-bottom: 20px;
+        .start-btn:hover, .start-btn.active {
+            color: #fff;
+            background-color: #007aad;
         }
 
+        .start-btn.hidden {
+            display: none;
+        }
+
+        .indicators {
+            width: 100%;
+            justify-content: space-between;
+            position: absolute;
+            top: 45px;
+            left: 0;
+            font-family: Heebo, Arial, sans-serif;
+            font-size: 35px;
+            font-weight: 900;
+            font-style: normal;
+            letter-spacing: normal;
+            color: #fff;
+            display: none;
+        }
+
+        .indicators.active {
+            display: flex;
+        }
+
+        .score {
+            width: 180px;
+            height: 57px;
+            background-color: #145874;
+            border-radius: 0 32.5px 32.5px 0;
+            padding: 0 15px 0 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .counter {
+            width: 112px;
+            height: 57px;
+            background-color: #145874;
+            border-radius: 32.5px;
+            margin: 0 15px;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+        }
+
+        .timer {
+            width: 180px;
+            height: 57px;
+            background-color: #145874;
+            border-radius: 32.5px 0 0 32.5px;
+            padding: 0 5px 0 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .timer div {
+            margin: 0 0 0 7px;
+        }
+
+        .score div {
+            margin: 0 2px 0 0;
+        }
+
+        form {
+            width: 100%;
+        }
+
+        input {
+            width: 100%;
+            height: 58px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background-color: #fff;
+            padding: 0 70px;
+            z-index: 999;
+        }
+
+        @media screen and (max-width: 600px) {
+
+            .bottom-block::after {
+                top: -55vw;
+            }
+
+        }
+
+        @media screen and (max-width: 500px) {
+            .timer,
+            .score {
+                font-size: 7vw;
+            }
+        }
+
+        @media screen and (max-width: 414px) {
+            .quiz-question {
+                font-size: 7vw;
+            }
+        }
+
+        @media screen and (max-width: 375px) {
+
+        }
 
     </style>
     <title>Roadio</title>
 </head>
 <body>
-<div class="wrapper" dir="rtl">
-    <div class="quiz">
-        <div class="quiz-header">The Music Quiz</div>
-        <div class="quiz-body">
-            <button class="start-btn active">start</button>
-            <div class="quiz-item">
-                <p class="quiz-question"></p>
-                <div class="quiz-answers">
-                    <button class="answer-btn"></button>
-                    <button class="answer-btn"></button>
-                    <button class="answer-btn"></button>
+<div class="wrapper">
+    <main>
+        <div class="container" dir="rtl">
+            <div class="main-block">
+                <div class="indicators">
+                    <div class="timer">
+                        <div>
+                            <img src="img/timer.png" alt="Timer image">
+                        </div>
+                        <span>00:00</span>
+                    </div>
+                    <div class="counter"><span>20</span>/<span>0</span></div>
+                    <div class="score">
+                        <span>0</span>
+                        <div>
+                            <img src="img/points.png" alt="Score image">
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="quiz-story">
-                <img class="story-img" src="" alt="Story image">
-                <p class="story-text"></p>
-                <button class="next-btn">Next question</button>
+                <div class="quiz-question">
+                    אתם על הר ארבל?
+                    מעולה. יש לכם 2 דקות לתת לנו כמה שיותר שמות של מקומות שרואים מהתצפית
+                </div>
+                <button class="start-btn" type="button">קדימה</button>
+                <form action="">
+                    <input type="text">
+                </form>
+                <div class="bottom-block"></div>
             </div>
         </div>
-    </div>
+    </main>
 </div>
 <script>
 
     let startButton = document.querySelector('.start-btn');
-    let quizItem = document.querySelector('.quiz-item');
-    let quizQuestion = document.querySelector('.quiz-question');
-    let answerButtons = document.querySelectorAll('.answer-btn');
-    let quizStory = document.querySelector('.quiz-story');
-    let storyImg = document.querySelector('.story-img');
-    let storyText = document.querySelector('.story-text');
-    let nextButton = document.querySelector('.next-btn');
-    let currentItems;
-    let currentItem = 0;
-    let currentArtist;
-    let previousArtist;
-    let startIntervalID;
-    let intervalID;
+    let indicators = document.querySelector('.indicators');
 
-
-    startButton.addEventListener('click', () => {
-        sendRequest();
-        startIntervalID = setInterval(sendRequest, 10000);
-        startButton.classList.remove('active');
-    })
-
-    function sendRequest() {
-        fetch('https://app.roadio.io/v2/play/items?apikey=1e8ec6bc-7d28-4cd3-a947-d4ee2f9d1dcc&station=glglz&locale=he')
-            .then((response) => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    alert('oops! something went wrong...please try again!');
-                }
-            })
-            .then((data) => {
-                console.log(data);
-                currentItems = data.items;
-                if (currentItems.length === 0) {
-                    console.log('uploading questions...please wait');
-                    quizQuestion.innerHTML = 'uploading questions...please wait';
-                } else {
-                    currentArtist = currentItems[0].artist;
-                    clearInterval(startIntervalID);
-                }
-                if (currentArtist !== previousArtist) {
-                    setQuestion();
-                    quizItem.classList.add('active');
-                    quizStory.classList.remove('active');
-                    nextButton.removeAttribute('disabled');
-                    clearInterval(intervalID);
-                }
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-    }
-
-    function setQuestion() {
-        quizQuestion.innerHTML = currentItems[currentItem].question;
-        for (let i = 0; i < answerButtons.length; i++) {
-            answerButtons[i].innerHTML = currentItems[currentItem].answers[i];
-            answerButtons[i].onclick = () => {
-                if (currentItems[currentItem].answers[i] === currentItems[currentItem].right_answer) {
-                    alert("Yes! That's correct");
-                    setStory(currentItems[currentItem].story_images[0], currentItems[currentItem].story);
-                    currentItem++;
-                } else {
-                    alert("Nope.. try again");
-                }
-            }
-        }
-    }
-
-    function setStory(image, story) {
-        quizItem.classList.remove('active');
-        quizStory.classList.add('active');
-        storyImg.src = image;
-        storyText.innerHTML = story;
-        previousArtist = currentArtist;
-        nextButton.onclick = () => {
-            if (currentItems.length > currentItem) {
-                setQuestion();
-                quizStory.classList.remove('active');
-                quizItem.classList.add('active');
-            } else {
-                alert('questions is over! please wait..');
-                intervalID = setInterval(sendRequest, 10000);
-                nextButton.setAttribute('disabled', 'disabled');
-                currentItem = 0;
-            }
-        }
-    }
+    startButton.addEventListener('click', function () {
+        startButton.classList.add('hidden');
+        indicators.classList.add('active');
+    });
 
 </script>
 </body>
