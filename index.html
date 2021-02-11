@@ -525,6 +525,11 @@
 
         form {
             width: 100%;
+            display: none;
+        }
+
+        form.active {
+            display: block;
         }
 
         input {
@@ -537,6 +542,7 @@
             padding: 0 70px;
             z-index: 999;
         }
+
 
         @media screen and (max-width: 600px) {
 
@@ -592,7 +598,7 @@
                 </div>
                 <button class="start-btn" type="button">קדימה</button>
                 <form action="">
-                    <input type="text" autofocus>
+                    <input type="text">
                 </form>
                 <div class="bottom-block"></div>
             </div>
@@ -603,10 +609,16 @@
 
     let startButton = document.querySelector('.start-btn');
     let indicators = document.querySelector('.indicators');
+    let form = document.querySelector('form');
+    let input = document.querySelector('input');
+    let rightAnswers = {};
+
 
     startButton.addEventListener('click', function () {
         startButton.classList.add('hidden');
         indicators.classList.add('active');
+        form.classList.add('active');
+        input.focus();
     });
 
 </script>
