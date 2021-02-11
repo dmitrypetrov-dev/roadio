@@ -570,9 +570,15 @@
             left: 0;
             bottom: 0;
             padding: 0 70px;
-            background: url(img/send.svg) 96% center no-repeat #fff;
+            background: url(img/send.svg) 94% center no-repeat #fff;
             background-size: 6%;
             z-index: 999;
+            font-family: Heebo, Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            font-style: normal;
+            letter-spacing: normal;
+            color: #546e7a;
         }
 
 
@@ -633,11 +639,7 @@
                     אתם על הר ארבל?
                     מעולה. יש לכם 2 דקות לתת לנו כמה שיותר שמות של מקומות שרואים מהתצפית
                 </div>
-                <div class="answers">
-                    <div>answer</div>
-                    <div>test</div>
-                    <div>word</div>
-                </div>
+                <div class="answers"></div>
                 <button class="start-btn" type="button">קדימה</button>
                 <form action="">
                     <input type="text">
@@ -655,6 +657,7 @@
     let form = document.querySelector('form');
     let input = document.querySelector('input');
     let rightAnswers = ['answer', 'test', 'word', 'number'];
+    let div;
 
 
     startButton.addEventListener('click', function () {
@@ -667,6 +670,18 @@
 
     form.addEventListener('submit', function (e) {
         e.preventDefault();
+        let value = input.value;
+        for (let i = 0; i < rightAnswers.length; i++) {
+            if (rightAnswers[i] === value) {
+                div = document.createElement('div');
+                answers.appendChild(div);
+                div.textContent = value;
+                input.value = '';
+            } else {
+                input.value = '';
+            }
+        }
+
     });
 
 </script>
