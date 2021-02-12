@@ -689,6 +689,11 @@
 </div>
 <script>
 
+    addEventListener("load", function() {
+        let viewport = document.querySelector("meta[name=viewport]");
+        viewport.setAttribute("content", viewport.content + ", height=" + window.innerHeight);
+    })
+
     let startButton = document.querySelector('.start-btn');
     let indicators = document.querySelector('.indicators');
     let answers = document.querySelector('.answers');
