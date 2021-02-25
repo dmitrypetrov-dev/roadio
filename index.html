@@ -844,6 +844,7 @@
         form.classList.add('active');
         doneButton.classList.add('active');
         input.focus();
+        window.scrollTo(0, 0);
         score.textContent = String(scoreCounter);
         countQuestions.textContent = String(questionCounter);
         totalQuestions.textContent = String(rightAnswers.length);
