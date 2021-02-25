@@ -551,6 +551,10 @@
             margin: 0 0 0 7px;
         }
 
+        .countdown {
+            width: 70px;
+        }
+
         .score div {
             margin: 0 2px 0 0;
         }
@@ -674,6 +678,16 @@
             }
         }
 
+        @media screen and (max-width: 375px) {
+            .timer {
+                padding-left: 10px;
+            }
+
+            .timer div {
+                margin-left: 4px;
+            }
+        }
+
         @media screen and (min-height: 200px) {
             .bottom-block {
                 display: none;
@@ -700,7 +714,7 @@
                         <div>
                             <img src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/as_many_q/timer.png" alt="">
                         </div>
-                        <div><span class="countdown"></span></div>
+                        <div class="countdown"></div>
                     </div>
                     <div class="counter">
                         <div class="counter-end"></div>
