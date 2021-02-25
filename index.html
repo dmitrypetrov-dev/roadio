@@ -744,7 +744,7 @@
                     <!--                    </div>-->
                 </div>
                 <form action="">
-                    <input type="text">
+                    <input type="text" id="inputText">
                     <input type="submit" value="">
                 </form>
                 <button class="done-btn" type="button">אין לנו יותר</button>
@@ -764,7 +764,7 @@
     let indicators = document.querySelector('.indicators');
     let answers = document.querySelector('.answers');
     let form = document.querySelector('form');
-    let input = document.querySelector('input');
+    let input = document.querySelector('#inputText');
     let score = document.querySelector('.score-counter');
     let quest_div = document.querySelector('.quiz-question');
     let wrong_msg = document.querySelector('.wrong-msg');
@@ -880,6 +880,11 @@
     }
 
     doneButton.addEventListener('click', handleDone);
+
+    input.addEventListener("focus", function () {
+        input.focus();
+        window.scrollTo(0, 0);
+    });
 
     function handleSubmit(e) {
         e.preventDefault();
