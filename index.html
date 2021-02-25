@@ -402,8 +402,8 @@
             bottom: 0;
             width: 100%;
             height: 18vh;
-<!--            background: url(https://roadio-web-resources.s3-us-west-2.amazonaws.com/images/road.png) center no-repeat;-->
-            background-size: cover;
+        <!-- background: url(https://roadio-web-resources.s3-us-west-2.amazonaws.com/images/road.png) center no-repeat;
+        --> background-size: cover;
             z-index: 100;
         }
 
@@ -414,8 +414,8 @@
             height: 335%;
             top: -332px;
             left: 0;
-<!--            background: url(https://roadio-web-resources.s3-us-west-2.amazonaws.com/images/trees.png) 0 0 no-repeat;-->
-            background-size: 97%;
+        <!-- background: url(https://roadio-web-resources.s3-us-west-2.amazonaws.com/images/trees.png) 0 0 no-repeat;
+        --> background-size: 97%;
             z-index: 100;
         }
 
@@ -460,7 +460,10 @@
         }
 
         .answers.active {
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
+            -ms-flex-wrap: wrap;
             flex-wrap: wrap;
         }
 
@@ -474,6 +477,7 @@
             font-weight: 700;
             font-size: 25px;
             background-color: #fff;
+            -webkit-box-shadow: 0 1px 3px rgba(33, 110, 138, .5);
             box-shadow: 0 1px 3px rgba(33, 110, 138, .5);
             cursor: pointer;
             position: relative;
@@ -491,6 +495,8 @@
 
         .indicators {
             width: 100%;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
             justify-content: space-between;
             position: absolute;
             top: 5vh;
@@ -505,6 +511,8 @@
         }
 
         .indicators.active {
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
         }
 
@@ -514,8 +522,14 @@
             background-color: #145874;
             border-radius: 0 32.5px 32.5px 0;
             padding: 0 15px 0 5px;
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
             justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
             align-items: center;
         }
 
@@ -529,9 +543,16 @@
             background-color: #145874;
             border-radius: 32.5px;
             margin: 0 15px;
+            -ms-flex-negative: 0;
             flex-shrink: 0;
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
             justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
             align-items: center;
             font-size: 30px;
         }
@@ -542,8 +563,14 @@
             background-color: #145874;
             border-radius: 32.5px 0 0 32.5px;
             padding: 0 5px 0 15px;
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
             justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
             align-items: center;
         }
 
@@ -608,6 +635,7 @@
             font-weight: 700;
             font-size: 18px;
             background-color: #145874;
+            -webkit-box-shadow: 0 1px 3px rgba(33, 110, 138, .5);
             box-shadow: 0 1px 3px rgba(33, 110, 138, .5);
             cursor: pointer;
             bottom: 0;
@@ -621,28 +649,32 @@
         }
 
 
-    .wrong-msg {
+        .wrong-msg {
             position: absolute;
             width: 100%;
             height: 30px;
             left: 0;
             bottom: 50px;
-          object-fit: contain;
-          font-family: Heebo;
-          font-size: 18px;
-          font-weight: 400;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: normal;
-          letter-spacing: normal;
-          text-align: center;
-          color: #ffffff;
+            -o-object-fit: contain;
+            object-fit: contain;
+            font-family: Heebo;
+            font-size: 18px;
+            font-weight: 400;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: center;
+            color: #ffffff;
             object-fit: contain;
             background-blend-mode: multiply;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(#145874), to(#145874));
+            background-image: -o-linear-gradient(top, #145874, #145874);
             background-image: linear-gradient(to bottom, #145874, #145874);
-                        display: none;
+            display: none;
 
         }
+
         .wrong-msg.active {
             display: inline-block;
         }
@@ -695,12 +727,13 @@
         }
 
 
-    .attention {
-      width: 24px;
-      height: 29px;
-      object-fit: contain;
+        .attention {
+            width: 24px;
+            height: 29px;
+            -o-object-fit: contain;
+            object-fit: contain;
+        }
 
-    }
     </style>
     <title>Roadio</title>
 </head>
@@ -712,7 +745,8 @@
                 <div class="indicators">
                     <div class="timer">
                         <div>
-                            <img src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/as_many_q/timer.png" alt="">
+                            <img src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/as_many_q/timer.png"
+                                 alt="">
                         </div>
                         <div class="countdown"></div>
                     </div>
@@ -724,21 +758,23 @@
                     <div class="score">
                         <div class="score-counter"></div>
                         <div>
-                            <img src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/as_many_q/points.png" alt="">
+                            <img src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/as_many_q/points.png"
+                                 alt="">
                         </div>
                     </div>
                 </div>
                 <div class="quiz-question">
-                     ואין להלדיק אותו באמת עכשיו כמו תמיד לעולמי עולמים
+                    ואין להלדיק אותו באמת עכשיו כמו תמיד לעולמי עולמים
                 </div>
                 <div class="answers"></div>
                 <button class="start-btn" type="button">קדימה</button>
-                 <div class="wrong-msg" >
-                   תשובה לא נכונה. נסו שוב
-<!--                    <div>-->
-<!--                        <img class="attention" src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/as_many_q/attention.png">-->
-<!--                    </div>-->
-                </div>                <form action="">
+                <div class="wrong-msg">
+                    תשובה לא נכונה. נסו שוב
+                    <!--                    <div>-->
+                    <!--                        <img class="attention" src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/as_many_q/attention.png">-->
+                    <!--                    </div>-->
+                </div>
+                <form action="">
                     <input type="text">
                     <input type="submit" value="">
                 </form>
@@ -753,241 +789,235 @@
 </html>
 
 
-
-
-
-
-
-
-
-
-
-
 <script>
 
-let startButton = document.querySelector('.start-btn');
-let indicators = document.querySelector('.indicators');
-let answers = document.querySelector('.answers');
-let form = document.querySelector('form');
-let input = document.querySelector('input');
-let score = document.querySelector('.score-counter');
-let quest_div = document.querySelector('.quiz-question');
-let wrong_msg = document.querySelector('.wrong-msg');
-let countQuestions = document.querySelector('.counter-start');
-let totalQuestions = document.querySelector('.counter-end');
-let timerValue = document.querySelector('.countdown');
-let doneButton = document.querySelector('.done-btn');
-let rightAnswers = ['כלנית', 'רקפת', 'נורית', 'פרג'];
-let div;
-let scoreCounter = 0;
-let questionCounter = 0;
-let countDown = 120;
-let event_answer = "answer"
-let event_rate = "rate"
-let event_next_item = "next"
-let event_show_story = "show_story"
-let event_footer = "footer"
-let domain_url = "#"
-let already_answered= [];
+    let startButton = document.querySelector('.start-btn');
+    let indicators = document.querySelector('.indicators');
+    let answers = document.querySelector('.answers');
+    let form = document.querySelector('form');
+    let input = document.querySelector('input');
+    let score = document.querySelector('.score-counter');
+    let quest_div = document.querySelector('.quiz-question');
+    let wrong_msg = document.querySelector('.wrong-msg');
+    let countQuestions = document.querySelector('.counter-start');
+    let totalQuestions = document.querySelector('.counter-end');
+    let timerValue = document.querySelector('.countdown');
+    let doneButton = document.querySelector('.done-btn');
+    let rightAnswers = ['כלנית', 'רקפת', 'נורית', 'פרג'];
+    let div;
+    let scoreCounter = 0;
+    let questionCounter = 0;
+    let countDown = 120;
+    let event_answer = "answer"
+    let event_rate = "rate"
+    let event_next_item = "next"
+    let event_show_story = "show_story"
+    let event_footer = "footer"
+    let domain_url = "#"
+    let already_answered = [];
 
-function send_event(event_type, params_dict){
-    url = domain_url
-    url = url + "/"+event_type
-    had_param = false
-    for(var key in params_dict) {
-        if(!had_param){
-            url = url + "?"
-            had_param = true
+    function send_event(event_type, params_dict) {
+        url = domain_url
+        url = url + "/" + event_type
+        had_param = false
+        for (var key in params_dict) {
+            if (!had_param) {
+                url = url + "?"
+                had_param = true
+            } else {
+                url = url + "&"
+            }
+            var value = params_dict[key];
+            url = url + key + "=" + encodeURI(value)
         }
-        else{
-            url = url + "&"
+        window.location.href = url
+
+    }
+
+    function send_show_footer() {
+        send_event(event_footer, {"action": "show"})
+    }
+
+    function send_hide_footer() {
+        send_event(event_footer, {"action": "hide"})
+    }
+
+    function send_answer(given_answer, is_right, attempt, score, show_animation, is_item_with_score, seen_id) {
+        params_dict = {"answer": given_answer.trim()}
+        if (is_right != null) {
+            params_dict["is_right"] = is_right
         }
-        var value = params_dict[key];
-        url = url + key + "=" + encodeURI(value)
-    }
-    window.location.href = url
-
-}
-function send_show_footer(){
-    send_event(event_footer, {"action": "show"})
-}
-
-function send_hide_footer(){
-    send_event(event_footer, {"action": "hide"})
-}
-
-function send_answer(given_answer, is_right, attempt, score, show_animation, is_item_with_score, seen_id){
-    params_dict = {"answer":given_answer.trim()}
-    if(is_right != null){
-         params_dict["is_right"] = is_right
-    }
-    if(attempt != null){
-         params_dict["attempt"] = attempt
-    }
-    if(score != null){
-         params_dict["score"] = score
-    }
-    if(show_animation != null){
-         params_dict["show_animation"] = show_animation
-    }
-    if(is_item_with_score != null){
-         params_dict["is_item_with_score"] = is_item_with_score
-    }
-    if(seen_id != null){
-         params_dict["seen_id"] = seen_id
-    }
-    send_event(event_answer, params_dict)
- }
-
-
-
-
-send_hide_footer()
-
-function handleStart () {
-    startButton.classList.add('hidden');
-    indicators.classList.add('active');
-    answers.classList.add('active');
-    form.classList.add('active');
-    doneButton.classList.add('active');
-    input.focus();
-    score.textContent = String(scoreCounter);
-    countQuestions.textContent = String(questionCounter);
-    totalQuestions.textContent = String(rightAnswers.length);
-    startTimer(countDown, timerValue);
-    quest_div.style = "font-size: 5vw;";
-}
-startButton.addEventListener('click', handleStart);
-
-var doneButtonTimeout = null
-function handleDone () {
-    if(doneButton.textContent == "אין לנו יותר"){
-        doneButton.textContent = "לסיום לחצו שוב"
-        doneButtonTimeout = setTimeout(function() { doneButton.textContent = "אין לנו יותר"}, 3000);
-
-        return
-    }
-
-    clearTimeout(doneButtonTimeout);
-
-
-    if(already_answered.length === rightAnswers.length) {
-        handleCorrectAnswer()
-    }
-    else{
-        doneButton.textContent = "אלה התשובות הנכונות 👆"
-        handleIncorrectAnswer();
-    }
-
-
-}
-doneButton.addEventListener('click', handleDone);
-
-function handleSubmit (e) {
-    e.preventDefault();
-    input.focus();
-    let value = input.value;
-    let value_name = value.toLowerCase()
-    is_correct =false
-    for (let i = 0; i < rightAnswers.length; i++) {
-        if ((rightAnswers[i] === value_name) &&
-         (already_answered.indexOf(value_name)===-1)) {
-            already_answered.push(value_name);
-            div = document.createElement('div');
-            answers.appendChild(div);
-            div.textContent = value;
-            input.value = '';
-            scoreCounter = scoreCounter + 100;
-            score.textContent = String(scoreCounter);
-            questionCounter++;
-            countQuestions.textContent = String(questionCounter);
-            is_correct = true
-        } else {
-            input.value = '';
+        if (attempt != null) {
+            params_dict["attempt"] = attempt
         }
-        if(already_answered.length === rightAnswers.length) {
+        if (score != null) {
+            params_dict["score"] = score
+        }
+        if (show_animation != null) {
+            params_dict["show_animation"] = show_animation
+        }
+        if (is_item_with_score != null) {
+            params_dict["is_item_with_score"] = is_item_with_score
+        }
+        if (seen_id != null) {
+            params_dict["seen_id"] = seen_id
+        }
+        send_event(event_answer, params_dict)
+    }
+
+
+    send_hide_footer()
+
+    function handleStart() {
+        startButton.classList.add('hidden');
+        indicators.classList.add('active');
+        answers.classList.add('active');
+        form.classList.add('active');
+        doneButton.classList.add('active');
+        input.focus();
+        score.textContent = String(scoreCounter);
+        countQuestions.textContent = String(questionCounter);
+        totalQuestions.textContent = String(rightAnswers.length);
+        startTimer(countDown, timerValue);
+        quest_div.style = "font-size: 5vw;";
+    }
+
+    startButton.addEventListener('click', handleStart);
+
+    var doneButtonTimeout = null
+
+    function handleDone() {
+        if (doneButton.textContent == "אין לנו יותר") {
+            doneButton.textContent = "לסיום לחצו שוב"
+            doneButtonTimeout = setTimeout(function () {
+                doneButton.textContent = "אין לנו יותר"
+            }, 3000);
+
+            return
+        }
+
+        clearTimeout(doneButtonTimeout);
+
+
+        if (already_answered.length === rightAnswers.length) {
             handleCorrectAnswer()
-    }
-    }
-    if(!is_correct){
-            wrong_msg.classList.add('active')
-            setTimeout(function() { wrong_msg.classList.remove('active')}, 2000);
-    }
-    return false
-
-}
-
-function handleSubmitAfterFinish(e){
-    e.preventDefault();
-}
-
-form.addEventListener('submit', handleSubmit);
-
-var minutesTimer = null;
-
-function startTimer(duration, display) {
-    var timer = duration, minutes, seconds;
-    minutesTimer = setInterval(function () {
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
-
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        display.textContent = minutes + ":" + seconds;
-
-        if (--timer < 0) {
-            clearInterval(minutesTimer);
+        } else {
+            doneButton.textContent = "אלה התשובות הנכונות 👆"
             handleIncorrectAnswer();
-            doneButton.textContent = "נגמר הזמן"
         }
-    }, 1000);
-}
 
-function handleCorrectAnswer(){
-
-    let givenAnswerString = already_answered.toString()+'^'+rightAnswers.length.toString()+'^'+
-    +true + '^' + scoreCounter
-    send_answer(givenAnswerString,true,1,scoreCounter,true,true,null)
-    send_show_footer()
-    ShowRightAnswers()
-    doneButton.textContent = "כל הכבוד!"
-}
-
-function handleIncorrectAnswer(){
-    let givenAnswerString = already_answered.toString()+'^'+rightAnswers.length.toString()+'^'+
-    +false + '^' + scoreCounter
-    send_answer(givenAnswerString,false,1,scoreCounter,false,true,null)
-    send_show_footer()
-    ShowRightAnswers()
-}
-
-function clearDown(){
-    clearInterval(minutesTimer);
-
-    form.classList.remove('active');
-    startButton.removeEventListener("click", handleStart)
-    doneButton.removeEventListener("click", handleDone)
-    doneButton.style = "width: 100%;"
-    form.removeEventListener("submit", handleSubmit)
-    form.addEventListener("submit", handleSubmitAfterFinish)
-
-}
-
-function ShowRightAnswers(){
-    clearDown()
-    for (let i = 0; i < rightAnswers.length; i++) {
-        let value = rightAnswers[i];
-        let value_name = value.toLowerCase()
-        if(already_answered.indexOf(value_name)===-1){
-            div = document.createElement('div');
-            answers.appendChild(div);
-            div.textContent = value;
-            div.style = "color: red;"
-        }
 
     }
 
-}
+    doneButton.addEventListener('click', handleDone);
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        input.focus();
+        let value = input.value;
+        let value_name = value.toLowerCase()
+        is_correct = false
+        for (let i = 0; i < rightAnswers.length; i++) {
+            if ((rightAnswers[i] === value_name) &&
+                (already_answered.indexOf(value_name) === -1)) {
+                already_answered.push(value_name);
+                div = document.createElement('div');
+                answers.appendChild(div);
+                div.textContent = value;
+                input.value = '';
+                scoreCounter = scoreCounter + 100;
+                score.textContent = String(scoreCounter);
+                questionCounter++;
+                countQuestions.textContent = String(questionCounter);
+                is_correct = true
+            } else {
+                input.value = '';
+            }
+            if (already_answered.length === rightAnswers.length) {
+                handleCorrectAnswer()
+            }
+        }
+        if (!is_correct) {
+            wrong_msg.classList.add('active')
+            setTimeout(function () {
+                wrong_msg.classList.remove('active')
+            }, 2000);
+        }
+        return false
+
+    }
+
+    function handleSubmitAfterFinish(e) {
+        e.preventDefault();
+    }
+
+    form.addEventListener('submit', handleSubmit);
+
+    var minutesTimer = null;
+
+    function startTimer(duration, display) {
+        var timer = duration, minutes, seconds;
+        minutesTimer = setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = minutes + ":" + seconds;
+
+            if (--timer < 0) {
+                clearInterval(minutesTimer);
+                handleIncorrectAnswer();
+                doneButton.textContent = "נגמר הזמן"
+            }
+        }, 1000);
+    }
+
+    function handleCorrectAnswer() {
+
+        let givenAnswerString = already_answered.toString() + '^' + rightAnswers.length.toString() + '^' +
+            +true + '^' + scoreCounter
+        send_answer(givenAnswerString, true, 1, scoreCounter, true, true, null)
+        send_show_footer()
+        ShowRightAnswers()
+        doneButton.textContent = "כל הכבוד!"
+    }
+
+    function handleIncorrectAnswer() {
+        let givenAnswerString = already_answered.toString() + '^' + rightAnswers.length.toString() + '^' +
+            +false + '^' + scoreCounter
+        send_answer(givenAnswerString, false, 1, scoreCounter, false, true, null)
+        send_show_footer()
+        ShowRightAnswers()
+    }
+
+    function clearDown() {
+        clearInterval(minutesTimer);
+
+        form.classList.remove('active');
+        startButton.removeEventListener("click", handleStart)
+        doneButton.removeEventListener("click", handleDone)
+        doneButton.style = "width: 100%;"
+        form.removeEventListener("submit", handleSubmit)
+        form.addEventListener("submit", handleSubmitAfterFinish)
+
+    }
+
+    function ShowRightAnswers() {
+        clearDown()
+        for (let i = 0; i < rightAnswers.length; i++) {
+            let value = rightAnswers[i];
+            let value_name = value.toLowerCase()
+            if (already_answered.indexOf(value_name) === -1) {
+                div = document.createElement('div');
+                answers.appendChild(div);
+                div.textContent = value;
+                div.style = "color: red;"
+            }
+
+        }
+
+    }
 
 </script>
