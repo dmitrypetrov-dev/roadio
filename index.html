@@ -882,14 +882,10 @@
     doneButton.addEventListener('click', handleDone);
 
     input.addEventListener("focus", function () {
-        input.style.position = 'absolute';
         setTimeout(() => {
             window.scrollTo(0, 0);
+            input.style.bottom = '336px';
         }, 500);
-    });
-
-    input.addEventListener("blur", function () {
-        input.style.position = 'fixed';
     });
 
     function handleSubmit(e) {
