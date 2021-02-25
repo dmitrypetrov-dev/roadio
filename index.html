@@ -882,8 +882,9 @@
     doneButton.addEventListener('click', handleDone);
 
     input.addEventListener("focus", function () {
-        input.focus();
-        window.scrollTo(0, 0);
+        setTimeout(() => {
+            window.scrollTo(0, 0);
+        }, 500);
     });
 
     function handleSubmit(e) {
