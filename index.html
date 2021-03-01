@@ -745,7 +745,7 @@
                 </div>
                 <form action="">
                     <input type="text" id="inputText">
-                    <input type="submit" value="">
+                    <input type="submit" id="inputSubmit" value="">
                 </form>
                 <button class="done-btn" type="button">אין לנו יותר</button>
 
@@ -765,6 +765,7 @@
     let answers = document.querySelector('.answers');
     let form = document.querySelector('form');
     let input = document.querySelector('#inputText');
+    let inputSubmit = document.querySelector('#inputSubmit');
     let score = document.querySelector('.score-counter');
     let quest_div = document.querySelector('.quiz-question');
     let wrong_msg = document.querySelector('.wrong-msg');
@@ -850,6 +851,11 @@
         totalQuestions.textContent = String(rightAnswers.length);
         startTimer(countDown, timerValue);
         quest_div.style = "font-size: 5vw;";
+        if (/iPhone/i.test(navigator.userAgent)) {
+            input.style.bottom = '10%';
+            inputSubmit.style.bottom = '10%';
+            doneButton.style.bottom = '10%';
+        }
     }
 
     startButton.addEventListener('click', handleStart);
