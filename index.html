@@ -772,6 +772,7 @@
     let answers = document.querySelector('.answers');
     let form = document.querySelector('#form');
     let input = document.querySelector('.inputText');
+    let input2 = document.querySelector('#inputText');
     let inputSubmit = document.querySelector('.inputSubmit');
     let score = document.querySelector('.score-counter');
     let quest_div = document.querySelector('.quiz-question');
@@ -896,6 +897,12 @@
     doneButton.addEventListener('click', handleDone);
 
     input.addEventListener("focus", function () {
+        setTimeout(() => {
+            window.scrollTo(0, 0);
+        }, 500);
+    });
+
+    input2.addEventListener("focus", function () {
         setTimeout(() => {
             window.scrollTo(0, 0);
         }, 500);
