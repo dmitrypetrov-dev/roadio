@@ -560,7 +560,7 @@
         }
 
         form {
-            width: 40%;
+            width: 100%;
             position: absolute;
             right: 0;
             bottom: 0;
@@ -856,9 +856,10 @@
         startTimer(countDown, timerValue);
         quest_div.style = "font-size: 5vw;";
         if (/iPhone/i.test(navigator.userAgent)) {
-            input.style.bottom = '50%';
-            inputSubmit.style.bottom = '50%';
-            doneButton.style.bottom = '50%';
+            wrong_msg.style.position = 'absolute';
+            input.style.position = 'absolute';
+            inputSubmit.style.position = 'absolute';
+            doneButton.style.position = 'absolute';
         }
     }
 
