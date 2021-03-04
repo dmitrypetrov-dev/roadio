@@ -384,6 +384,8 @@
             width: 100%;
             height: 100vh;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         .main-block {
@@ -397,26 +399,9 @@
         }
 
         .bottom-block {
-            position: absolute;
-            left: 0;
-            bottom: 0;
             width: 100%;
-            height: 18vh;
-        <!-- background: url(https://roadio-web-resources.s3-us-west-2.amazonaws.com/images/road.png) center no-repeat;
-        --> background-size: cover;
-            z-index: 100;
-        }
-
-        .bottom-block::after {
-            position: absolute;
-            content: "";
-            width: 100%;
-            height: 335%;
-            top: -332px;
-            left: 0;
-        <!-- background: url(https://roadio-web-resources.s3-us-west-2.amazonaws.com/images/trees.png) 0 0 no-repeat;
-        --> background-size: 97%;
-            z-index: 100;
+            position: relative;
+            display: none;
         }
 
         input, button, select {
@@ -649,6 +634,18 @@
             display: inline-block;
         }
 
+        #wrongMsg,
+        #inputText,
+        #inputSubmit,
+        #doneBtn {
+            position: absolute;
+        }
+
+        #form-2 {
+            display: block;
+        }
+
+
         @media screen and (max-width: 600px) {
 
             .bottom-block::after {
@@ -691,12 +688,6 @@
 
             .timer div {
                 margin-left: 4px;
-            }
-        }
-
-        @media screen and (min-height: 200px) {
-            .bottom-block {
-                display: none;
             }
         }
 
@@ -747,14 +738,25 @@
                     <!--                        <img class="attention" src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/as_many_q/attention.png">-->
                     <!--                    </div>-->
                 </div>
-                <form action="">
-                    <input type="text" id="inputText">
-                    <input type="submit" id="inputSubmit" value="">
+                <form action="" id="form">
+                    <input type="text" class="inputText">
+                    <input type="submit" class="inputSubmit" value="">
                 </form>
                 <button class="done-btn" type="button">אין לנו יותר</button>
-
             </div>
-            <div class="bottom-block"></div>
+            <div class="bottom-block">
+                <div class="wrong-msg" id="wrongMsg">
+                    תשובה לא נכונה. נסו שוב
+                    <!--                    <div>-->
+                    <!--                        <img class="attention" src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/as_many_q/attention.png">-->
+                    <!--                    </div>-->
+                </div>
+                <form action="" id="form-2">
+                    <input type="text" class="inputText" id="inputText">
+                    <input type="submit" class="inputSubmit" id="inputSubmit" value="">
+                </form>
+                <button class="done-btn" id="doneBtn" type="button">אין לנו יותר</button>
+            </div>
         </div>
     </main>
 </div>
@@ -764,12 +766,13 @@
 
 <script>
 
+    let bottomBlock = document.querySelector('.bottom-block');
     let startButton = document.querySelector('.start-btn');
     let indicators = document.querySelector('.indicators');
     let answers = document.querySelector('.answers');
-    let form = document.querySelector('form');
-    let input = document.querySelector('#inputText');
-    let inputSubmit = document.querySelector('#inputSubmit');
+    let form = document.querySelector('#form');
+    let input = document.querySelector('.inputText');
+    let inputSubmit = document.querySelector('.inputSubmit');
     let score = document.querySelector('.score-counter');
     let quest_div = document.querySelector('.quiz-question');
     let wrong_msg = document.querySelector('.wrong-msg');
@@ -856,10 +859,10 @@
         startTimer(countDown, timerValue);
         quest_div.style = "font-size: 5vw;";
         if (/iPhone/i.test(navigator.userAgent)) {
-            wrong_msg.style.position = 'absolute';
-            input.style.position = 'absolute';
-            inputSubmit.style.position = 'absolute';
-            doneButton.style.position = 'absolute';
+            wrong_msg.style.display = 'none';
+            form.style.display = 'none';
+            doneButton.style.display = 'none';
+            bottomBlock.style.display = 'block';
         }
     }
 
