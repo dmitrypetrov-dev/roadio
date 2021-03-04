@@ -563,7 +563,7 @@
         }
 
         form {
-            width: 40%;
+            width: 100%;
             position: absolute;
             right: 0;
             bottom: 0;
@@ -571,7 +571,7 @@
         }
 
         form.active {
-            display: block;
+            display: flex;
         }
 
         input[type='text'] {
@@ -752,8 +752,8 @@
                     <form action="">
                         <input type="text" id="inputText">
                         <input type="submit" id="inputSubmit" value="">
+                        <button class="done-btn" type="button">אין לנו יותר</button>
                     </form>
-                    <button class="done-btn" type="button">אין לנו יותר</button>
                 </div>
             </div>
             <div class="bottom-block"></div>
@@ -858,9 +858,9 @@
         startTimer(countDown, timerValue);
         quest_div.style = "font-size: 5vw;";
         if (/iPhone/i.test(navigator.userAgent)) {
-            input.style.position = 'absolute';
+            input.style.position = 'static';
             inputSubmit.style.position = 'absolute';
-            doneButton.style.position = 'absolute';
+            doneButton.style.position = 'static';
         }
     }
 
