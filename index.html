@@ -425,7 +425,7 @@
             width: 14px;
             height: 14px;
             position: absolute;
-            top: 24px;
+            top: 33%;
             left: -26px;
             background-color: #fff;
             border-radius: 50%;
@@ -436,7 +436,7 @@
             width: 14px;
             height: 14px;
             position: absolute;
-            top: 24px;
+            top: 33%;
             right: -24px;
             background-color: #fff;
             border-radius: 50%;
@@ -453,6 +453,11 @@
             color: #fff;
             text-transform: uppercase;
             margin-bottom: 2vh;
+        }
+
+        .user-avatar {
+            width: 66px;
+            height: 64px;
         }
 
         .user-name {
@@ -478,10 +483,6 @@
             margin-bottom: 3vh;
         }
 
-        .user-stats_points {
-            min-width: 118px;
-        }
-
         .user-stats_title {
             font-family: Heebo, Arial, sans-serif;
             font-size: 16px;
@@ -502,7 +503,9 @@
             -webkit-box-pack: center;
             -ms-flex-pack: center;
             justify-content: center;
-            line-height: 1.35;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
             background-image: -webkit-gradient(linear, left top, left bottom, color-stop(-26%, #d9d9d9), color-stop(50%, #fffafa), color-stop(127%, #d9d9d9));
             background-image: linear-gradient(to bottom, #d9d9d9 -26%, #fffafa 50%, #d9d9d9 127%);
             font-family: Heebo, Arial, sans-serif;
@@ -515,14 +518,14 @@
         }
 
         .points-block {
-            -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-            justify-content: space-between;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
             background: none;
         }
 
         .points-block div {
-            min-width: 22px;
+            min-width: 24px;
             height: 38px;
             display: -webkit-box;
             display: -ms-flexbox;
@@ -530,11 +533,16 @@
             -webkit-box-pack: center;
             -ms-flex-pack: center;
             justify-content: center;
-            line-height: 1.4;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
             background-image: -webkit-gradient(linear, left top, left bottom, color-stop(-26%, #d9d9d9), color-stop(50%, #fffafa), color-stop(127%, #d9d9d9));
             background-image: linear-gradient(to bottom, #d9d9d9 -26%, #fffafa 50%, #d9d9d9 127%);
             border-radius: 2px;
+            margin: 0 1px;
         }
+
+
 
         .invite-block {
             width: 100%;
@@ -606,7 +614,7 @@
 
         }
 
-        @media screen and (max-height: 650px) {
+        @media screen and (max-height: 700px) {
 
             .summary {
                 padding-top: 3vh;
@@ -665,7 +673,8 @@
                 </div>
             </div>
             <div class="invite-block">
-                <img src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/challenge-icon.png" alt="">
+                <img src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/challenge-icon.png"
+                     alt="">
                 <p>Play this quiz against your friends</p>
                 <a href="#!"></a>
             </div>
