@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Ultra&display=swap" rel="stylesheet">
     <style>
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
@@ -365,6 +364,7 @@
         *, *::before, *::after {
             -webkit-box-sizing: inherit;
             box-sizing: inherit;
+            -webkit-tap-highlight-color: transparent;
         }
 
         p, h1, h2, h3, h4, h5, h6 {
@@ -386,253 +386,169 @@
             width: 100%;
             height: 100vh;
             position: relative;
+            background: url(https://raw.githubusercontent.com/moscovig/roadio_static/master/images/quest/narrator/background.svg) center no-repeat;
+            background-size: cover;
         }
 
-        .summary {
+        .status-bar {
             width: 100%;
-            height: 100%;
-            padding: 5vh 20px 0 20px;
-            background-image: -webkit-gradient(linear, left bottom, left top, from(#cff0f9), color-stop(31%, #007aac));
-            background-image: linear-gradient(to top, #cff0f9, #007aac 31%);
-            display: -webkit-box;
-            display: -ms-flexbox;
+            height: 26px;
+            background-color: #acc4ce;
+            margin-bottom: 6vh;
+            padding: 0 10px;
             display: flex;
-            -webkit-box-orient: vertical;
-            -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-            flex-direction: column;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
+            justify-content: flex-start;
             align-items: center;
         }
 
-        .summary-title {
-            max-width: 250px;
-            font-family: Ultra, Arial, serif;
-            font-size: 30px;
-            font-weight: 400;
+        .status-bar_items {
+            width: 48px;
+            display: flex;
+        }
+
+        .status-bar_item {
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+        }
+
+        .status-bar_item.circle-item {
+            border-radius: 50%;
+            margin-left: 8px;
+        }
+
+        .status-bar_item.triangle-item {
+            background-color: transparent;
+            border-top: 10px solid #fff;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            margin-left: 6px;
+        }
+
+        audio {
+            display: block;
+            margin: 0 auto 4vh auto;
+        }
+
+        audio::-webkit-media-controls-panel {
+            background-color: #62abd0;
+        }
+
+        audio::-webkit-media-controls-volume-control-container {
+            display: none !important;
+        }
+
+        audio::-webkit-media-controls-current-time-display {
+            display: none !important;
+        }
+
+        audio::-webkit-media-controls-time-remaining-display {
+            display: none !important;
+        }
+
+        audio::-webkit-media-controls-play-button {
+            background-color: #fff;
+            border-radius: 50%;
+        }
+
+        .text {
+            height: 25vh;
+            font-family: Heebo, Arial, sans-serif;
+            font-size: 18px;
+            font-weight: normal;
             font-style: normal;
-            line-height: 1;
+            line-height: 1.28;
             letter-spacing: normal;
             text-align: center;
             color: #fff;
-            margin-bottom: 2vh;
+            padding: 0 20px;
+            overflow: auto;
+            margin-bottom: 4vh;
+        }
+
+        form {
+            width: 300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             position: relative;
         }
 
-        .summary-title::before {
-            content: "";
-            width: 14px;
-            height: 14px;
-            position: absolute;
-            top: 33%;
-            left: -26px;
-            background-color: #fff;
-            border-radius: 50%;
-        }
-
-        .summary-title::after {
-            content: "";
-            width: 14px;
-            height: 14px;
-            position: absolute;
-            top: 33%;
-            right: -24px;
-            background-color: #fff;
-            border-radius: 50%;
-        }
-
-        .summary-subtitle {
-            font-family: Heebo, Arial, sans-serif;
-            font-size: 20px;
-            font-weight: 400;
-            font-style: normal;
-            line-height: 1.45;
-            letter-spacing: normal;
-            text-align: center;
-            color: #fff;
-            text-transform: uppercase;
-            margin-bottom: 2vh;
-        }
-
-        .user-avatar {
-            width: 66px;
-            height: 64px;
-        }
-
-        .user-name {
-            font-family: Heebo, Arial, sans-serif;
-            font-size: 30px;
-            font-weight: 900;
-            font-stretch: normal;
-            line-height: 1.47;
-            letter-spacing: normal;
-            color: #fff;
-            margin-bottom: 1vh;
-        }
-
-        .user-stats {
-            width: 100%;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-            justify-content: space-between;
-            padding: 0 20px;
-            margin-bottom: 3vh;
-        }
-
-        .user-stats_title {
+        input[type='text'] {
+            width: 300px;
+            height: 36px;
+            border-radius: 18px;
+            border: none;
+            outline: none;
             font-family: Heebo, Arial, sans-serif;
             font-size: 16px;
             font-weight: 400;
             font-style: normal;
-            line-height: 1.5;
             letter-spacing: normal;
-            text-align: center;
-            color: #fff;
+            color: #000;
+            padding: 0 15px;
         }
 
-        .user-stats_block {
-            width: 100%;
-            height: 39px;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            background-image: -webkit-gradient(linear, left top, left bottom, color-stop(-26%, #d9d9d9), color-stop(50%, #fffafa), color-stop(127%, #d9d9d9));
-            background-image: linear-gradient(to bottom, #d9d9d9 -26%, #fffafa 50%, #d9d9d9 127%);
-            font-family: Heebo, Arial, sans-serif;
-            font-size: 30px;
-            font-weight: 900;
-            font-style: normal;
-            letter-spacing: 0.3px;
-            color: #007aac;
-            border-radius: 2px;
-            padding: 4px 0;
-        }
-
-        .points-block {
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            background: none;
-            padding: 0;
-        }
-
-        .points-block div {
-            min-width: 24px;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            background-image: -webkit-gradient(linear, left top, left bottom, color-stop(-26%, #d9d9d9), color-stop(50%, #fffafa), color-stop(127%, #d9d9d9));
-            background-image: linear-gradient(to bottom, #d9d9d9 -26%, #fffafa 50%, #d9d9d9 127%);
-            border-radius: 2px;
-            margin: 0 1px;
-            padding: 4px 0;
-        }
-
-
-        .invite-block {
-            width: 100%;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-orient: vertical;
-            -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-            flex-direction: column;
-            -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-            justify-content: space-between;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-            background-color: rgba(255, 255, 255, .6);
-            padding: 5vh 0;
-            margin-bottom: 3vh;
-        }
-
-        .invite-block img {
-            width: 45px;
-            height: 40px;
-            margin-bottom: 3vh;
-        }
-
-        .invite-block p {
-            max-width: 250px;
-            font-family: Heebo, Arial, sans-serif;
-            font-size: 25px;
-            font-weight: 900;
-            font-style: normal;
-            line-height: 1;
-            letter-spacing: normal;
-            text-align: center;
-            color: #326b9a;
-            margin-bottom: 3vh;
-        }
-
-        .invite-block a {
-            width: 250px;
-            height: 41px;
-            background: url(https://raw.githubusercontent.com/moscovig/roadio_static/master/images/invite-button.png) center no-repeat;
-            background-size: cover;
-        }
-
-        .submit-btn {
-            width: 96px;
-            height: 33px;
+        input[type='submit'] {
+            width: 52px;
+            height: 32px;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            border-radius: 18px;
             border: none;
             outline: none;
-            cursor: pointer;
-            background-color: #9b9b9b;
+            background-color: #5db747;
             font-family: Heebo, Arial, sans-serif;
-            font-size: 20px;
-            font-weight: 700;
+            font-size: 14px;
+            font-weight: 500;
             font-style: normal;
             letter-spacing: normal;
             color: #fff;
-            text-transform: uppercase;
-            -webkit-box-shadow: 1px 1px 0 0 #000;
-            box-shadow: 1px 1px 0 0 #000;
         }
 
-        @media screen and (max-width: 370px) {
+        .send-btn.active {
+            background-color: #007aac;
+        }
 
-            .user-stats {
-                padding: 0;
+
+        @media screen and (max-width: 500px) {
+
+            .img-text {
+                max-width: 55vw;
+            }
+
+            .outer-circle {
+                width: 55vw;
+                height: 55vw;
+            }
+
+            .inner-circle {
+                width: 46vw;
+                height: 46vw;
+            }
+
+            .inner-circle-2 {
+                width: 38vw;
+                height: 38vw;
+            }
+
+            .person-img {
+                width: 35vw;
+                height: 35vw;
             }
 
         }
 
-        @media screen and (max-height: 700px) {
-
-            .summary {
-                padding-top: 3vh;
+        @media screen and (max-height: 650px) {
+            .title {
+                margin-bottom: 1vh;
             }
 
-            .user-name {
-                margin-bottom: 0;
+            .text {
+                height: 20vh;
             }
-
-            .invite-block {
-                padding: 3vh 0;
-            }
-
-            .invite-block img {
-                margin-bottom: 2vh;
-            }
-
-            .invite-block p {
-                margin-bottom: 2vh;
-            }
-
         }
 
 
@@ -641,44 +557,48 @@
 </head>
 <body>
 <div class="wrapper">
-    <div class="container" dir="ltr">
-        <div class="summary">
-            <h1 class="summary-title">The Spanish
-                Mission Quiz</h1>
-            <h2 class="summary-subtitle">Round summary</h2>
-            <div class="user-avatar">
-                <img src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/avatars/eco-friendly.png"
-                     alt="">
+    <div class="container" dir="rtl">
+        <div class="status-bar">
+            <div class="status-bar_items">
+                <div class="status-bar_item triangle-item"></div>
+                <div class="status-bar_item circle-item"></div>
+                <div class="status-bar_item"></div>
             </div>
-            <div class="user-name">Daniela</div>
-            <div class="user-stats">
-                <div class="user-stats_answers">
-                    <div class="user-stats_title">Correct Answers</div>
-                    <div class="user-stats_block">
-                        <span>27</span>/<span>30</span>
-                    </div>
-                </div>
-                <div class="user-stats_points">
-                    <div class="user-stats_title">Total Points</div>
-                    <div class="user-stats_block points-block">
-                        <div>1</div>
-                        <div>5</div>
-                        <div>0</div>
-                        <div>0</div>
-                        <div>0</div>
-                    </div>
-                </div>
-            </div>
-            <div class="invite-block">
-                <img src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/challenge-icon.png"
-                     alt="">
-                <p>Play this quiz against your friends</p>
-                <a href="#!"></a>
-            </div>
-            <button class="submit-btn" type="button">Ok</button>
         </div>
+        <audio src="https://raw.githubusercontent.com/dmitrypetrov-dev/work/main/still.mp3" controls></audio>
+        <p class="text">לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית נולום ארווס סאפיאן - פוסיליס קוויס, אקווזמן
+            נולום ארווסלורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית נולום ארווס סאפיאן - פוסיליס קוויס, אקווזמן
+            נולום ארווס סאפיאן - פוסיליס קוויס, אקווזמן קוואזי במר מודוף. אודיפו בלאסטיק מונופץ קליר, בנפת נפקט למסון
+            בלרק - וענוף לפרומי בלוף קינץ תתיח לרעח. לת צשחמי לורם איפסום דולור סיט אמט, להאמית קרהשק איפסום דולור סיט
+            אמט, להאמית קרהשק לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית נולום ארווס סאפיאן - פוסיליס קוויס,
+            אקווזמן נולום ארווס סאפיאן - פוסיליס קוויס, אקווזמן קוואזי במר מודוף. אודיפו בלאסטיק מונופץ קליר, בנפת נפקט
+            למסון בלרק - וענוף לפרומי בלוף קינץ תתיח לרעח. לת צשחמי לורם איפסום דולור סיט אמט, להאמית קרהשק איפסום דולור
+            סיט אמט, להאמית קרהשק סס
+            סאפיאן - פוסיליס קוויס, אקווזמן קוואזי במר מודוף. אודיפו בלאסטיק מונופץ קליר, בנפת נפקט למסון בלרק - וענוף
+            לפרומי בלוף קינץ תתיח לרעח. לת צשחמי לורם איפסום דולור סיט אמט, להאמית קרהשק איפסום דולור סיט אמט, להאמית
+            קרהשק לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית נולום ארווס סאפיאן - פוסיליס קוויס, אקווזמן נולום
+            ארווס סאפיאן - פוסיליס קוויס, אקווזמן קוואזי במר מודוף. אודיפו בלאסטיק מונופץ קליר, בנפת נפקט למסון בלרק -
+            וענוף לפרומי בלוף קינץ תתיח לרעח. לת צשחמי לורם איפסום דולור סיט אמט, להאמית קרהשק איפסום דולור סיט אמט,
+            להאמית קרהשק סס</p>
+        <form action="">
+            <input type="text">
+            <input class="send-btn" type="submit" value="שליחה">
+        </form>
     </div>
 </div>
-<script></script>
+<script>
+
+    let audio = document.querySelector('audio');
+    let sendBtn = document.querySelector('.send-btn');
+
+    audio.onplay = () => {
+        sendBtn.classList.toggle('active');
+    }
+
+    audio.onpause = () => {
+        sendBtn.classList.toggle('active');
+    }
+
+</script>
 </body>
 </html>
