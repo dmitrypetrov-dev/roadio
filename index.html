@@ -394,7 +394,7 @@
             width: 100%;
             height: 26px;
             background-color: #acc4ce;
-            margin-bottom: 6vh;
+            margin-bottom: 4vh;
             padding: 0 10px;
             display: flex;
             justify-content: flex-start;
@@ -452,7 +452,7 @@
         }
 
         .text {
-            height: 25vh;
+            height: 20vh;
             font-family: Heebo, Arial, sans-serif;
             font-size: 18px;
             font-weight: normal;
@@ -540,6 +540,7 @@
             left: 0;
             padding: 70px 25px 0 25px;
             transition: bottom .3s ease-out;
+            z-index: 500;
         }
 
         .hints.active {
@@ -602,7 +603,7 @@
         .numbers {
             width: 100%;
             display: grid;
-            grid-template-columns: repeat(5, minmax(0, 46px));
+            grid-template-columns: repeat(4, minmax(0, 46px));
             grid-column-gap: 5px;
             grid-row-gap: 5px;
             justify-content: center;
@@ -628,6 +629,59 @@
         .number-box.green {
             background-color: #5db747;
             color: #fff;
+        }
+
+        .number-box.disabled {
+            opacity: 0;
+        }
+
+        .images {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 80px));
+            grid-column-gap: 10px;
+            grid-row-gap: 10px;
+            justify-content: center;
+            margin-bottom: 4vh;
+        }
+
+        .image-item {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid #fff;
+            position: relative;
+            z-index: 100;
+        }
+
+        .image-item.disabled {
+            opacity: 0;
+        }
+
+        .image-item img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-number {
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            bottom: -1px;
+            right: -1px;
+            background-color: #fff;
+            border-radius: 50%;
+            font-family: Heebo, Arial, sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            font-style: normal;
+            color: #007aac;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 1px;
+            z-index: 200;
         }
 
         @media screen and (max-width: 500px) {
@@ -658,13 +712,20 @@
 
         }
 
+        @media screen and (max-width: 375px) {
+            .images {
+                grid-column-gap: 5px;
+                grid-row-gap: 5px;
+            }
+        }
+
         @media screen and (max-height: 650px) {
             .title {
                 margin-bottom: 1vh;
             }
 
             .text {
-                height: 20vh;
+                height: 10vh;
             }
 
             .hints {
@@ -686,7 +747,6 @@
                 <div class="status-bar_item"></div>
             </div>
         </div>
-        <audio src="" controls></audio>
         <p class="text">לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית נולום ארווס סאפיאן - פוסיליס קוויס, אקווזמן
             נולום ארווסלורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית נולום ארווס סאפיאן - פוסיליס קוויס, אקווזמן
             נולום ארווס סאפיאן - פוסיליס קוויס, אקווזמן קוואזי במר מודוף. אודיפו בלאסטיק מונופץ קליר, בנפת נפקט למסון
@@ -701,9 +761,42 @@
             ארווס סאפיאן - פוסיליס קוויס, אקווזמן קוואזי במר מודוף. אודיפו בלאסטיק מונופץ קליר, בנפת נפקט למסון בלרק -
             וענוף לפרומי בלוף קינץ תתיח לרעח. לת צשחמי לורם איפסום דולור סיט אמט, להאמית קרהשק איפסום דולור סיט אמט,
             להאמית קרהשק סס</p>
+        <div class="images">
+            <div class="image-item">
+                <img src="https://via.placeholder.com/100" alt="">
+                <div class="image-number">5</div>
+            </div>
+            <div class="image-item">
+                <img src="https://via.placeholder.com/100" alt="">
+                <div class="image-number">7</div>
+            </div>
+            <div class="image-item">
+                <img src="https://via.placeholder.com/100" alt="">
+                <div class="image-number">2</div>
+            </div>
+            <div class="image-item">
+                <img src="https://via.placeholder.com/100" alt="">
+                <div class="image-number">9</div>
+            </div>
+            <div class="image-item">
+                <img src="https://via.placeholder.com/100" alt="">
+                <div class="image-number">0</div>
+            </div>
+            <div class="image-item">
+                <img src="https://via.placeholder.com/100" alt="">
+                <div class="image-number">8</div>
+            </div>
+            <div class="image-item">
+                <img src="https://via.placeholder.com/100" alt="">
+                <div class="image-number">6</div>
+            </div>
+            <div class="image-item">
+                <img src="https://via.placeholder.com/100" alt="">
+                <div class="image-number">4</div>
+            </div>
+        </div>
         <div class="numbers">
             <div class="number-box">4</div>
-            <div class="number-box"></div>
             <div class="number-box"></div>
             <div class="number-box"></div>
             <div class="number-box"></div>
@@ -715,8 +808,6 @@
             <div class="number-box green">6</div>
             <div class="number-box green">8</div>
             <div class="number-box green">0</div>
-            <div class="number-box green">3</div>
-            <div class="number-box green">1</div>
         </div>
         <button class="hint-btn" id="hint-btn"></button>
         <div class="hints">
@@ -730,19 +821,10 @@
 </div>
 <script>
 
-    let audio = document.querySelector('audio');
-    let sendBtn = document.querySelector('.send-btn');
     let hintBtn = document.getElementById('hint-btn');
     let hintsModal = document.querySelector('.hints');
     let hintsClose = document.querySelector('.hints-close');
 
-    audio.onplay = () => {
-        sendBtn.classList.toggle('active');
-    }
-
-    audio.onpause = () => {
-        sendBtn.classList.toggle('active');
-    }
 
     hintBtn.onclick = () => {
         hintsModal.classList.add('active');
