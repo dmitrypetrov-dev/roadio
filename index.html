@@ -579,6 +579,12 @@
             transform: rotate(-45deg);
         }
 
+        .hint-texts {
+            height: 100%;
+            overflow: auto;
+            padding-bottom: 20px;
+        }
+
         .hint-text {
             font-family: Heebo, Arial, sans-serif;
             font-size: 18px;
@@ -641,6 +647,14 @@
             }
         }
 
+        @media screen and (max-height: 400px) {
+
+            .hint-btn {
+                display: none;
+            }
+
+        }
+
 
     </style>
     <title>Roadio</title>
@@ -678,9 +692,13 @@
         <div class="hints">
             <div class="hints-close"></div>
             <button class="hint-btn pressed"></button>
-            <p class="hint-text"><span>רמז 1:</span> לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג</p>
-            <p class="hint-text"><span>רמז 2:</span> לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג</p>
-            <p class="hint-text"><span>רמז 3:</span> לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג</p>
+            <div class="hint-texts">
+                <p class="hint-text"><span>רמז 1:</span> לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג</p>
+                <p class="hint-text"><span>רמז 2:</span> לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג</p>
+                <p class="hint-text"><span>רמז 3:</span> לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג</p>
+                <p class="hint-text"><span>רמז 4:</span> לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג</p>
+                <p class="hint-text"><span>רמז 5:</span> לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג</p>
+            </div>
         </div>
     </div>
 </div>
