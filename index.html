@@ -605,6 +605,107 @@
             font-weight: 700;
         }
 
+        .record-block {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .record-block_title {
+            font-family: Heebo, Arial, sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            font-style: normal;
+            letter-spacing: -0.01px;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .record-btn {
+            width: 80px;
+            height: 80px;
+            background: url(img/rec-start.png) center no-repeat;
+            background-size: 100%;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        .record-btn.recording {
+            background-image: url(img/rec-stop.png);
+        }
+
+        .record-img {
+            width: 360px;
+            height: 58px;
+            background: url(img/waves.png) center no-repeat;
+            background-size: 100%;
+            margin-bottom: 15px;
+            display: none;
+        }
+
+        .record-img.active {
+            display: block;
+        }
+
+        audio.record-listen {
+            margin-bottom: 2vh;
+            display: none;
+        }
+
+        .record-listen.active {
+            display: block;
+        }
+
+        .export-btn {
+            width: 47px;
+            height: 47px;
+            background: url(img/export.png) center no-repeat;
+            background-size: 100%;
+            cursor: pointer;
+            display: none;
+        }
+
+        .export-btn.active {
+            display: block;
+        }
+
+        .export-btn.sent {
+            background-image: url(img/export-pressed.png);
+        }
+
+        .numbers {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 46px));
+            grid-column-gap: 5px;
+            grid-row-gap: 5px;
+            justify-content: center;
+        }
+
+        .number-box {
+            width: 46px;
+            height: 46px;
+            border-radius: 10.8px;
+            background-color: #fff;
+            font-family: Heebo, Arial, sans-serif;
+            font-size: 35px;
+            font-weight: 900;
+            font-style: normal;
+            letter-spacing: normal;
+            color: #989898;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 2px;
+        }
+
+        .number-box.green {
+            background-color: #5db747;
+            color: #fff;
+        }
+
         @media screen and (max-width: 500px) {
 
             .img-text {
@@ -647,14 +748,6 @@
             }
         }
 
-        @media screen and (max-height: 400px) {
-
-            .hint-btn {
-                display: none;
-            }
-
-        }
-
 
     </style>
     <title>Roadio</title>
@@ -684,10 +777,13 @@
             ארווס סאפיאן - פוסיליס קוויס, אקווזמן קוואזי במר מודוף. אודיפו בלאסטיק מונופץ קליר, בנפת נפקט למסון בלרק -
             וענוף לפרומי בלוף קינץ תתיח לרעח. לת צשחמי לורם איפסום דולור סיט אמט, להאמית קרהשק איפסום דולור סיט אמט,
             להאמית קרהשק סס</p>
-        <form action="">
-            <input type="text">
-            <input class="send-btn" type="submit" value="שליחה">
-        </form>
+        <div class="record-block">
+            <p class="record-block_title">הקליטו תשובה</p>
+            <div class="record-btn"></div>
+            <div class="record-img"></div>
+            <audio class="record-listen" src="" controls></audio>
+            <div class="export-btn"></div>
+        </div>
         <button class="hint-btn" id="hint-btn"></button>
         <div class="hints">
             <div class="hints-close"></div>
@@ -704,18 +800,32 @@
 </div>
 <script>
 
-    let audio = document.querySelector('audio');
-    let sendBtn = document.querySelector('.send-btn');
+    let audio = document.querySelector('.record-listen');
+    let exportBtn = document.querySelector('.export-btn');
     let hintBtn = document.getElementById('hint-btn');
     let hintsModal = document.querySelector('.hints');
     let hintsClose = document.querySelector('.hints-close');
+    let recordBtn = document.querySelector('.record-btn');
+    let recordImg = document.querySelector('.record-img');
+    let recordTitle = document.querySelector('.record-block_title');
 
-    audio.onplay = () => {
-        sendBtn.classList.toggle('active');
+
+    recordBtn.onclick = () => {
+        if (recordBtn.classList.contains('recording')) {
+            recordBtn.classList.remove('recording');
+            recordImg.classList.remove('active');
+            audio.classList.add('active');
+            exportBtn.classList.add('active');
+            recordTitle.textContent = 'שילחו תשובה';
+        } else {
+            recordBtn.classList.add('recording');
+            recordImg.classList.add('active');
+        }
     }
 
-    audio.onpause = () => {
-        sendBtn.classList.toggle('active');
+    exportBtn.onclick = () => {
+        audio.classList.remove('active');
+        exportBtn.classList.add('sent');
     }
 
     hintBtn.onclick = () => {
