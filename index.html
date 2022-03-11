@@ -483,20 +483,15 @@
             z-index: 10;
         }
 
-        .timeline,
-        .volume {
+        .timeline {
             -webkit-appearance: none;
             width: calc(100% - (var(--player-button-width)));
             height: 6px;
             background-color: rgba(233, 224, 198, .6);
             border-radius: 3px;
-            background-size: 0% 100%;
+            background-size: 0 100%;
             background-image: linear-gradient(#FE9618, #FE9618);
             background-repeat: no-repeat;
-        }
-
-        .volume {
-            background-color: rgba(254, 150, 24, .4);
         }
 
         .timeline::-webkit-slider-thumb,
@@ -532,39 +527,33 @@
             background-color: #FE9618;
         }
 
-        .timeline::-webkit-slider-thumb:hover,
-        .volume::-webkit-slider-thumb:hover {
+        .timeline::-webkit-slider-thumb:hover {
             background-color: #FE9618;
         }
 
-        .timeline::-moz-range-thumb:hover,
-        .volume::-moz-range-thumb:hover {
+        .timeline::-moz-range-thumb:hover {
             background-color: #FE9618;
         }
 
-        .timeline::-ms-thumb:hover,
-        .volume::-ms-thumb:hover {
+        .timeline::-ms-thumb:hover {
             background-color: #FE9618;
         }
 
-        .timeline::-webkit-slider-runnable-track,
-        .volume::-webkit-slider-runnable-track {
+        .timeline::-webkit-slider-runnable-track {
             -webkit-appearance: none;
             box-shadow: none;
             border: none;
             background: transparent;
         }
 
-        .timeline::-moz-range-track,
-        .volume::-moz-range-track {
+        .timeline::-moz-range-track {
             -webkit-appearance: none;
             box-shadow: none;
             border: none;
             background: transparent;
         }
 
-        .timeline::-ms-track,
-        .volume::-ms-track {
+        .timeline::-ms-track {
             -webkit-appearance: none;
             box-shadow: none;
             border: none;
@@ -615,13 +604,66 @@
             margin-right: 3px;
         }
 
+        @keyframes pulse {
+            0% {
+                transform: scale(0.7);
+                opacity: .7;
+            }
+            80% {
+                opacity: .7;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+
+        @keyframes pulse-2 {
+            0% {
+                transform: scale(0.5);
+                opacity: .4;
+            }
+            80% {
+                opacity: .4;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+
         .avatar {
             width: 62px;
             height: 62px;
             border-radius: 50%;
             position: relative;
-            background: url(img/avatar-bg.svg) center no-repeat;
-            background-size: 100%;
+        }
+
+        .avatar.anim::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 83%;
+            height: 83%;
+            border-radius: 50%;
+            background: linear-gradient(108.6deg, #FFBB74 -26.45%, #FABD4C 218.19%), linear-gradient(108.6deg, #FFBB74 -26.45%, #FABD4C 218.19%), linear-gradient(108.6deg, #FFBB74 -26.45%, #FABD4C 218.19%);
+            opacity: 0.7;
+            animation: pulse 2s ease-out infinite;
+        }
+
+        .avatar.anim::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(108.6deg, #FFBB74 -26.45%, #FABD4C 218.19%), linear-gradient(108.6deg, #FFBB74 -26.45%, #FABD4C 218.19%), linear-gradient(108.6deg, #FFBB74 -26.45%, #FABD4C 218.19%);
+            opacity: 0.4;
+            animation: pulse-2 2s ease-out infinite;
+            z-index: -10;
         }
 
         .avatar-wrapper {
@@ -762,9 +804,42 @@
             margin-right: 15px;
         }
 
-        .timeline.volume {
+        .volume-container {
+            position: relative;
+            width: calc(100% - 23px);
+            height: 6px;
+        }
+
+        .volume-container .bar {
+            position: absolute;
+            z-index: 1;
+            left: 0;
+            top: 0;
             width: 100%;
+            height: 6px;
+            border-radius: 3px;
             background-color: rgba(254, 150, 24, .4);
+            overflow: hidden;
+        }
+
+        .volume-container .bar .fill {
+            display: block;
+            width: 0;
+            height: 100%;
+            background-color: #FE9618;
+        }
+
+        .volume-container .volume {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            outline: none;
+            background-color: transparent;
         }
 
         .support {
@@ -954,7 +1029,10 @@
                         </defs>
                     </svg>
                 </button>
-                <input type="range" class="volume" max="100" value="0">
+                <div class="volume-container">
+                    <span class="bar"><span class="fill"></span></span>
+                    <input id="volume-slider" class="volume" type="range" min="0" max="100" value="30">
+                </div>
             </div>
             <div class="menu-title">Support</div>
             <div class="support">
@@ -1062,9 +1140,9 @@
 </div>
 <script>
 
+    //audio track slider
     const playerButton = document.getElementById('player-button'),
         audio = document.querySelector('audio'),
-        volume = document.querySelector('.volume'),
         timeline = document.querySelector('.timeline'),
         playIcon = `
         <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1105,14 +1183,17 @@
 </defs>
 </svg>
        `;
+    const avatar = document.querySelector('.avatar');
 
     function toggleAudio() {
         if (audio.paused) {
             audio.play();
             playerButton.innerHTML = pauseIcon;
+            avatar.classList.add('anim');
         } else {
             audio.pause();
             playerButton.innerHTML = playIcon;
+            avatar.classList.remove('anim');
         }
     }
 
@@ -1128,6 +1209,7 @@
 
     function audioEnded() {
         playerButton.innerHTML = playIcon;
+        avatar.classList.remove('anim');
     }
 
     audio.onended = audioEnded;
@@ -1139,8 +1221,8 @@
 
     timeline.addEventListener('change', changeSeek);
 
-    // burger menu
 
+    // burger menu
     const burgerBtn = document.querySelector('.header-burger');
     const burgerMenu = document.querySelector('.burger-menu');
     const main = document.querySelector('.main');
@@ -1154,6 +1236,19 @@
             burgerMenu.classList.remove('active');
         }
     });
+
+    // volume slider
+
+    const volumeSlider = document.getElementById('volume-slider');
+    const volumeFill = document.querySelector('.bar .fill');
+
+    function setBar() {
+        volumeFill.style.width = volumeSlider.value + '%';
+    }
+
+    volumeSlider.addEventListener('input', setBar);
+
+    setBar();
 
 </script>
 </body>
