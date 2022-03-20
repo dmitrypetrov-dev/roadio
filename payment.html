@@ -393,7 +393,8 @@
             width: 100%;
             height: 100%;
             padding: 20px 30px;
-            background-color: #0082b4;
+            background: url(img/payment-bg.svg) center no-repeat;
+            background-size: cover;
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
@@ -407,6 +408,18 @@
             -webkit-box-pack: justify;
             -ms-flex-pack: justify;
             justify-content: space-between;
+            position: relative;
+        }
+
+        .main::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: -10%;
+            width: 50%;
+            height: 34%;
+            background: url(img/robot.svg) center no-repeat;
+            background-size: 100%;
         }
 
         .header-logo {
@@ -530,6 +543,11 @@
             text-decoration: none;
             text-transform: uppercase;
             margin: 0 15px;
+        }
+
+        .footer-logo {
+            position: relative;
+            z-index: 10;
         }
 
     </style>
