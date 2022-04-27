@@ -373,7 +373,7 @@
         }
 
         img {
-            max-width: 100%;
+            width: 100%;
             height: 100%;
         }
 
@@ -429,21 +429,27 @@
 
         .windows {
             width: 100%;
+            height: 60vh;
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            grid-template-rows: repeat(4, minmax(0, 1fr));
+            grid-gap: 15px;
+            justify-content: space-around;
             background-color: #fff;
             border-radius: 5px;
-            overflow: hidden;
-            padding: 15px 10px;
+            padding: 15px 25px;
+            position: relative;
         }
 
         .windows-cell {
             text-align: center;
+            position: relative;
         }
 
         .window-img {
-            cursor: all-scroll;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .window-img.hide {
@@ -453,7 +459,7 @@
         .footer {
             width: 100%;
             height: 25%;
-            padding: 20px 20px 0 20px;
+            padding: 0 20px;
         }
 
         .footer-wrapper {
@@ -461,16 +467,19 @@
             justify-content: space-around;
         }
 
+        .window-drop {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         .window-drop.active svg {
             stroke: #FFD17C;
             stroke-width: 3;
         }
 
-
-        @media screen and (max-height: 670px) {
-
-
-        }
 
     </style>
     <title>Windows riddle</title>
@@ -511,28 +520,28 @@
         </div>
         <div class="windows">
             <div class="windows-cell">
-                <img class="window-img" src="img/window-2.png" alt="Window image" draggable="true">
+                <img class="window-img" src="img/window-2.png" alt="Window image">
             </div>
             <div class="windows-cell">
-                <img class="window-img" src="img/window-1.png" alt="Window image" draggable="true">
+                <img id="test" class="window-img" src="img/window-1.png" alt="Window image">
             </div>
             <div class="windows-cell">
-                <img class="window-img" src="img/window-4.png" alt="Window image" draggable="true">
+                <img class="window-img" src="img/window-4.png" alt="Window image">
             </div>
             <div class="windows-cell">
-                <img class="window-img" src="img/window-3.png" alt="Window image" draggable="true">
+                <img class="window-img" src="img/window-3.png" alt="Window image">
             </div>
             <div class="windows-cell">
-                <img class="window-img" src="img/window-6.png" alt="Window image" draggable="true">
+                <img class="window-img" src="img/window-6.png" alt="Window image">
             </div>
             <div class="windows-cell">
-                <img class="window-img" src="img/window-5.png" alt="Window image" draggable="true">
+                <img class="window-img" src="img/window-5.png" alt="Window image">
             </div>
             <div class="windows-cell">
-                <img class="window-img" src="img/window-8.png" alt="Window image" draggable="true">
+                <img class="window-img" src="img/window-8.png" alt="Window image">
             </div>
             <div class="windows-cell">
-                <img class="window-img" src="img/window-7.png" alt="Window image" draggable="true">
+                <img class="window-img" src="img/window-7.png" alt="Window image">
             </div>
         </div>
     </div>
@@ -570,51 +579,58 @@
 <!--</script>-->
 <script>
 
-    const dragAndDrop = () => {
-        const images = document.querySelectorAll('.window-img');
-        const windows = document.querySelectorAll('.window-drop');
+    const wrapper = document.querySelector('.windows');
+    const windows = Array.from(document.querySelectorAll('.window-drop'));
+    const images = Array.from(document.querySelectorAll('.window-img'));
 
-        const dragStart = function () {
-            setTimeout(() => {
-                this.classList.add('hide');
-            }, 0);
-        }
+    let itemAppend = null;
 
-        const dragEnd = function () {
-            this.classList.remove('hide');
-        }
+    images.forEach((image) => {
+        image.addEventListener('touchmove', function (event) {
+            event.preventDefault();
+            let touch = event.targetTouches[0];
+            let currentImage = this;
+            currentImage.parentNode.style.position = 'unset';
+            currentImage.style.width = currentImage.parentNode.offsetWidth + 'px';
+            currentImage.style.height = currentImage.parentNode.offsetHeight + 'px';
+            currentImage.style.zIndex = '100';
+            currentImage.style.transform = 'unset';
+            currentImage.style.top = `${touch.pageY - (wrapper.offsetTop) - (currentImage.offsetHeight / 2)}px`;
+            currentImage.style.left = `${touch.pageX - (wrapper.offsetLeft) - (currentImage.offsetWidth / 2)}px`;
 
-        images.forEach((image) => {
-            image.addEventListener('dragstart', dragStart);
-            image.addEventListener('dragend', dragEnd);
-        })
+            windows.forEach(item => {
+                if (
+                    currentImage.getBoundingClientRect().top + currentImage.offsetHeight / 2 < item.getBoundingClientRect().bottom &&
+                    currentImage.getBoundingClientRect().right - currentImage.offsetWidth / 2 > item.getBoundingClientRect().left &&
+                    currentImage.getBoundingClientRect().bottom - currentImage.offsetHeight / 2 > item.getBoundingClientRect().top &&
+                    currentImage.getBoundingClientRect().left + currentImage.offsetWidth / 2 < item.getBoundingClientRect().right
+                ) {
+                    item.classList.add('active');
+                    itemAppend = item;
+                    currentImage.style.transform = 'scale(.5)';
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        });
+        image.addEventListener('touchend', function () {
+            if (itemAppend.classList.contains('active')) {
+                itemAppend.innerHTML = "";
+                itemAppend.append(this);
+                this.style.width = '41px';
+                this.style.height = '27px';
+                this.style.position = 'static';
+                this.style.transform = 'unset';
 
-        const dragEnter = function () {
-            this.classList.add('active');
-        }
+            } else {
+                this.parentNode.style.position = 'relative';
+                this.style.top = `0`;
+                this.style.left = `0`;
+                this.style.zIndex = '0';
+            }
+        });
+    })
 
-        const dragLeave = function () {
-            this.classList.remove('active');
-        }
-
-        const dragOver = function () {
-
-        }
-
-        const dragDrop = function () {
-
-        }
-
-        windows.forEach((window) => {
-            window.addEventListener('dragover', dragOver);
-            window.addEventListener('dragenter', dragEnter);
-            window.addEventListener('dragleave', dragLeave);
-            window.addEventListener('drop', dragDrop);
-        })
-
-    };
-
-    dragAndDrop();
 
 </script>
 </body>
