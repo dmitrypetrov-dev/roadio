@@ -585,8 +585,6 @@
     const windows = Array.from(document.querySelectorAll('.window-drop'));
     const images = Array.from(document.querySelectorAll('.window-img'));
     const windowCell = document.querySelector('.windows-cell');
-    // let div = document.createElement('div');
-
     let itemAppend = null;
 
     images.forEach((image) => {
@@ -617,16 +615,16 @@
                         item.classList.remove('active');
                     }
                 });
-            } else {
-                // currentImage.parentNode.append(div);
             }
 
         });
         image.addEventListener('touchend', function () {
-            this.parentNode.style.position = 'relative';
-            this.style.top = `0`;
-            this.style.left = `0`;
-            this.style.zIndex = '0';
+            if (!this.classList.contains('dropped')) {
+                this.parentNode.style.position = 'relative';
+                this.style.top = `0`;
+                this.style.left = `0`;
+                this.style.zIndex = '0';
+            }
             if (itemAppend.classList.contains('active')) {
                 itemAppend.innerHTML = "";
                 itemAppend.append(this);
