@@ -451,8 +451,7 @@
         .window-img {
             position: absolute;
             top: 0;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 0;
         }
 
         .window-img.hide {
@@ -585,6 +584,8 @@
     const wrapper = document.querySelector('.windows');
     const windows = Array.from(document.querySelectorAll('.window-drop'));
     const images = Array.from(document.querySelectorAll('.window-img'));
+    const windowCell = document.querySelector('.windows-cell');
+    // let div = document.createElement('div');
 
     let itemAppend = null;
 
@@ -593,42 +594,48 @@
             event.preventDefault();
             let touch = event.targetTouches[0];
             let currentImage = this;
-            currentImage.parentNode.style.position = 'unset';
-            currentImage.style.width = currentImage.parentNode.offsetWidth + 'px';
-            currentImage.style.height = currentImage.parentNode.offsetHeight + 'px';
-            currentImage.style.zIndex = '100';
-            currentImage.style.transform = 'unset';
-            currentImage.style.top = `${touch.pageY - (wrapper.offsetTop) - (currentImage.offsetHeight / 2)}px`;
-            currentImage.style.left = `${touch.pageX - (wrapper.offsetLeft) - (currentImage.offsetWidth / 2)}px`;
+            if (!currentImage.classList.contains('dropped')) {
+                currentImage.parentNode.style.position = 'unset';
+                currentImage.style.position = 'absolute';
+                currentImage.style.width = windowCell.offsetWidth + 'px';
+                currentImage.style.height = windowCell.offsetHeight + 'px';
+                currentImage.style.zIndex = '100';
+                currentImage.style.top = `${touch.pageY - (wrapper.offsetTop) - (currentImage.offsetHeight / 2)}px`;
+                currentImage.style.left = `${touch.pageX - (wrapper.offsetLeft) - (currentImage.offsetWidth / 2)}px`;
+                currentImage.style.transform = 'unset';
+                windows.forEach(item => {
+                    if (
+                        currentImage.getBoundingClientRect().top + currentImage.offsetHeight / 2 < item.getBoundingClientRect().bottom &&
+                        currentImage.getBoundingClientRect().right - currentImage.offsetWidth / 2 > item.getBoundingClientRect().left &&
+                        currentImage.getBoundingClientRect().bottom - currentImage.offsetHeight / 2 > item.getBoundingClientRect().top &&
+                        currentImage.getBoundingClientRect().left + currentImage.offsetWidth / 2 < item.getBoundingClientRect().right
+                    ) {
+                        item.classList.add('active');
+                        itemAppend = item;
+                        currentImage.style.transform = 'scale(.7)';
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+            } else {
+                // currentImage.parentNode.append(div);
+            }
 
-            windows.forEach(item => {
-                if (
-                    currentImage.getBoundingClientRect().top + currentImage.offsetHeight / 2 < item.getBoundingClientRect().bottom &&
-                    currentImage.getBoundingClientRect().right - currentImage.offsetWidth / 2 > item.getBoundingClientRect().left &&
-                    currentImage.getBoundingClientRect().bottom - currentImage.offsetHeight / 2 > item.getBoundingClientRect().top &&
-                    currentImage.getBoundingClientRect().left + currentImage.offsetWidth / 2 < item.getBoundingClientRect().right
-                ) {
-                    item.classList.add('active');
-                    itemAppend = item;
-                    currentImage.style.transform = 'scale(.7)';
-                } else {
-                    item.classList.remove('active');
-                }
-            });
         });
         image.addEventListener('touchend', function () {
+            this.parentNode.style.position = 'relative';
+            this.style.top = `0`;
+            this.style.left = `0`;
+            this.style.zIndex = '0';
             if (itemAppend.classList.contains('active')) {
                 itemAppend.innerHTML = "";
                 itemAppend.append(this);
+                itemAppend.classList.remove('active');
                 this.style.width = '100%';
                 this.style.height = '42px';
                 this.style.position = 'static';
                 this.style.transform = 'unset';
-            } else {
-                this.parentNode.style.position = 'relative';
-                this.style.top = `0`;
-                this.style.left = `0`;
-                this.style.zIndex = '0';
+                this.classList.add('dropped');
             }
         });
     })
