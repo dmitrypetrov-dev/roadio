@@ -430,8 +430,7 @@
         .windows {
             width: 100%;
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 102px));
-
+            grid-template-columns: repeat(2, minmax(0, 117px));
             justify-content: space-around;
             align-items: center;
             background-color: #fff;
@@ -442,12 +441,11 @@
         }
 
         .windows-cell {
-            width: 102px;
-            height: 59px;
+            height: 66px;
             text-align: center;
             position: relative;
             background: url(img/cell-bg.svg) center no-repeat;
-            background-size: contain;
+            background-size: 97%;
         }
 
         .window-img {
@@ -471,7 +469,7 @@
             justify-content: space-around;
         }
 
-        .footer-bg {
+        .footer-img {
             width: 100%;
         }
 
@@ -483,22 +481,20 @@
             align-items: center;
         }
 
-        .window-drop div {
-            width: 98%;
-            height: 43px;
-            background-color: #fff;
-            box-shadow: inset 0 0 8px rgba(98, 96, 96, 0.71);
-            border-radius: 34px 34px 0 0;
-        }
-
-        .window-drop.active div {
-            border: 2px solid #FFD17C;
+        .window-drop.active svg {
+            stroke-width: 3;
+            stroke: #FFD17C;
         }
 
         @media screen and (max-height: 650px) {
 
             .windows {
+                grid-template-columns: repeat(2, minmax(0, 102px));
                 padding: 1vh 0;
+            }
+
+            .windows-cell {
+                height: 59px;
             }
 
         }
@@ -571,20 +567,84 @@
     <div class="footer">
         <div class="footer-wrapper">
             <div class="window-drop">
-                <div></div>
+                <svg width="74" height="44" viewBox="0 0 74 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g filter="url(#filter0_i_1335_3687)">
+                        <path d="M35.1007 0.400322C2.79601 8.1083 -0.60501 29.4466 0.309031 42.5927C0.345022 43.1103 0.778378 43.5024 1.29727 43.5024H72.5414C73.0774 43.5024 73.5197 43.0661 73.5322 42.5303C74.2245 12.9778 49.2633 2.85493 35.5028 0.386874C35.3694 0.362939 35.2326 0.368856 35.1007 0.400322Z" fill="white"/>
+                    </g>
+                    <defs>
+                        <filter id="filter0_i_1335_3687" x="0.18457" y="0.37207" width="73.3618" height="43.1304" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                            <feOffset/>
+                            <feGaussianBlur stdDeviation="4"/>
+                            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                            <feColorMatrix type="matrix" values="0 0 0 0 0.629167 0 0 0 0 0.623924 0 0 0 0 0.623924 0 0 0 1 0"/>
+                            <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1335_3687"/>
+                        </filter>
+                    </defs>
+                </svg>
             </div>
             <div class="window-drop">
-                <div></div>
+                <svg width="74" height="44" viewBox="0 0 74 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g filter="url(#filter0_i_1335_3687)">
+                        <path d="M35.1007 0.400322C2.79601 8.1083 -0.60501 29.4466 0.309031 42.5927C0.345022 43.1103 0.778378 43.5024 1.29727 43.5024H72.5414C73.0774 43.5024 73.5197 43.0661 73.5322 42.5303C74.2245 12.9778 49.2633 2.85493 35.5028 0.386874C35.3694 0.362939 35.2326 0.368856 35.1007 0.400322Z" fill="white"/>
+                    </g>
+                    <defs>
+                        <filter id="filter0_i_1335_3687" x="0.18457" y="0.37207" width="73.3618" height="43.1304" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                            <feOffset/>
+                            <feGaussianBlur stdDeviation="4"/>
+                            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                            <feColorMatrix type="matrix" values="0 0 0 0 0.629167 0 0 0 0 0.623924 0 0 0 0 0.623924 0 0 0 1 0"/>
+                            <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1335_3687"/>
+                        </filter>
+                    </defs>
+                </svg>
             </div>
             <div class="window-drop">
-                <div></div>
+                <svg width="74" height="44" viewBox="0 0 74 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g filter="url(#filter0_i_1335_3687)">
+                        <path d="M35.1007 0.400322C2.79601 8.1083 -0.60501 29.4466 0.309031 42.5927C0.345022 43.1103 0.778378 43.5024 1.29727 43.5024H72.5414C73.0774 43.5024 73.5197 43.0661 73.5322 42.5303C74.2245 12.9778 49.2633 2.85493 35.5028 0.386874C35.3694 0.362939 35.2326 0.368856 35.1007 0.400322Z" fill="white"/>
+                    </g>
+                    <defs>
+                        <filter id="filter0_i_1335_3687" x="0.18457" y="0.37207" width="73.3618" height="43.1304" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                            <feOffset/>
+                            <feGaussianBlur stdDeviation="4"/>
+                            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                            <feColorMatrix type="matrix" values="0 0 0 0 0.629167 0 0 0 0 0.623924 0 0 0 0 0.623924 0 0 0 1 0"/>
+                            <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1335_3687"/>
+                        </filter>
+                    </defs>
+                </svg>
             </div>
             <div class="window-drop">
-                <div></div>
+                <svg width="74" height="44" viewBox="0 0 74 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g filter="url(#filter0_i_1335_3687)">
+                        <path d="M35.1007 0.400322C2.79601 8.1083 -0.60501 29.4466 0.309031 42.5927C0.345022 43.1103 0.778378 43.5024 1.29727 43.5024H72.5414C73.0774 43.5024 73.5197 43.0661 73.5322 42.5303C74.2245 12.9778 49.2633 2.85493 35.5028 0.386874C35.3694 0.362939 35.2326 0.368856 35.1007 0.400322Z" fill="white"/>
+                    </g>
+                    <defs>
+                        <filter id="filter0_i_1335_3687" x="0.18457" y="0.37207" width="73.3618" height="43.1304" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                            <feOffset/>
+                            <feGaussianBlur stdDeviation="4"/>
+                            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                            <feColorMatrix type="matrix" values="0 0 0 0 0.629167 0 0 0 0 0.623924 0 0 0 0 0.623924 0 0 0 1 0"/>
+                            <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1335_3687"/>
+                        </filter>
+                    </defs>
+                </svg>
             </div>
         </div>
-        <div class="footer-bg">
-            <img src="img/footer-bg.png" alt="Footer image">
+        <div class="footer-img">
+            <img src="img/footer-img.png" alt="Footer image">
         </div>
     </div>
 </div>
