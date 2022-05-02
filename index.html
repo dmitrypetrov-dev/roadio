@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
@@ -389,12 +389,23 @@
 
         .main {
             width: 100%;
-            height: 70%;
-            padding: 3vh 20px;
+            height: 100%;
+            padding: 4vh 25px 0 25px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            background: linear-gradient(0deg, #047DAE, #047DAE), #047DAE;
+            background: linear-gradient(180deg, #047DAE 0%, #4CB7DA 100%);
+        }
+
+        .main.image-open::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(37, 37, 37, 0.4);
+            z-index: 5;
         }
 
         .header {
@@ -404,19 +415,32 @@
             position: relative;
         }
 
+        .back-arrow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: pointer;
+            display: none;
+        }
+
+        .back-arrow.active {
+            display: block;
+        }
+
         .header-title {
             font-weight: 700;
-            font-size: 20px;
-            line-height: 32px;
+            font-size: 18px;
+            line-height: 28px;
             letter-spacing: 0.04em;
             color: #FFD17C;
-            margin-bottom: 5px;
+            margin-bottom: 3vh;
+            padding: 0 30px;
         }
 
         .header-subtitle {
             font-weight: 500;
-            font-size: 14px;
-            line-height: 22px;
+            font-size: 16px;
+            line-height: 25px;
             letter-spacing: 0.04em;
             color: #fff;
         }
@@ -427,290 +451,204 @@
             right: 0;
         }
 
-        .windows {
+        .main-image {
             width: 100%;
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 117px));
-            justify-content: space-around;
-            align-items: center;
-            background-color: #fff;
+            height: 100%;
+            max-height: 330px;
+            border: 5px solid transparent;
             border-radius: 5px;
-            padding: 20px 0;
+            overflow: hidden;
+            margin-bottom: 3vh;
             position: relative;
-            flex-grow: 1;
         }
 
-        .windows-cell {
-            height: 66px;
-            text-align: center;
-            position: relative;
-            background: url(img/cell-bg.svg) center no-repeat;
-            background-size: 97%;
+        .main-image img {
+            object-fit: cover;
         }
 
-        .window-img {
+        .main-image.active {
+            width: 105%;
+            border: none;
+            overflow: visible;
+        }
+
+        .main-image.active img {
             position: absolute;
             top: 0;
             left: 0;
+            z-index: 10;
         }
 
-        .window-img.hide {
+        .image-full {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            cursor: pointer;
+            z-index: 15;
             display: none;
         }
 
-        .footer {
+        .thumbnail {
+            width: 88px;
+            height: 88px;
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            border: 3px solid #FFD17C;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input {
             width: 100%;
-            height: 30%;
-            background-color: #E6E0DA;
+            max-width: 270px;
+            height: 60px;
+            background-color: transparent;
+            border: 1px solid #fff;
+            border-radius: 20px;
+            outline: none;
+            padding: 15px 20px;
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 32px;
+            letter-spacing: 0.04em;
+            color: #fff;
         }
 
-        .footer-wrapper {
-            display: flex;
-            justify-content: space-around;
+        input::placeholder {
+            color: #fff;
         }
 
-        .footer-img {
-            width: 100%;
+        input.active {
+            background-color: #EEECEC;
+            color: #4F4F4F;
         }
 
-        .window-drop {
-            width: 70px;
-            height: 70px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .window-drop svg {
-            width: 100%;
-        }
-
-        .window-drop.active svg g {
-            stroke-width: 4;
-            stroke: #FFD17C;
+        input.active::placeholder {
+            color: #4F4F4F;
         }
 
         @media screen and (max-height: 650px) {
 
-            .windows {
-                grid-template-columns: repeat(2, minmax(0, 102px));
-                padding: 1vh 0;
+            .header {
+                padding-bottom: 2vh;
             }
 
-            .windows-cell {
-                height: 59px;
+            .header-title {
+                margin-bottom: 1vh;
+            }
+
+            .main-image {
+                margin-bottom: 2vh;
             }
 
         }
 
 
     </style>
-    <title>Windows riddle</title>
+    <title>Roadio</title>
 </head>
 <body>
 <div class="wrapper" dir="rtl">
     <div class="main">
         <div class="header">
+            <div class="back-arrow">
+                <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19.7569 10.1699H1.96729" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10.8621 19.0647L1.96729 10.1699L10.8621 1.27512" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
             <div class="header-title">
-                כיצד נראים החלונות?
+                מצאו את האלמנט בתמונה הגדולה סביבכם
             </div>
             <div class="header-subtitle">
-                בחר את החלונות התואמים את החללים הריקים
+                כשתגיעו אל האיזור חפשו את התמונה הקטנה והזינו את המידע החסר
             </div>
             <div class="header-hint">
                 <svg width="21" height="30" viewBox="0 0 21 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_1112_7428)">
-                        <path d="M19.661 10.632C19.661 5.40515 15.2771 1.17539 9.8954 1.24887C4.66599 1.31856 0.416684 5.51099 0.404053 10.6091C0.408415 12.0797 0.756903 13.5282 1.42063 14.8339C2.08436 16.1395 3.04416 17.2647 4.22022 18.1162C4.66285 18.4371 5.02428 18.8603 5.27489 19.3516C5.52551 19.8428 5.65809 20.3876 5.66164 20.9413V22.4223C5.67022 22.8102 5.82956 23.1788 6.10463 23.4469C6.37969 23.715 6.74795 23.861 7.12837 23.8523H12.9366C13.317 23.861 13.6853 23.715 13.9604 23.4469C14.2354 23.1788 14.3948 22.8102 14.4033 22.4223V20.9413C14.4072 20.3874 14.5399 19.8423 14.7906 19.3508C15.0414 18.8594 15.4029 18.436 15.8456 18.1147C17.0186 17.2658 17.9763 16.1447 18.6398 14.8435C19.3033 13.5423 19.6534 12.0985 19.661 10.632V10.632Z"
-                              fill="#FCFF00" stroke="black" stroke-miterlimit="10"/>
-                        <path d="M9.93845 23.5101H7.34676C6.98764 23.5099 6.64327 23.3644 6.3894 23.1055C6.13554 22.8465 5.99295 22.4951 5.99295 22.129V20.6998C5.99258 20.1713 5.87226 19.6504 5.64139 19.1773C5.41052 18.7042 5.07536 18.292 4.66218 17.973C3.186 16.8337 2.09561 15.2524 1.54323 13.4508C0.990856 11.6492 1.0041 9.71691 1.58106 7.92334C2.15801 6.12976 3.26988 4.56449 4.7615 3.4463C6.25311 2.3281 8.05 1.71315 9.90127 1.6864L9.93845 23.5101Z"
-                              fill="#FFD700"/>
-                        <path d="M13.1944 24.5056H6.99234C6.6464 24.5056 6.36597 24.7914 6.36597 25.1438C6.36597 25.4963 6.6464 25.782 6.99234 25.782H13.1944C13.5403 25.782 13.8207 25.4963 13.8207 25.1438C13.8207 24.7914 13.5403 24.5056 13.1944 24.5056Z"
-                              fill="#F3A83B" stroke="black" stroke-miterlimit="10"/>
-                        <path d="M13.1944 26.3584H6.99234C6.6464 26.3584 6.36597 26.6441 6.36597 26.9966C6.36597 27.3491 6.6464 27.6348 6.99234 27.6348H13.1944C13.5403 27.6348 13.8207 27.3491 13.8207 26.9966C13.8207 26.6441 13.5403 26.3584 13.1944 26.3584Z"
-                              fill="#F3A83B" stroke="black" stroke-miterlimit="10"/>
-                        <path d="M11.8021 28.2113H8.38491C8.03898 28.2113 7.75854 28.497 7.75854 28.8495C7.75854 29.202 8.03898 29.4877 8.38491 29.4877H11.8021C12.148 29.4877 12.4285 29.202 12.4285 28.8495C12.4285 28.497 12.148 28.2113 11.8021 28.2113Z"
-                              fill="#F3A83B" stroke="black" stroke-miterlimit="10"/>
-                        <path d="M10.7335 14.995C10.9624 15.1195 11.1537 15.3052 11.2872 15.532C11.4206 15.7589 11.4911 16.0184 11.4911 16.2829C11.4911 16.5474 11.4206 16.8069 11.2872 17.0338C11.1537 17.2606 10.9624 17.4463 10.7335 17.5708C10.49 17.7032 10.2174 17.7698 9.94145 17.7646C9.66439 17.7695 9.3906 17.7029 9.14564 17.5708C8.91742 17.4493 8.72665 17.2656 8.59435 17.0404C8.46392 16.8101 8.39526 16.5488 8.39526 16.2829C8.39526 16.017 8.46392 15.7557 8.59435 15.5254C8.7268 15.3003 8.91753 15.1167 9.14564 14.995C9.39085 14.8636 9.66446 14.797 9.94145 14.8012C10.2173 14.7966 10.4898 14.8632 10.7335 14.995ZM8.79272 12.6943L8.54011 6.61865C8.53247 6.45683 8.55711 6.2948 8.61258 6.14298C8.66806 5.99116 8.7532 5.85266 8.86283 5.73537C8.97246 5.61809 9.10433 5.52473 9.25039 5.46092C9.39646 5.39711 9.5537 5.36403 9.71261 5.36401H10.2231C10.382 5.36403 10.5392 5.39711 10.6853 5.46092C10.8314 5.52473 10.9632 5.61809 11.0729 5.73537C11.1825 5.85266 11.2676 5.99116 11.3231 6.14298C11.3786 6.2948 11.4032 6.45683 11.3956 6.61865L11.1377 12.6958C11.1223 13.0023 10.9921 13.2914 10.7739 13.5029C10.5557 13.7143 10.2662 13.8319 9.96521 13.8321C9.66428 13.8315 9.37511 13.7131 9.15734 13.5014C8.93956 13.2897 8.80984 13.0007 8.79498 12.6943H8.79272Z"
-                              fill="#FC8600" stroke="black" stroke-miterlimit="10"/>
+                        <path d="M19.661 10.632C19.661 5.40515 15.2771 1.17539 9.8954 1.24887C4.66599 1.31856 0.416684 5.51099 0.404053 10.6091C0.408415 12.0797 0.756903 13.5282 1.42063 14.8339C2.08436 16.1395 3.04416 17.2647 4.22022 18.1162C4.66285 18.4371 5.02428 18.8603 5.27489 19.3516C5.52551 19.8428 5.65809 20.3876 5.66164 20.9413V22.4223C5.67022 22.8102 5.82956 23.1788 6.10463 23.4469C6.37969 23.715 6.74795 23.861 7.12837 23.8523H12.9366C13.317 23.861 13.6853 23.715 13.9604 23.4469C14.2354 23.1788 14.3948 22.8102 14.4033 22.4223V20.9413C14.4072 20.3874 14.5399 19.8423 14.7906 19.3508C15.0414 18.8594 15.4029 18.436 15.8456 18.1147C17.0186 17.2658 17.9763 16.1447 18.6398 14.8435C19.3033 13.5423 19.6534 12.0985 19.661 10.632V10.632Z" fill="#FCFF00" stroke="black" stroke-miterlimit="10"></path>
+                        <path d="M9.93845 23.5101H7.34676C6.98764 23.5099 6.64327 23.3644 6.3894 23.1055C6.13554 22.8465 5.99295 22.4951 5.99295 22.129V20.6998C5.99258 20.1713 5.87226 19.6504 5.64139 19.1773C5.41052 18.7042 5.07536 18.292 4.66218 17.973C3.186 16.8337 2.09561 15.2524 1.54323 13.4508C0.990856 11.6492 1.0041 9.71691 1.58106 7.92334C2.15801 6.12976 3.26988 4.56449 4.7615 3.4463C6.25311 2.3281 8.05 1.71315 9.90127 1.6864L9.93845 23.5101Z" fill="#FFD700"></path>
+                        <path d="M13.1944 24.5056H6.99234C6.6464 24.5056 6.36597 24.7914 6.36597 25.1438C6.36597 25.4963 6.6464 25.782 6.99234 25.782H13.1944C13.5403 25.782 13.8207 25.4963 13.8207 25.1438C13.8207 24.7914 13.5403 24.5056 13.1944 24.5056Z" fill="#F3A83B" stroke="black" stroke-miterlimit="10"></path>
+                        <path d="M13.1944 26.3584H6.99234C6.6464 26.3584 6.36597 26.6441 6.36597 26.9966C6.36597 27.3491 6.6464 27.6348 6.99234 27.6348H13.1944C13.5403 27.6348 13.8207 27.3491 13.8207 26.9966C13.8207 26.6441 13.5403 26.3584 13.1944 26.3584Z" fill="#F3A83B" stroke="black" stroke-miterlimit="10"></path>
+                        <path d="M11.8021 28.2113H8.38491C8.03898 28.2113 7.75854 28.497 7.75854 28.8495C7.75854 29.202 8.03898 29.4877 8.38491 29.4877H11.8021C12.148 29.4877 12.4285 29.202 12.4285 28.8495C12.4285 28.497 12.148 28.2113 11.8021 28.2113Z" fill="#F3A83B" stroke="black" stroke-miterlimit="10"></path>
+                        <path d="M10.7335 14.995C10.9624 15.1195 11.1537 15.3052 11.2872 15.532C11.4206 15.7589 11.4911 16.0184 11.4911 16.2829C11.4911 16.5474 11.4206 16.8069 11.2872 17.0338C11.1537 17.2606 10.9624 17.4463 10.7335 17.5708C10.49 17.7032 10.2174 17.7698 9.94145 17.7646C9.66439 17.7695 9.3906 17.7029 9.14564 17.5708C8.91742 17.4493 8.72665 17.2656 8.59435 17.0404C8.46392 16.8101 8.39526 16.5488 8.39526 16.2829C8.39526 16.017 8.46392 15.7557 8.59435 15.5254C8.7268 15.3003 8.91753 15.1167 9.14564 14.995C9.39085 14.8636 9.66446 14.797 9.94145 14.8012C10.2173 14.7966 10.4898 14.8632 10.7335 14.995ZM8.79272 12.6943L8.54011 6.61865C8.53247 6.45683 8.55711 6.2948 8.61258 6.14298C8.66806 5.99116 8.7532 5.85266 8.86283 5.73537C8.97246 5.61809 9.10433 5.52473 9.25039 5.46092C9.39646 5.39711 9.5537 5.36403 9.71261 5.36401H10.2231C10.382 5.36403 10.5392 5.39711 10.6853 5.46092C10.8314 5.52473 10.9632 5.61809 11.0729 5.73537C11.1825 5.85266 11.2676 5.99116 11.3231 6.14298C11.3786 6.2948 11.4032 6.45683 11.3956 6.61865L11.1377 12.6958C11.1223 13.0023 10.9921 13.2914 10.7739 13.5029C10.5557 13.7143 10.2662 13.8319 9.96521 13.8321C9.66428 13.8315 9.37511 13.7131 9.15734 13.5014C8.93956 13.2897 8.80984 13.0007 8.79498 12.6943H8.79272Z" fill="#FC8600" stroke="black" stroke-miterlimit="10"></path>
                     </g>
                     <defs>
                         <clipPath id="clip0_1112_7428">
-                            <rect width="20" height="29" fill="white" transform="translate(0.0339355 0.866455)"/>
+                            <rect width="20" height="29" fill="white" transform="translate(0.0339355 0.866455)"></rect>
                         </clipPath>
                     </defs>
                 </svg>
             </div>
         </div>
-        <div class="windows">
-            <div class="windows-cell">
-                <img class="window-img" src="img/window-2.png" alt="Window image">
+        <div class="main-image">
+            <div class="image-full">
+                <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.86108 1.78851H3.86108C3.33065 1.78851 2.82194 1.99923 2.44687 2.3743C2.0718 2.74937 1.86108 3.25808 1.86108 3.78851V6.78851M19.8611 6.78851V3.78851C19.8611 3.25808 19.6504 2.74937 19.2753 2.3743C18.9002 1.99923 18.3915 1.78851 17.8611 1.78851H14.8611M14.8611 19.7885H17.8611C18.3915 19.7885 18.9002 19.5778 19.2753 19.2027C19.6504 18.8277 19.8611 18.3189 19.8611 17.7885V14.7885M1.86108 14.7885V17.7885C1.86108 18.3189 2.0718 18.8277 2.44687 19.2027C2.82194 19.5778 3.33065 19.7885 3.86108 19.7885H6.86108"
+                          stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
             </div>
-            <div class="windows-cell">
-                <img class="window-img" src="img/window-1.png" alt="Window image">
-            </div>
-            <div class="windows-cell">
-                <img class="window-img" src="img/window-4.png" alt="Window image">
-            </div>
-            <div class="windows-cell">
-                <img class="window-img" src="img/window-3.png" alt="Window image">
-            </div>
-            <div class="windows-cell">
-                <img class="window-img" src="img/window-6.png" alt="Window image">
-            </div>
-            <div class="windows-cell">
-                <img class="window-img" src="img/window-5.png" alt="Window image">
-            </div>
-            <div class="windows-cell">
-                <img class="window-img" src="img/window-8.png" alt="Window image">
-            </div>
-            <div class="windows-cell">
-                <img class="window-img" src="img/window-7.png" alt="Window image">
+            <img class="main-img" src="img/image1.png" alt="Main image">
+            <div class="thumbnail">
+                <img src="img/thumbnail.png" alt="Thumbnail image">
             </div>
         </div>
-    </div>
-    <div class="footer">
-        <div class="footer-wrapper">
-            <div class="window-drop">
-                <svg width="74" height="44" viewBox="0 0 74 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g filter="url(#filter0_i_1335_3687)">
-                        <path d="M35.1007 0.400322C2.79601 8.1083 -0.60501 29.4466 0.309031 42.5927C0.345022 43.1103 0.778378 43.5024 1.29727 43.5024H72.5414C73.0774 43.5024 73.5197 43.0661 73.5322 42.5303C74.2245 12.9778 49.2633 2.85493 35.5028 0.386874C35.3694 0.362939 35.2326 0.368856 35.1007 0.400322Z" fill="white"/>
-                    </g>
-                    <defs>
-                        <filter id="filter0_i_1335_3687" x="0.18457" y="0.37207" width="73.3618" height="43.1304" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                            <feOffset/>
-                            <feGaussianBlur stdDeviation="4"/>
-                            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-                            <feColorMatrix type="matrix" values="0 0 0 0 0.629167 0 0 0 0 0.623924 0 0 0 0 0.623924 0 0 0 1 0"/>
-                            <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1335_3687"/>
-                        </filter>
-                    </defs>
-                </svg>
-            </div>
-            <div class="window-drop">
-                <svg width="74" height="44" viewBox="0 0 74 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g filter="url(#filter0_i_1335_3687)">
-                        <path d="M35.1007 0.400322C2.79601 8.1083 -0.60501 29.4466 0.309031 42.5927C0.345022 43.1103 0.778378 43.5024 1.29727 43.5024H72.5414C73.0774 43.5024 73.5197 43.0661 73.5322 42.5303C74.2245 12.9778 49.2633 2.85493 35.5028 0.386874C35.3694 0.362939 35.2326 0.368856 35.1007 0.400322Z" fill="white"/>
-                    </g>
-                    <defs>
-                        <filter id="filter0_i_1335_3687" x="0.18457" y="0.37207" width="73.3618" height="43.1304" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                            <feOffset/>
-                            <feGaussianBlur stdDeviation="4"/>
-                            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-                            <feColorMatrix type="matrix" values="0 0 0 0 0.629167 0 0 0 0 0.623924 0 0 0 0 0.623924 0 0 0 1 0"/>
-                            <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1335_3687"/>
-                        </filter>
-                    </defs>
-                </svg>
-            </div>
-            <div class="window-drop">
-                <svg width="74" height="44" viewBox="0 0 74 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g filter="url(#filter0_i_1335_3687)">
-                        <path d="M35.1007 0.400322C2.79601 8.1083 -0.60501 29.4466 0.309031 42.5927C0.345022 43.1103 0.778378 43.5024 1.29727 43.5024H72.5414C73.0774 43.5024 73.5197 43.0661 73.5322 42.5303C74.2245 12.9778 49.2633 2.85493 35.5028 0.386874C35.3694 0.362939 35.2326 0.368856 35.1007 0.400322Z" fill="white"/>
-                    </g>
-                    <defs>
-                        <filter id="filter0_i_1335_3687" x="0.18457" y="0.37207" width="73.3618" height="43.1304" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                            <feOffset/>
-                            <feGaussianBlur stdDeviation="4"/>
-                            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-                            <feColorMatrix type="matrix" values="0 0 0 0 0.629167 0 0 0 0 0.623924 0 0 0 0 0.623924 0 0 0 1 0"/>
-                            <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1335_3687"/>
-                        </filter>
-                    </defs>
-                </svg>
-            </div>
-            <div class="window-drop">
-                <svg width="74" height="44" viewBox="0 0 74 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g filter="url(#filter0_i_1335_3687)">
-                        <path d="M35.1007 0.400322C2.79601 8.1083 -0.60501 29.4466 0.309031 42.5927C0.345022 43.1103 0.778378 43.5024 1.29727 43.5024H72.5414C73.0774 43.5024 73.5197 43.0661 73.5322 42.5303C74.2245 12.9778 49.2633 2.85493 35.5028 0.386874C35.3694 0.362939 35.2326 0.368856 35.1007 0.400322Z" fill="white"/>
-                    </g>
-                    <defs>
-                        <filter id="filter0_i_1335_3687" x="0.18457" y="0.37207" width="73.3618" height="43.1304" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                            <feOffset/>
-                            <feGaussianBlur stdDeviation="4"/>
-                            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
-                            <feColorMatrix type="matrix" values="0 0 0 0 0.629167 0 0 0 0 0.623924 0 0 0 0 0.623924 0 0 0 1 0"/>
-                            <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1335_3687"/>
-                        </filter>
-                    </defs>
-                </svg>
-            </div>
-        </div>
-        <div class="footer-img">
-            <img src="img/footer-img.png" alt="Footer image">
-        </div>
+        <input type="text" placeholder="סימון החומה ב">
     </div>
 </div>
 <script>
 
-    const wrapper = document.querySelector('.windows');
-    const windows = Array.from(document.querySelectorAll('.window-drop'));
-    const images = Array.from(document.querySelectorAll('.window-img'));
-    const windowCell = document.querySelector('.windows-cell');
-    let itemAppend = null;
+    const openFullBtn = document.querySelector('.image-full');
+    const image = document.querySelector('.main-image');
+    const openFullIcon = `<svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.86108 1.78851H3.86108C3.33065 1.78851 2.82194 1.99923 2.44687 2.3743C2.0718 2.74937 1.86108 3.25808 1.86108 3.78851V6.78851M19.8611 6.78851V3.78851C19.8611 3.25808 19.6504 2.74937 19.2753 2.3743C18.9002 1.99923 18.3915 1.78851 17.8611 1.78851H14.8611M14.8611 19.7885H17.8611C18.3915 19.7885 18.9002 19.5778 19.2753 19.2027C19.6504 18.8277 19.8611 18.3189 19.8611 17.7885V14.7885M1.86108 14.7885V17.7885C1.86108 18.3189 2.0718 18.8277 2.44687 19.2027C2.82194 19.5778 3.33065 19.7885 3.86108 19.7885H6.86108"
+                          stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>`;
+    const closeFullIcon = `<svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.05107 1.33148V5.33148C8.05107 6.03873 7.77011 6.717 7.27002 7.2171C6.76992 7.7172 6.09164 7.99815 5.3844 7.99815H1.3844M25.3844 7.99815H21.3844C20.6772 7.99815 19.9989 7.7172 19.4988 7.2171C18.9987 6.717 18.7177 6.03873 18.7177 5.33148V1.33148M18.7177 25.3315V21.3315C18.7177 20.6242 18.9987 19.946 19.4988 19.4459C19.9989 18.9458 20.6772 18.6648 21.3844 18.6648H25.3844M1.3844 18.6648H5.3844C6.09164 18.6648 6.76992 18.9458 7.27002 19.4459C7.77011 19.946 8.05107 20.6242 8.05107 21.3315V25.3315" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+`;
+    const main = document.querySelector('.main');
+    const thumbnail = document.querySelector('.thumbnail');
+    const backArrow = document.querySelector('.back-arrow');
+    const pageTitle = document.querySelector('.header-title');
+    const pageSubtitle = document.querySelector('.header-subtitle');
+    const mainImage = document.querySelector('.main-img');
+    const input = document.querySelector('input');
 
-    images.forEach((image) => {
-        image.addEventListener('touchmove', function (event) {
-            event.preventDefault();
-            let touch = event.targetTouches[0];
-            let currentImage = this;
-            if (!currentImage.classList.contains('dropped')) {
-                currentImage.parentNode.style.position = 'unset';
-                currentImage.style.position = 'absolute';
-                currentImage.style.width = windowCell.offsetWidth + 'px';
-                currentImage.style.height = windowCell.offsetHeight + 'px';
-                currentImage.style.zIndex = '100';
-                currentImage.style.top = `${touch.pageY - (wrapper.offsetTop) - (currentImage.offsetHeight / 2)}px`;
-                currentImage.style.left = `${touch.pageX - (wrapper.offsetLeft) - (currentImage.offsetWidth / 2)}px`;
-                currentImage.style.transform = 'unset';
-                windows.forEach(item => {
-                    if (
-                        currentImage.getBoundingClientRect().top + currentImage.offsetHeight / 2 < item.getBoundingClientRect().bottom &&
-                        currentImage.getBoundingClientRect().right - currentImage.offsetWidth / 2 > item.getBoundingClientRect().left &&
-                        currentImage.getBoundingClientRect().bottom - currentImage.offsetHeight / 2 > item.getBoundingClientRect().top &&
-                        currentImage.getBoundingClientRect().left + currentImage.offsetWidth / 2 < item.getBoundingClientRect().right
-                    ) {
-                        item.classList.add('active');
-                        itemAppend = item;
-                        currentImage.style.transform = 'scale(.7)';
-                    } else {
-                        item.classList.remove('active');
-                    }
-                });
-            }
+    // openFullBtn.addEventListener('click', function () {
+    //     if (!image.classList.contains('active')) {
+    //         image.classList.add('active');
+    //         openFullBtn.innerHTML = closeFullIcon;
+    //         main.classList.add('image-open');
+    //     } else {
+    //         image.classList.remove('active');
+    //         openFullBtn.innerHTML = openFullIcon;
+    //         main.classList.remove('image-open');
+    //     }
+    // });
 
-        });
-        image.addEventListener('touchend', function () {
-            if (!this.classList.contains('dropped')) {
-                this.parentNode.style.position = 'relative';
-                this.style.top = `0`;
-                this.style.left = `0`;
-                this.style.zIndex = '0';
-            }
-            if (itemAppend.classList.contains('active')) {
-                itemAppend.innerHTML = "";
-                itemAppend.append(this);
-                itemAppend.classList.remove('active');
-                this.style.width = '100%';
-                this.style.height = '42px';
-                this.style.position = 'static';
-                this.style.transform = 'unset';
-                this.classList.add('dropped');
-            }
-        });
-    })
+    thumbnail.addEventListener('click', function () {
+        backArrow.classList.add('active');
+        pageTitle.textContent = 'אתה מאוד קרוב!';
+        pageSubtitle.textContent = 'מצא את התמונה למטה והזן את\n' +
+            ' הטקסט החסר';
+        thumbnail.style.display = 'none';
+        mainImage.src = 'img/image2.png';
+        image.style.borderColor = '#FFD17C';
+        input.classList.add('active');
+    });
 
+    backArrow.addEventListener('click', function () {
+        backArrow.classList.remove('active');
+        pageTitle.textContent = 'מצאו את האלמנט בתמונה הגדולה סביבכם';
+        pageSubtitle.textContent = 'כשתגיעו אל האיזור חפשו את התמונה הקטנה והזינו את המידע החסר';
+        thumbnail.style.display = 'block';
+        mainImage.src = 'img/image1.png';
+        image.style.borderColor = 'transparent';
+        input.classList.remove('active');
+    });
 
 </script>
 </body>
