@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300;400;500;600&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300;400;500;600;800&display=swap"
           rel="stylesheet">
     <style>
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -391,7 +391,7 @@
         .main {
             width: 100%;
             height: 100%;
-            background: url(img/piano-bg.png) center no-repeat;
+            background: url(img/bg.png) center no-repeat;
             background-size: cover;
             display: -webkit-box;
             display: -ms-flexbox;
@@ -412,7 +412,7 @@
 
         .header {
             width: 100%;
-            padding: 28px 17px 0 17px;
+            padding: 51px 33px 0 33px;
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
@@ -423,84 +423,27 @@
             -ms-flex-align: center;
             align-items: center;
             position: relative;
-            margin-bottom: 5vh;
         }
 
         .header-burger {
-            width: 18px;
+            width: 20px;
             position: absolute;
-            top: 34px;
-            left: 36px;
+            top: 14px;
+            left: 18px;
             cursor: pointer;
         }
 
         .header-burger span {
             display: block;
             width: 100%;
-            height: 2px;
-            background-color: #454545;
+            height: 4px;
+            background-color: #fff;
             margin-bottom: 5px;
+            border-radius: 5px;
         }
 
         .header-burger span:last-child {
-            width: 11px;
             margin-bottom: 0;
-        }
-
-        .header-title {
-            font-weight: 500;
-            font-size: 22px;
-            color: #4F4F4F;
-        }
-
-        .piano {
-            width: 100%;
-            padding: 0 25px;
-            margin: 0 auto;
-        }
-
-        .piano-keys {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-        }
-
-        .piano-white {
-            width: 72px;
-            height: 30vh;
-            background-color: #fff;
-            border: 1px solid #222;
-            cursor: pointer;
-        }
-
-        .piano-black {
-            position: relative;
-        }
-
-        .piano-black-raised {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 42px;
-            height: 19vh;
-            background-color: #000;
-        }
-
-        .footer {
-            width: 100%;
-            padding-left: 40px;
-            padding-bottom: 21px;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-pack: start;
-            -ms-flex-pack: start;
-            justify-content: flex-start;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-            position: relative;
         }
 
         .burger-menu {
@@ -556,10 +499,17 @@
             height: 38px;
         }
 
-        .support-icon div {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(112.24deg, #F6E277 -13.34%, #F6C14C 43.37%, #D79036 132.92%);
+        .mute-button {
+            width: 45px;
+            height: 45px;
+            position: absolute;
+            top: 9px;
+            right: 8px;
+            outline: none;
+            cursor: pointer;
+            padding: 0;
+            background-color: #fff;
+            border: 0;
             border-radius: 50%;
             display: -webkit-box;
             display: -ms-flexbox;
@@ -570,6 +520,210 @@
             -webkit-box-align: center;
             -ms-flex-align: center;
             align-items: center;
+        }
+
+        .mute-button::before {
+            content: '';
+            position: absolute;
+            width: calc(100% - 6px);
+            height: calc(100% - 6px);
+            background: linear-gradient(90deg, #FBCD56 0%, #F1A026 100%);
+            border-radius: 50%;
+            -webkit-filter: drop-shadow(0px 1px 0px #D66902);
+            filter: drop-shadow(0px 1px 0px #D66902);
+        }
+
+        .next {
+            width: 100%;
+            background: #fff;
+            border: 2px solid #4f86f1;
+            box-shadow: 0 8.12738px 16.2548px rgba(9, 36, 152, 0.32), 0 27.4299px 32.5095px rgba(3, 47, 120, 0.2);
+            border-radius: 28px;
+        }
+
+        .next-block {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(58, 188, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+            border: 6px solid #3f73ec;
+            border-radius: 25px;
+            text-align: center;
+            padding-bottom: 33px;
+            position: relative;
+        }
+
+        .next-text {
+            font-weight: 800;
+            font-size: 16px;
+            line-height: 32px;
+            color: #04357E;
+            text-shadow: 0 1px 1px rgba(34, 229, 236, 0.24);
+        }
+
+        .next-name {
+            font-weight: 800;
+            font-size: 25px;
+            line-height: 24px;
+            color: #054F96;
+        }
+
+        .next-timer {
+            position: absolute;
+            bottom: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 11px 33px;
+            background: #38D31F;
+            border: 3px solid #fff;
+            box-shadow: 6px 10px 21px rgba(5, 72, 150, 0.7);
+            border-radius: 90px;
+            font-weight: 800;
+            font-size: 26px;
+            line-height: 19px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .player-button {
+            background-color: #fff;
+            border: 0;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            padding: 0;
+            -ms-flex-negative: 0;
+            flex-shrink: 0;
+            position: absolute;
+            bottom: -9px;
+            right: -16px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .player-button::before {
+            content: '';
+            position: absolute;
+            width: calc(100% - 6px);
+            height: calc(100% - 6px);
+            top: 3px;
+            left: 3px;
+            background: linear-gradient(107.25deg, #FCE96A -16.9%, #FABD4C 33.39%, #EF9A1E 94.11%);
+            border-radius: 50%;
+            -webkit-filter: drop-shadow(0px 1px 0px #D66902);
+            filter: drop-shadow(0px 1px 0px #D66902);
+        }
+
+        .player-button svg,
+        .mute-button svg {
+            position: relative;
+            z-index: 10;
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        .radar {
+            width: 238px;
+            height: 238px;
+            border-radius: 50%;
+            background: url(img/radar.png) center no-repeat transparent;
+            background-size: 100%;
+            position: relative;
+        }
+
+        .radar::before {
+            width: 100%;
+            height: 100%;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            background: url(img/beam.svg) center no-repeat transparent;
+            background-size: 100%;
+            -webkit-animation: spin 3.5s linear infinite;
+            animation: spin 3.5s linear infinite;
+        }
+
+        .user {
+            width: 45px;
+            height: 45px;
+            position: absolute;
+            top: 12%;
+            right: 7px;
+            box-shadow: 0 8px 35px rgba(3, 47, 120, 0.71), inset 0 0 50px 18px rgba(45, 67, 2, 0.35);
+            border-radius: 50%;
+            border: 3px solid #fff;
+            background: url(img/rondano.svg) center no-repeat #F7CD4C;
+            background-size: 100%;
+        }
+
+        .user.center {
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: url(img/avatar.svg) center no-repeat #9FD734;
+            background-size: 100%;
+        }
+
+        .username {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: 800;
+            font-size: 12px;
+            letter-spacing: .5px;
+            color: #000;
+        }
+
+        .footer {
+            width: 100%;
+            padding: 0 30px 26px 30px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            position: relative;
         }
 
         .menu-footer {
@@ -601,19 +755,36 @@
             justify-content: center;
         }
 
-        @media screen and (max-width: 600px) {
-            .piano-white {
-                width: 12vw;
-            }
-
-            .piano-black-raised {
-                width: 7vw;
-            }
+        .audio-bar {
+            background: #DDF0FF;
+            border: 1px solid #FFFFFF;
+            box-shadow: 0 8px 32px rgba(3, 47, 120, 0.28);
+            border-radius: 15px;
+            padding: 11px 25px 8px 122px;
+            position: relative;
         }
 
+        .audio-img {
+            width: 92px;
+            height: 92px;
+            position: absolute;
+            top: -16px;
+            left: 10px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 11px 22px rgba(3, 47, 120, 0.13), 0 3px 14px rgba(26, 33, 45, 0.09);
+        }
+
+        .audio-text {
+            font-weight: 800;
+            font-size: 13px;
+            line-height: 18px;
+            text-align: center;
+            color: #0D2652;
+        }
 
     </style>
-    <title>Piano</title>
+    <title>Radar</title>
 </head>
 <body>
 <div class="wrapper" dir="ltr">
@@ -664,50 +835,84 @@
         </div>
     </div>
     <div class="main">
-        <div style="width: 100%;">
-            <div class="header">
-                <div class="header-burger">
-                    <span></span>
-                    <span></span>
-                </div>
-                <div class="header-title">Piano</div>
+        <div class="header">
+            <div class="header-burger">
+                <span></span>
+                <span></span>
             </div>
-            <div class="piano">
-                <div class="piano-keys">
-                    <div class="piano-white piano-C3"></div>
-                    <div class="piano-black">
-                        <div class="piano-black-raised piano-Db3"></div>
+            <button class="mute-button">
+                <svg width="17" height="23" viewBox="0 0 47 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g filter="url(#filter0_d_53_301)">
+                        <path d="M46.714 6.0423C46.7732 1.85653 41.9699 -0.544492 38.6573 2.01507L22.4969 14.5021C21.6022 15.1934 20.4996 15.5611 19.369 15.5451L5.74736 15.3524C2.98621 15.3133 0.716195 17.52 0.677129 20.2811L0.388761 40.6625C0.349695 43.4236 2.55638 45.6936 5.31753 45.7327L18.9392 45.9254C20.0697 45.9414 21.1615 46.3401 22.0363 47.0565L37.837 59.9957C41.0758 62.648 45.9451 60.3838 46.0043 56.198L46.714 6.0423Z"
+                              fill="white"/>
+                    </g>
+                    <defs>
+                        <filter id="filter0_d_53_301" x="0.388306" y="0.961914" width="46.3262" height="66.1743"
+                                filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                           values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                            <feOffset dy="6"/>
+                            <feComposite in2="hardAlpha" operator="out"/>
+                            <feColorMatrix type="matrix"
+                                           values="0 0 0 0 0.839216 0 0 0 0 0.411765 0 0 0 0 0.00784314 0 0 0 0.7 0"/>
+                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_53_301"/>
+                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_53_301" result="shape"/>
+                        </filter>
+                    </defs>
+                </svg>
+            </button>
+            <div class="next">
+                <div class="next-block">
+                    <p class="next-text">Next point:</p>
+                    <p class="next-name">Steve’s Donats</p>
+                    <div class="next-timer">
+                        4:59
                     </div>
-                    <div class="piano-white piano-D3"></div>
-                    <div class="piano-black">
-                        <div class="piano-black-raised piano-Eb3"></div>
-                    </div>
-                    <div class="piano-white piano-E3"></div>
-                    <div class="piano-white piano-F3"></div>
-                    <div class="piano-black">
-                        <div class="piano-black-raised piano-Gb3"></div>
-                    </div>
-                    <div class="piano-white piano-G3"></div>
-                    <div class="piano-black">
-                        <div class="piano-black-raised piano-Ab3"></div>
-                    </div>
-                    <div class="piano-white piano-A2"></div>
-                    <div class="piano-black">
-                        <div class="piano-black-raised piano-Bb2"></div>
-                    </div>
-                    <div class="piano-white piano-B2"></div>
                 </div>
             </div>
         </div>
+        <div class="radar">
+            <div class="user center">
+                <div class="username">Username</div>
+            </div>
+            <div class="user">
+                <div class="username">Rondano</div>
+            </div>
+        </div>
         <div class="footer">
-            <a class="back-link" href="#!">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M21.8831 12H2.11694" stroke="white" stroke-width="3" stroke-linecap="round"
-                          stroke-linejoin="round"/>
-                    <path d="M12 21.8831L2.11694 12L12 2.11688" stroke="white" stroke-width="3" stroke-linecap="round"
-                          stroke-linejoin="round"/>
-                </svg>
-            </a>
+            <div class="audio-bar">
+                <div class="audio-img"></div>
+                <div class="audio-text">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do consectetur
+                </div>
+                <button class="player-button playing" id="player-button">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g filter="url(#filter0_d_481_13254)">
+                            <path d="M7.00899 15.0988V3.56239C7.00899 2.48931 6.13909 1.61942 5.06602 1.61942C3.99294 1.61942 3.12305 2.48932 3.12305 3.56239V15.0988C3.12305 16.1718 3.99294 17.0417 5.06602 17.0417C6.13909 17.0417 7.00899 16.1718 7.00899 15.0988Z"
+                                  fill="white" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M14.7805 15.0988V3.56248C14.7805 2.48941 13.9106 1.61951 12.8375 1.61951C11.7644 1.61951 10.8945 2.48941 10.8945 3.56248V15.0988C10.8945 16.1719 11.7644 17.0418 12.8375 17.0418C13.9106 17.0418 14.7805 16.1719 14.7805 15.0988Z"
+                                  fill="white" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                            <filter id="filter0_d_481_13254" x="0.623047" y="0.119415" width="16.6572" height="20.4224"
+                                    filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                <feColorMatrix in="SourceAlpha" type="matrix"
+                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                <feOffset dy="1"/>
+                                <feGaussianBlur stdDeviation="1"/>
+                                <feComposite in2="hardAlpha" operator="out"/>
+                                <feColorMatrix type="matrix"
+                                               values="0 0 0 0 0.901961 0 0 0 0 0.552941 0 0 0 0 0.113725 0 0 0 1 0"/>
+                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_481_13254"/>
+                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_481_13254"
+                                         result="shape"/>
+                            </filter>
+                        </defs>
+                    </svg>
+                </button>
+            </div>
         </div>
     </div>
 </div>
@@ -727,6 +932,60 @@
             burgerMenu.classList.remove('active');
         }
     });
+
+    // play btn
+    const playerButton = document.getElementById('player-button');
+    const playIcon = `
+        <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d_481_13438)">
+<path d="M17.1889 9.6904C18.5335 10.458 18.5335 12.3966 17.1889 13.1642L6.30577 19.377C4.97247 20.1381 3.31423 19.1753 3.31423 17.6401L3.31423 5.21453C3.31423 3.67927 4.97246 2.71649 6.30577 3.47763L17.1889 9.6904Z" fill="white"/>
+</g>
+<defs>
+<filter id="filter0_d_481_13438" x="0.314453" y="0.211578" width="20.8828" height="22.4315" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset/>
+<feGaussianBlur stdDeviation="1.5"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.3125 0 0 0 0 0.3125 0 0 0 0 0.3125 0 0 0 1 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_481_13438"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_481_13438" result="shape"/>
+</filter>
+</defs>
+</svg>
+      `,
+        pauseIcon = `
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d_481_13254)">
+<path d="M7.00899 15.0988V3.56239C7.00899 2.48931 6.13909 1.61942 5.06602 1.61942C3.99294 1.61942 3.12305 2.48932 3.12305 3.56239V15.0988C3.12305 16.1718 3.99294 17.0417 5.06602 17.0417C6.13909 17.0417 7.00899 16.1718 7.00899 15.0988Z" fill="white" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M14.7805 15.0988V3.56248C14.7805 2.48941 13.9106 1.61951 12.8375 1.61951C11.7644 1.61951 10.8945 2.48941 10.8945 3.56248V15.0988C10.8945 16.1719 11.7644 17.0418 12.8375 17.0418C13.9106 17.0418 14.7805 16.1719 14.7805 15.0988Z" fill="white" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<filter id="filter0_d_481_13254" x="0.623047" y="0.119415" width="16.6572" height="20.4224" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="1"/>
+<feGaussianBlur stdDeviation="1"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.901961 0 0 0 0 0.552941 0 0 0 0 0.113725 0 0 0 1 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_481_13254"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_481_13254" result="shape"/>
+</filter>
+</defs>
+</svg>
+       `;
+
+    function toggleAudio() {
+        if (playerButton.classList.contains('playing')) {
+            playerButton.innerHTML = playIcon;
+            playerButton.classList.remove('playing');
+        } else {
+            playerButton.innerHTML = pauseIcon;
+            playerButton.classList.add('playing');
+        }
+    }
+
+    playerButton.addEventListener('click', toggleAudio);
 
 </script>
 </body>
