@@ -412,7 +412,7 @@
 
         .header {
             width: 100%;
-            padding: 51px 33px 0 33px;
+            padding: 51px 35px 0 35px;
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
@@ -428,8 +428,8 @@
         .header-burger {
             width: 20px;
             position: absolute;
-            top: 14px;
-            left: 18px;
+            top: 21px;
+            left: 16px;
             cursor: pointer;
         }
 
@@ -438,7 +438,7 @@
             width: 100%;
             height: 4px;
             background-color: #fff;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
             border-radius: 5px;
         }
 
@@ -500,11 +500,11 @@
         }
 
         .mute-button {
-            width: 45px;
-            height: 45px;
+            width: 36px;
+            height: 36px;
             position: absolute;
             top: 9px;
-            right: 8px;
+            right: 16px;
             outline: none;
             cursor: pointer;
             padding: 0;
@@ -525,58 +525,50 @@
         .mute-button::before {
             content: '';
             position: absolute;
-            width: calc(100% - 6px);
-            height: calc(100% - 6px);
+            width: calc(100% - 4px);
+            height: calc(100% - 4px);
+            top: 2px;
+            left: 2px;
             background: linear-gradient(90deg, #FBCD56 0%, #F1A026 100%);
             border-radius: 50%;
-            -webkit-filter: drop-shadow(0px 1px 0px #D66902);
-            filter: drop-shadow(0px 1px 0px #D66902);
-        }
-
-        .next {
-            width: 100%;
-            background: #fff;
-            border: 2px solid #4f86f1;
-            box-shadow: 0 8.12738px 16.2548px rgba(9, 36, 152, 0.32), 0 27.4299px 32.5095px rgba(3, 47, 120, 0.2);
-            border-radius: 28px;
         }
 
         .next-block {
             width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, rgba(58, 188, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
-            border: 6px solid #3f73ec;
-            border-radius: 25px;
+            background: linear-gradient(180deg, rgba(58, 188, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #FFFFFF;
+            border: 7px solid #4f86f1;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+            border-radius: 27px;
+            padding: 8px 0 25px 0;
             text-align: center;
-            padding-bottom: 33px;
             position: relative;
         }
 
         .next-text {
             font-weight: 800;
-            font-size: 16px;
-            line-height: 32px;
+            font-size: 18px;
+            line-height: 25px;
             color: #04357E;
             text-shadow: 0 1px 1px rgba(34, 229, 236, 0.24);
         }
 
         .next-name {
             font-weight: 800;
-            font-size: 25px;
-            line-height: 24px;
+            font-size: 26px;
+            line-height: 31px;
             color: #054F96;
         }
 
         .next-timer {
             position: absolute;
-            bottom: -22px;
+            bottom: -36px;
             left: 50%;
             transform: translateX(-50%);
-            padding: 11px 33px;
+            padding: 13px 31px;
             background: #38D31F;
-            border: 3px solid #fff;
-            box-shadow: 6px 10px 21px rgba(5, 72, 150, 0.7);
-            border-radius: 90px;
+            border: 2px solid #fff;
+            box-shadow: 2px 3.33333px 7px rgba(5, 72, 150, 0.7);
+            border-radius: 30px;
             font-weight: 800;
             font-size: 26px;
             line-height: 19px;
@@ -595,8 +587,8 @@
             -ms-flex-negative: 0;
             flex-shrink: 0;
             position: absolute;
-            bottom: -9px;
-            right: -16px;
+            bottom: -13px;
+            right: -19px;
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
@@ -673,27 +665,24 @@
         }
 
         .user {
-            width: 45px;
-            height: 45px;
+            width: 71px;
+            height: 71px;
             position: absolute;
-            top: 12%;
-            right: 7px;
-            box-shadow: 0 8px 35px rgba(3, 47, 120, 0.71), inset 0 0 50px 18px rgba(45, 67, 2, 0.35);
+            top: -8%;
+            right: 14px;
+            background: #F7CD4C;
+            border: 2px solid #fff;
             border-radius: 50%;
-            border: 3px solid #fff;
-            background: url(img/rondano.svg) center no-repeat #F7CD4C;
-            background-size: 100%;
         }
 
         .user.center {
-            width: 60px;
-            height: 60px;
+            width: 71px;
+            height: 71px;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: url(img/avatar.svg) center no-repeat #9FD734;
-            background-size: 100%;
+            background: #96CB30;
         }
 
         .username {
@@ -709,7 +698,7 @@
 
         .footer {
             width: 100%;
-            padding: 0 30px 26px 30px;
+            padding: 0 35px 22px 35px;
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
@@ -757,10 +746,9 @@
 
         .audio-bar {
             background: #DDF0FF;
-            border: 1px solid #FFFFFF;
-            box-shadow: 0 8px 32px rgba(3, 47, 120, 0.28);
+            border: 2px solid #FFFFFF;
             border-radius: 15px;
-            padding: 11px 25px 8px 122px;
+            padding: 11px 20px 10px 105px;
             position: relative;
         }
 
@@ -768,19 +756,26 @@
             width: 92px;
             height: 92px;
             position: absolute;
-            top: -16px;
-            left: 10px;
+            top: -18px;
+            left: 4px;
             border-radius: 50%;
             background: #fff;
-            box-shadow: 0 11px 22px rgba(3, 47, 120, 0.13), 0 3px 14px rgba(26, 33, 45, 0.09);
         }
 
         .audio-text {
             font-weight: 800;
-            font-size: 13px;
+            font-size: 14px;
             line-height: 18px;
             text-align: center;
             color: #0D2652;
+        }
+
+        @media screen and (max-height: 670px) {
+
+            .header {
+                margin-bottom: 6vh;
+            }
+
         }
 
     </style>
@@ -840,49 +835,59 @@
                 <span></span>
                 <span></span>
             </div>
-            <button class="mute-button">
-                <svg width="17" height="23" viewBox="0 0 47 68" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g filter="url(#filter0_d_53_301)">
-                        <path d="M46.714 6.0423C46.7732 1.85653 41.9699 -0.544492 38.6573 2.01507L22.4969 14.5021C21.6022 15.1934 20.4996 15.5611 19.369 15.5451L5.74736 15.3524C2.98621 15.3133 0.716195 17.52 0.677129 20.2811L0.388761 40.6625C0.349695 43.4236 2.55638 45.6936 5.31753 45.7327L18.9392 45.9254C20.0697 45.9414 21.1615 46.3401 22.0363 47.0565L37.837 59.9957C41.0758 62.648 45.9451 60.3838 46.0043 56.198L46.714 6.0423Z"
+            <button class="mute-button" id="mute-button">
+                <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.5144 4.45927C16.379 5.31808 16.8647 6.48272 16.8647 7.69707C16.8647 8.91142 16.379 10.0761 15.5144 10.9349"
+                          stroke="#D66902" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M18.2949 2.05446C19.8031 3.55256 20.6503 5.58414 20.6503 7.70246C20.6503 9.82077 19.8031 11.8524 18.2949 13.3505"
+                          stroke="#D66902" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <g filter="url(#filter0_d_106_2)">
+                        <path d="M10.509 2.11024C10.509 1.27332 9.54223 0.806655 8.88693 1.32724L5.2696 4.20093C5.09272 4.34145 4.87347 4.41794 4.64757 4.41794H1.58643C1.03414 4.41794 0.586426 4.86566 0.586426 5.41794V9.98685C0.586426 10.5391 1.03414 10.9869 1.58643 10.9869H4.64757C4.87347 10.9869 5.09272 11.0633 5.2696 11.2039L8.88693 14.0775C9.54223 14.5981 10.509 14.1315 10.509 13.2946V2.11024Z"
                               fill="white"/>
                     </g>
+                    <path d="M15.5145 3.82695C16.548 4.85349 17.1285 6.2456 17.1285 7.69713C17.1285 9.14867 16.548 10.5408 15.5145 11.5673"
+                          stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M18.4085 1.48294C20.0678 3.13117 21 5.36634 21 7.69693C21 10.0275 20.0678 12.2627 18.4085 13.9109"
+                          stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     <defs>
-                        <filter id="filter0_d_53_301" x="0.388306" y="0.961914" width="46.3262" height="66.1743"
+                        <filter id="filter0_d_106_2" x="0.586426" y="1.10837" width="9.92255" height="14.1881"
                                 filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
                             <feFlood flood-opacity="0" result="BackgroundImageFix"/>
                             <feColorMatrix in="SourceAlpha" type="matrix"
                                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                            <feOffset dy="6"/>
+                            <feOffset dy="1"/>
                             <feComposite in2="hardAlpha" operator="out"/>
                             <feColorMatrix type="matrix"
-                                           values="0 0 0 0 0.839216 0 0 0 0 0.411765 0 0 0 0 0.00784314 0 0 0 0.7 0"/>
-                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_53_301"/>
-                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_53_301" result="shape"/>
+                                           values="0 0 0 0 0.839216 0 0 0 0 0.411765 0 0 0 0 0.00784314 0 0 0 1 0"/>
+                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_106_2"/>
+                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_106_2" result="shape"/>
                         </filter>
                     </defs>
                 </svg>
             </button>
-            <div class="next">
-                <div class="next-block">
-                    <p class="next-text">Next point:</p>
-                    <p class="next-name">Steve’s Donats</p>
-                    <div class="next-timer">
-                        4:59
-                    </div>
+            <div class="next-block">
+                <p class="next-text">Next point:</p>
+                <p class="next-name">Steve’s Donats</p>
+                <div class="next-timer">
+                    4:59
                 </div>
             </div>
         </div>
         <div class="radar">
             <div class="user center">
+                <img src="img/avatar.svg" alt="">
                 <div class="username">Username</div>
             </div>
             <div class="user">
+                <img src="img/rondano.svg" alt="">
                 <div class="username">Rondano</div>
             </div>
         </div>
         <div class="footer">
             <div class="audio-bar">
-                <div class="audio-img"></div>
+                <div class="audio-img">
+                    <img src="img/speaker.png" alt="">
+                </div>
                 <div class="audio-text">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do consectetur
                 </div>
@@ -986,6 +991,66 @@
     }
 
     playerButton.addEventListener('click', toggleAudio);
+
+    // mute btn
+    const muteButton = document.getElementById('mute-button');
+    const muteIcon = `
+        <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.5144 4.45927C16.379 5.31808 16.8647 6.48272 16.8647 7.69707C16.8647 8.91142 16.379 10.0761 15.5144 10.9349" stroke="#D66902" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M18.2949 2.05446C19.8031 3.55256 20.6503 5.58414 20.6503 7.70246C20.6503 9.82077 19.8031 11.8524 18.2949 13.3505" stroke="#D66902" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <g filter="url(#filter0_d_106_2)">
+                        <path d="M10.509 2.11024C10.509 1.27332 9.54223 0.806655 8.88693 1.32724L5.2696 4.20093C5.09272 4.34145 4.87347 4.41794 4.64757 4.41794H1.58643C1.03414 4.41794 0.586426 4.86566 0.586426 5.41794V9.98685C0.586426 10.5391 1.03414 10.9869 1.58643 10.9869H4.64757C4.87347 10.9869 5.09272 11.0633 5.2696 11.2039L8.88693 14.0775C9.54223 14.5981 10.509 14.1315 10.509 13.2946V2.11024Z" fill="white"/>
+                    </g>
+                    <path d="M15.5145 3.82695C16.548 4.85349 17.1285 6.2456 17.1285 7.69713C17.1285 9.14867 16.548 10.5408 15.5145 11.5673" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M18.4085 1.48294C20.0678 3.13117 21 5.36634 21 7.69693C21 10.0275 20.0678 12.2627 18.4085 13.9109" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs>
+                        <filter id="filter0_d_106_2" x="0.586426" y="1.10837" width="9.92255" height="14.1881" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                            <feOffset dy="1"/>
+                            <feComposite in2="hardAlpha" operator="out"/>
+                            <feColorMatrix type="matrix" values="0 0 0 0 0.839216 0 0 0 0 0.411765 0 0 0 0 0.00784314 0 0 0 1 0"/>
+                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_106_2"/>
+                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_106_2" result="shape"/>
+                        </filter>
+                    </defs>
+                </svg>
+      `,
+        unmuteIcon = `
+        <svg width="23" height="17" viewBox="0 0 23 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M16.5144 5.45927C17.379 6.31808 17.8647 7.48272 17.8647 8.69707C17.8647 9.91142 17.379 11.0761 16.5144 11.9349" stroke="#D66902" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M19.2949 3.05446C20.8031 4.55256 21.6503 6.58414 21.6503 8.70246C21.6503 10.8208 20.8031 12.8524 19.2949 14.3505" stroke="#D66902" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<g filter="url(#filter0_d_0_1)">
+<path d="M11.509 3.11024C11.509 2.27332 10.5422 1.80665 9.88693 2.32724L6.2696 5.20093C6.09272 5.34145 5.87347 5.41794 5.64757 5.41794H2.58643C2.03414 5.41794 1.58643 5.86566 1.58643 6.41794V10.9869C1.58643 11.5391 2.03414 11.9869 2.58643 11.9869H5.64757C5.87347 11.9869 6.09272 12.0633 6.2696 12.2039L9.88693 15.0775C10.5422 15.5981 11.509 15.1315 11.509 14.2946V3.11024Z" fill="white"/>
+</g>
+<path d="M16.5145 4.82695C17.548 5.85349 18.1285 7.2456 18.1285 8.69713C18.1285 10.1487 17.548 11.5408 16.5145 12.5673" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M19.4085 2.48294C21.0678 4.13117 22 6.36634 22 8.69693C22 11.0275 21.0678 13.2627 19.4085 14.9109" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect y="13.9706" width="20" height="2" rx="1" transform="rotate(-45 0 13.9706)" fill="#C4C4C4"/>
+<defs>
+<filter id="filter0_d_0_1" x="1.58643" y="2.10837" width="9.92255" height="14.1881" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="1"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.839216 0 0 0 0 0.411765 0 0 0 0 0.00784314 0 0 0 1 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_1"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_1" result="shape"/>
+</filter>
+</defs>
+</svg>
+       `;
+
+    function toggleSound() {
+        if (muteButton.classList.contains('mute')) {
+            muteButton.innerHTML = muteIcon;
+            muteButton.classList.remove('mute');
+        } else {
+            muteButton.innerHTML = unmuteIcon;
+            muteButton.classList.add('mute');
+        }
+    }
+
+    muteButton.addEventListener('click', toggleSound);
 
 </script>
 </body>
