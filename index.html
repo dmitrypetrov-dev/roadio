@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300;400;500;600;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300;400;500;600&display=swap"
           rel="stylesheet">
     <style>
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -391,733 +391,90 @@
         .main {
             width: 100%;
             height: 100%;
-            background: url(https://raw.githubusercontent.com/moscovig/roadio_static/master/images/roadio_v2/radar/bg.png) center no-repeat;
-            background-size: cover;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-orient: vertical;
-            -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-            flex-direction: column;
-            -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-            justify-content: space-between;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
+            background: url(img/bg.png) center no-repeat #9198a5;
+            background-size: 100%;
             position: relative;
-            overflow: hidden;
         }
 
-        .header {
+        form {
             width: 100%;
-            padding: 51px 35px 0 35px;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .header-burger {
-            width: 20px;
             position: absolute;
-            top: 21px;
-            left: 16px;
-            cursor: pointer;
+            top: 25%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
-        .header-burger span {
+        label {
             display: block;
             width: 100%;
-            height: 4px;
-            background-color: #fff;
-            margin-bottom: 4px;
-            border-radius: 5px;
-        }
-
-        .header-burger span:last-child {
-            margin-bottom: 0;
-        }
-
-        .burger-menu {
-            width: 80%;
-            height: 100%;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-orient: vertical;
-            -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-            flex-direction: column;
-            -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-            justify-content: space-between;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-            background-color: rgba(255, 255, 255, .9);
-            -webkit-box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
-            box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.25);
-            border-radius: 0 30px 30px 0;
-            position: absolute;
-            top: 0;
-            left: -100%;
-            z-index: 999;
-            -webkit-transition: all .3s linear;
-            transition: all .3s linear;
-        }
-
-        .burger-menu.active {
-            left: 0;
-        }
-
-        .menu-header {
-            width: 100%;
-            height: 66px;
-            background-color: #fff;
-            border-radius: 0 30px 0 20px;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-        }
-
-        .menu-header img {
-            width: 96px;
-            height: 38px;
-        }
-
-        .mute-button {
-            width: 36px;
-            height: 36px;
-            position: absolute;
-            top: 9px;
-            right: 16px;
-            outline: none;
-            cursor: pointer;
-            padding: 0;
-            background-color: #fff;
-            border: 0;
-            border-radius: 50%;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-        }
-
-        .mute-button::before {
-            content: '';
-            position: absolute;
-            width: calc(100% - 4px);
-            height: calc(100% - 4px);
-            top: 2px;
-            left: 2px;
-            background: linear-gradient(90deg, #FBCD56 0%, #F1A026 100%);
-            border-radius: 50%;
-        }
-
-        .mute-button.muted::before {
-            background: linear-gradient(90deg, #A4A4A4 0%, #8F8F8F 100%);
-        }
-
-        .next-block {
-            width: 100%;
-            background: linear-gradient(180deg, rgba(58, 188, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%), #FFFFFF;
-            border: 7px solid #4f86f1;
-            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
-            border-radius: 27px;
-            padding: 8px 0 25px 0;
-            text-align: center;
-            position: relative;
-        }
-
-        .next-text {
-            font-weight: 800;
-            font-size: 18px;
-            line-height: 25px;
-            color: #04357E;
-            text-shadow: 0 1px 1px rgba(34, 229, 236, 0.24);
-        }
-
-        .next-name {
-            font-weight: 800;
-            font-size: 26px;
-            line-height: 31px;
-            color: #054F96;
-        }
-
-        .next-timer {
-            position: absolute;
-            bottom: -33px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 13px 31px;
-            background: #38D31F;
-            border: 2px solid #fff;
-            box-shadow: 2px 3.33333px 7px rgba(5, 72, 150, 0.7);
-            border-radius: 30px;
-            font-weight: 800;
-            font-size: 26px;
-            line-height: 19px;
-            text-align: center;
             color: #fff;
+            text-align: center;
+            font-size: 50px;
+            font-weight: 500;
+            text-transform: uppercase;
+            margin-bottom: 15px;
         }
 
-        .player-button {
-            background-color: #fff;
-            border: 0;
-            border-radius: 50%;
-            width: 45px;
-            height: 45px;
-            cursor: pointer;
-            padding: 0;
-            -ms-flex-negative: 0;
-            flex-shrink: 0;
-            position: absolute;
-            bottom: -13px;
-            right: -19px;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-        }
-
-        .player-button::before {
-            content: '';
-            position: absolute;
-            width: calc(100% - 6px);
-            height: calc(100% - 6px);
-            top: 3px;
-            left: 3px;
-            background: linear-gradient(107.25deg, #FCE96A -16.9%, #FABD4C 33.39%, #EF9A1E 94.11%);
-            border-radius: 50%;
-            -webkit-filter: drop-shadow(0px 1px 0px #D66902);
-            filter: drop-shadow(0px 1px 0px #D66902);
-        }
-
-        .player-button svg,
-        .mute-button svg {
-            position: relative;
-            z-index: 10;
-        }
-
-        @-webkit-keyframes spin {
-            0% {
-                -webkit-transform: rotate(0deg);
-                transform: rotate(0deg);
-            }
-            100% {
-                -webkit-transform: rotate(360deg);
-                transform: rotate(360deg);
-            }
-        }
-
-        @keyframes spin {
-            0% {
-                -webkit-transform: rotate(0deg);
-                transform: rotate(0deg);
-            }
-            100% {
-                -webkit-transform: rotate(360deg);
-                transform: rotate(360deg);
-            }
-        }
-
-        .radar {
-            width: 320px;
-            height: 320px;
-            border-radius: 50%;
-            background: url(https://raw.githubusercontent.com/moscovig/roadio_static/master/images/roadio_v2/radar/radar.png) center no-repeat transparent;
-            background-size: 100%;
-            position: relative;
-        }
-
-        .beam-anim {
-            width: 350px;
-            height: 350px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .beam-anim::before {
-            width: 100%;
-            height: 100%;
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            border-radius: 50%;
-            background: url(https://raw.githubusercontent.com/moscovig/roadio_static/master/images/roadio_v2/radar2/beam.svg) center no-repeat transparent;
-            background-size: 100%;
-            -webkit-animation: spin 3.5s linear infinite;
-            animation: spin 3.5s linear infinite;
-        }
-
-        .user {
-            width: 50px;
+        input {
+            width: 65%;
             height: 50px;
-            position: absolute;
-            top: 8%;
-            right: 39px;
-            background: #F7CD4C;
-            border: 2px solid #fff;
-            border-radius: 50%;
-        }
-
-        .user.center {
-            width: 80px;
-            height: 80px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #96CB30;
-            z-index: 10;
-        }
-
-        .username {
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-weight: 800;
-            font-size: 12px;
-            letter-spacing: .5px;
-            color: #000;
-        }
-
-        .user.center .username {
-            font-size: 14px;
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(0.7);
-                opacity: 1;
-            }
-            20% {
-                opacity: 1;
-            }
-            100% {
-                transform: scale(1.25);
-                opacity: 0;
-            }
-        }
-
-        .circle-anim {
-            width: 80px;
-            height: 80px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .circle-anim::before {
-            content: '';
-            position: absolute;
-            top: -6px;
-            left: -6px;
-            width: 115%;
-            height: 115%;
-            border-radius: 50%;
-            background: #fff;
-            box-shadow: inset 0 4px 4px rgba(63, 185, 231, 0.29);
-            animation: pulse 1.5s ease-out infinite;
+            background-color: transparent;
+            border: 4px solid #fff;
+            outline: none;
+            color: #fff;
+            padding: 0 20px;
         }
 
         .footer {
             width: 100%;
-            padding: 0 35px 30px 35px;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-orient: vertical;
-            -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-            flex-direction: column;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .menu-footer {
-            width: 100%;
-            padding-bottom: 20px;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-        }
-
-        .footer-logo {
-            width: 114px;
-            height: 37px;
-            background: #fff;
-            -webkit-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.25);
-            box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.25);
-            border-radius: 20.5888px;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-        }
-
-        .footer-logo img {
-            width: 88px;
-            height: 15px;
-        }
-
-        .audio-bar {
-            background: #DDF0FF;
-            border: 2px solid #FFFFFF;
-            border-radius: 15px;
-            padding: 11px 20px 10px 105px;
-            position: relative;
-        }
-
-        .audio-img {
-            width: 92px;
-            height: 92px;
+            height: 15%;
             position: absolute;
-            top: -18px;
-            left: 4px;
-            border-radius: 50%;
-            background: #fff;
+            left: 0;
+            bottom: 0;
+            background-color: #6b6b6b;
         }
 
-        .audio-text {
-            font-weight: 800;
-            font-size: 14px;
-            line-height: 18px;
-            text-align: center;
-            color: #0D2652;
+        @media screen and (max-width: 599px) {
+
+            label {
+                font-size: 8vw;
+            }
+
         }
+
 
         @media screen and (max-height: 700px) {
 
-            .radar {
-                width: 270px;
-                height: 270px;
-            }
-
-            .beam-anim {
-                width: 300px;
-                height: 300px;
-            }
-
-            .user {
-                top: 0;
-            }
-
-            .user.center {
-                width: 71px;
-                height: 71px;
-            }
-
-            .circle-anim {
-                width: 70px;
-                height: 70px;
-            }
-
-            .footer {
-                padding-bottom: 22px;
+            form {
+                top: 23%;
             }
 
         }
 
-        @media screen and (max-height: 670px) {
+        @media screen and (max-height: 650px) {
 
-            .header {
-                margin-bottom: 6vh;
+            form {
+                top: 20%;
             }
 
-        }
-
-        @media screen and (max-height: 600px) {
-            .radar {
-                width: 238px;
-                height: 238px;
-            }
-
-            .beam-anim {
-                width: 268px;
-                height: 268px;
-            }
         }
 
     </style>
-    <title>Radar</title>
+    <title>Computer</title>
 </head>
 <body>
 <div class="wrapper" dir="ltr">
-    <div class="burger-menu menu">
-        <div style="width: 100%;">
-            <div class="menu-header">
-                <img src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/roadio_v2/radar2/header-logo.png" alt="">
-            </div>
-        </div>
-        <div class="menu-footer">
-            <div class="footer-logo">
-                <img src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/roadio_v2/radar2/footer-logo.png" alt="">
-            </div>
-        </div>
-    </div>
     <div class="main">
-        <div class="header">
-            <div class="header-burger">
-                <span></span>
-                <span></span>
-            </div>
-            <button class="mute-button" id="mute-button">
-                <svg width="18" height="18" viewBox="0 0 21 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g filter="url(#filter0_d_2374_3250)">
-                        <path d="M20.3533 2.15362C20.3784 0.379985 18.3431 -0.637397 16.9395 0.447161L10.0918 5.73827C9.71271 6.03121 9.2455 6.187 8.76645 6.18022L2.99457 6.09856C1.82459 6.082 0.862716 7.01704 0.846162 8.18702L0.723973 16.8232C0.707419 17.9932 1.64245 18.955 2.81243 18.9716L8.58431 19.0532C9.06337 19.06 9.52598 19.229 9.89665 19.5325L16.5919 25.0152C17.9642 26.1391 20.0275 25.1797 20.0526 23.406L20.3533 2.15362Z" fill="white"/>
-                    </g>
-                    <defs>
-                        <filter id="filter0_d_2374_3250" x="0.723633" y="0.000976562" width="19.6299" height="28.0399" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                            <feOffset dy="2.54237"/>
-                            <feComposite in2="hardAlpha" operator="out"/>
-                            <feColorMatrix type="matrix" values="0 0 0 0 0.839216 0 0 0 0 0.411765 0 0 0 0 0.00784314 0 0 0 0.7 0"/>
-                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2374_3250"/>
-                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2374_3250" result="shape"/>
-                        </filter>
-                    </defs>
-                </svg>
-            </button>
-            <div class="next-block">
-                <p class="next-text">Next point:</p>
-                <p class="next-name">Steve’s Donats</p>
-                <div class="next-timer">
-                    4:59
-                </div>
-            </div>
-        </div>
-        <div class="radar">
-            <div class="beam-anim"></div>
-            <div class="user center">
-                <img src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/roadio_v2/radar2/avatar.png"
-                     alt="">
-                <div class="username">Username</div>
-            </div>
-            <div class="user">
-                <img src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/roadio_v2/radar2/rondano.png"
-                     alt="">
-                <div class="username">Rondano</div>
-            </div>
-            <div class="circle-anim"></div>
-        </div>
-        <div class="footer">
-            <div class="audio-bar">
-                <div class="audio-img">
-                    <img src="https://raw.githubusercontent.com/moscovig/roadio_static/master/images/roadio_v2/radar/speaker.png"
-                         alt="">
-                </div>
-                <div class="audio-text">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do consectetur
-                </div>
-                <button class="player-button playing" id="player-button">
-                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g filter="url(#filter0_d_481_13254)">
-                            <path d="M7.00899 15.0988V3.56239C7.00899 2.48931 6.13909 1.61942 5.06602 1.61942C3.99294 1.61942 3.12305 2.48932 3.12305 3.56239V15.0988C3.12305 16.1718 3.99294 17.0417 5.06602 17.0417C6.13909 17.0417 7.00899 16.1718 7.00899 15.0988Z"
-                                  fill="white" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M14.7805 15.0988V3.56248C14.7805 2.48941 13.9106 1.61951 12.8375 1.61951C11.7644 1.61951 10.8945 2.48941 10.8945 3.56248V15.0988C10.8945 16.1719 11.7644 17.0418 12.8375 17.0418C13.9106 17.0418 14.7805 16.1719 14.7805 15.0988Z"
-                                  fill="white" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
-                        </g>
-                        <defs>
-                            <filter id="filter0_d_481_13254" x="0.623047" y="0.119415" width="16.6572" height="20.4224"
-                                    filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                                <feColorMatrix in="SourceAlpha" type="matrix"
-                                               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                                <feOffset dy="1"/>
-                                <feGaussianBlur stdDeviation="1"/>
-                                <feComposite in2="hardAlpha" operator="out"/>
-                                <feColorMatrix type="matrix"
-                                               values="0 0 0 0 0.901961 0 0 0 0 0.552941 0 0 0 0 0.113725 0 0 0 1 0"/>
-                                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_481_13254"/>
-                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_481_13254"
-                                         result="shape"/>
-                            </filter>
-                        </defs>
-                    </svg>
-                </button>
-            </div>
-        </div>
+        <form>
+            <label for="input">enter password</label>
+            <input type="text" id="input">
+        </form>
+        <div class="footer"></div>
     </div>
 </div>
-<script>
-
-    // burger menu
-    const burgerBtn = document.querySelector('.header-burger');
-    const burgerMenu = document.querySelector('.burger-menu');
-    const main = document.querySelector('.main');
-
-    burgerBtn.addEventListener('click', function () {
-        burgerMenu.classList.add('active');
-    });
-
-    main.addEventListener('click', function (e) {
-        if (!e.target.closest('.header-burger')) {
-            burgerMenu.classList.remove('active');
-        }
-    });
-
-    // play btn
-    const playerButton = document.getElementById('player-button');
-    const playIcon = `
-        <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d_481_13438)">
-<path d="M17.1889 9.6904C18.5335 10.458 18.5335 12.3966 17.1889 13.1642L6.30577 19.377C4.97247 20.1381 3.31423 19.1753 3.31423 17.6401L3.31423 5.21453C3.31423 3.67927 4.97246 2.71649 6.30577 3.47763L17.1889 9.6904Z" fill="white"/>
-</g>
-<defs>
-<filter id="filter0_d_481_13438" x="0.314453" y="0.211578" width="20.8828" height="22.4315" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset/>
-<feGaussianBlur stdDeviation="1.5"/>
-<feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0.3125 0 0 0 0 0.3125 0 0 0 0 0.3125 0 0 0 1 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_481_13438"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_481_13438" result="shape"/>
-</filter>
-</defs>
-</svg>
-      `,
-        pauseIcon = `
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d_481_13254)">
-<path d="M7.00899 15.0988V3.56239C7.00899 2.48931 6.13909 1.61942 5.06602 1.61942C3.99294 1.61942 3.12305 2.48932 3.12305 3.56239V15.0988C3.12305 16.1718 3.99294 17.0417 5.06602 17.0417C6.13909 17.0417 7.00899 16.1718 7.00899 15.0988Z" fill="white" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M14.7805 15.0988V3.56248C14.7805 2.48941 13.9106 1.61951 12.8375 1.61951C11.7644 1.61951 10.8945 2.48941 10.8945 3.56248V15.0988C10.8945 16.1719 11.7644 17.0418 12.8375 17.0418C13.9106 17.0418 14.7805 16.1719 14.7805 15.0988Z" fill="white" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-<defs>
-<filter id="filter0_d_481_13254" x="0.623047" y="0.119415" width="16.6572" height="20.4224" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="1"/>
-<feGaussianBlur stdDeviation="1"/>
-<feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0.901961 0 0 0 0 0.552941 0 0 0 0 0.113725 0 0 0 1 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_481_13254"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_481_13254" result="shape"/>
-</filter>
-</defs>
-</svg>
-       `;
-
-    function toggleAudio() {
-        if (playerButton.classList.contains('playing')) {
-            playerButton.innerHTML = playIcon;
-            playerButton.classList.remove('playing');
-        } else {
-            playerButton.innerHTML = pauseIcon;
-            playerButton.classList.add('playing');
-        }
-    }
-
-    playerButton.addEventListener('click', toggleAudio);
-
-    // mute btn
-    const muteButton = document.getElementById('mute-button');
-    const muteIcon = `
-        <svg width="18" height="18" viewBox="0 0 21 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d_2374_3250)">
-<path d="M20.3533 2.15362C20.3784 0.379985 18.3431 -0.637397 16.9395 0.447161L10.0918 5.73827C9.71271 6.03121 9.2455 6.187 8.76645 6.18022L2.99457 6.09856C1.82459 6.082 0.862716 7.01704 0.846162 8.18702L0.723973 16.8232C0.707419 17.9932 1.64245 18.955 2.81243 18.9716L8.58431 19.0532C9.06337 19.06 9.52598 19.229 9.89665 19.5325L16.5919 25.0152C17.9642 26.1391 20.0275 25.1797 20.0526 23.406L20.3533 2.15362Z" fill="white"/>
-</g>
-<defs>
-<filter id="filter0_d_2374_3250" x="0.723633" y="0.000976562" width="19.6299" height="28.0399" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="2.54237"/>
-<feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0.839216 0 0 0 0 0.411765 0 0 0 0 0.00784314 0 0 0 0.7 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2374_3250"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2374_3250" result="shape"/>
-</filter>
-</defs>
-</svg>
-      `,
-        unmuteIcon = `
-        <svg width="25" height="20" viewBox="0 0 30 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d_251_553)">
-<path d="M15.6091 2.19879C15.6278 0.871431 14.1046 0.110045 13.0542 0.92171L7.92953 4.88149C7.64581 5.10072 7.29616 5.21731 6.93764 5.21224L2.61806 5.15112C1.74247 5.13873 1.02262 5.8385 1.01023 6.71409L0.918788 13.1772C0.9064 14.0528 1.60616 14.7727 2.48176 14.7851L6.80133 14.8462C7.15985 14.8513 7.50606 14.9777 7.78347 15.2049L12.7941 19.308C13.8211 20.1491 15.3652 19.4311 15.384 18.1038L15.6091 2.19879Z" fill="white"/>
-</g>
-<g filter="url(#filter1_d_251_553)">
-<line x1="18.5309" y1="7.51514" x2="24.8812" y2="13.8654" stroke="white" stroke-width="2.24515" stroke-linecap="round"/>
-<line x1="18.5312" y1="13.8648" x2="24.8815" y2="7.51459" stroke="white" stroke-width="2.24515" stroke-linecap="round"/>
-</g>
-<defs>
-<filter id="filter0_d_251_553" x="0.918457" y="0.587646" width="14.6909" height="20.9847" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="1.90267"/>
-<feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0.423529 0 0 0 0 0.423529 0 0 0 0 0.423529 0 0 0 1 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_251_553"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_251_553" result="shape"/>
-</filter>
-<filter id="filter1_d_251_553" x="17.4082" y="6.39209" width="8.5957" height="10.4968" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="1.90089"/>
-<feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0.423529 0 0 0 0 0.423529 0 0 0 0 0.423529 0 0 0 1 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_251_553"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_251_553" result="shape"/>
-</filter>
-</defs>
-</svg>
-       `;
-
-    function toggleSound() {
-        if (muteButton.classList.contains('muted')) {
-            muteButton.innerHTML = muteIcon;
-            muteButton.classList.remove('muted');
-        } else {
-            muteButton.innerHTML = unmuteIcon;
-            muteButton.classList.add('muted');
-        }
-    }
-
-    muteButton.addEventListener('click', toggleSound);
-
-</script>
 </body>
 </html>
