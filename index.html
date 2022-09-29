@@ -419,7 +419,7 @@
             margin-bottom: 15px;
         }
 
-        input {
+        .text {
             width: 65%;
             height: 50px;
             background-color: transparent;
@@ -427,6 +427,17 @@
             outline: none;
             color: #fff;
             padding: 0 20px;
+            margin-bottom: 20px;
+        }
+
+        .submit {
+            border: 2px solid #fff;
+            background-color: #76b839;
+            color: #fff;
+            padding: 5px 22px;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-size: 20px;
         }
 
         .footer {
@@ -486,9 +497,10 @@
 <body>
 <div class="wrapper" dir="ltr">
     <div class="main">
-        <form>
+        <form action="#" method="post" name="form">
             <label for="input">enter password</label>
-            <input type="text" id="input">
+            <input class="text" type="text" id="input">
+            <input class="submit" type="submit" value="send">
         </form>
         <div class="footer"></div>
     </div>
